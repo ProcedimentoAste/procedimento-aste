@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Annunci Immobili all'Asta — Procedimento Aste</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -14,7 +14,7 @@
   --radius:12px;--radius-lg:18px;--border:1px solid rgba(0,0,0,0.08);
 }
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;color:var(--testo-scuro);background:var(--grigio-chiaro);overflow-x:hidden}
+body{font-family:'Space Grotesk',sans-serif;color:var(--testo-scuro);background:var(--grigio-chiaro);overflow-x:hidden}
 
 /* NAVBAR */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(123,143,232,0.15);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;box-shadow:0 2px 12px rgba(0,0,0,0.05)}
@@ -28,7 +28,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
 .nav-links a{text-decoration:none;color:var(--grigio-testo);font-size:14px;font-weight:500;transition:color .2s}
 .nav-links a:hover,.nav-links a.active{color:var(--viola-dark);font-weight:600}
-.nav-cta{background:var(--viola);color:#fff;border:none;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s;text-decoration:none}
+.nav-cta{background:var(--viola);color:#fff;border:none;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:background .2s;text-decoration:none}
 .nav-cta:hover{background:var(--viola-dark)}
 
 /* PAGE HEADER */
@@ -43,8 +43,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .header-search{background:#fff;border-radius:var(--radius) var(--radius) 0 0;display:flex;align-items:stretch;overflow:hidden;box-shadow:0 -8px 32px rgba(0,0,0,0.12)}
 .hs-field{flex:1;padding:14px 20px;border-right:var(--border);display:flex;flex-direction:column;gap:3px;min-width:120px}
 .hs-field label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--grigio-testo)}
-.hs-field input,.hs-field select{border:none;outline:none;font-size:14px;font-weight:500;color:var(--testo-scuro);background:transparent;font-family:'DM Sans',sans-serif;appearance:none;cursor:pointer}
-.hs-btn{background:var(--viola);color:#fff;border:none;padding:0 32px;font-size:14px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.hs-field input,.hs-field select{border:none;outline:none;font-size:14px;font-weight:500;color:var(--testo-scuro);background:transparent;font-family:'Space Grotesk',sans-serif;appearance:none;cursor:pointer}
+.hs-btn{background:var(--viola);color:#fff;border:none;padding:0 32px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:background .2s;display:flex;align-items:center;gap:8px;white-space:nowrap}
 .hs-btn:hover{background:var(--viola-dark)}
 .hs-btn svg{width:16px;height:16px}
 
@@ -56,7 +56,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .filters-header{padding:18px 20px;border-bottom:var(--border);display:flex;align-items:center;justify-content:space-between}
 .filters-header h3{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px}
 .filters-header h3 svg{width:16px;height:16px;color:var(--viola-dark)}
-.filters-reset{font-size:12px;font-weight:600;color:var(--rosso);cursor:pointer;border:none;background:none;font-family:'DM Sans',sans-serif;padding:0}
+.filters-reset{font-size:12px;font-weight:600;color:var(--rosso);cursor:pointer;border:none;background:none;font-family:'Space Grotesk',sans-serif;padding:0}
 .filter-group{border-bottom:var(--border);padding:18px 20px}
 .filter-group:last-child{border-bottom:none}
 .fg-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--grigio-testo);margin-bottom:14px}
@@ -66,7 +66,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .check-item label{font-size:14px;color:var(--testo-scuro);cursor:pointer;flex:1}
 .check-item .cnt{font-size:11px;color:var(--grigio-testo);background:rgba(0,0,0,0.05);border-radius:100px;padding:2px 8px;font-weight:600}
 .range-inputs{display:flex;gap:8px;align-items:center;margin-bottom:10px}
-.range-input{flex:1;border:1.5px solid rgba(0,0,0,0.10);border-radius:8px;padding:8px 12px;font-size:13px;font-weight:600;color:var(--testo-scuro);font-family:'DM Sans',sans-serif;outline:none}
+.range-input{flex:1;border:1.5px solid rgba(0,0,0,0.10);border-radius:8px;padding:8px 12px;font-size:13px;font-weight:600;color:var(--testo-scuro);font-family:'Space Grotesk',sans-serif;outline:none}
 .range-input:focus{border-color:var(--viola)}
 .range-sep{font-size:13px;color:var(--grigio-testo)}
 .range-slider{width:100%;accent-color:var(--viola);cursor:pointer}
@@ -76,7 +76,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .results-count{font-size:14px;color:var(--grigio-testo)}
 .results-count strong{color:var(--testo-scuro);font-size:17px;font-weight:700;margin-right:4px}
 .toolbar-right{display:flex;align-items:center;gap:10px}
-.sort-select{border:1.5px solid rgba(0,0,0,0.10);border-radius:8px;padding:8px 32px 8px 14px;font-size:13px;font-weight:600;color:var(--testo-scuro);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") no-repeat right 10px center;font-family:'DM Sans',sans-serif;cursor:pointer;outline:none;appearance:none}
+.sort-select{border:1.5px solid rgba(0,0,0,0.10);border-radius:8px;padding:8px 32px 8px 14px;font-size:13px;font-weight:600;color:var(--testo-scuro);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") no-repeat right 10px center;font-family:'Space Grotesk',sans-serif;cursor:pointer;outline:none;appearance:none}
 .view-toggle{display:flex;gap:4px;background:rgba(0,0,0,0.05);border-radius:8px;padding:3px}
 .view-btn{width:32px;height:32px;border-radius:6px;border:none;background:transparent;cursor:pointer;color:var(--grigio-testo);display:flex;align-items:center;justify-content:center;transition:all .2s}
 .view-btn svg{width:16px;height:16px}
@@ -107,7 +107,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .card-price-lbl{font-size:10px;color:var(--grigio-testo);text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
 .card-price{font-size:22px;font-weight:700}
 .card-price sup{font-size:12px;vertical-align:super;font-weight:600}
-.card-action{background:var(--viola-bg);color:var(--viola-dark);border:none;border-radius:8px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;white-space:nowrap}
+.card-action{background:var(--viola-bg);color:var(--viola-dark);border:none;border-radius:8px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:all .2s;white-space:nowrap}
 .card-action:hover{background:var(--viola);color:#fff}
 .cards-grid.list-view .prop-card{display:grid;grid-template-columns:220px 1fr}
 .cards-grid.list-view .card-img{aspect-ratio:auto;min-height:140px}
@@ -124,13 +124,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 
 /* PAGINATION */
 .pagination{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:40px}
-.pg-btn{min-width:36px;height:36px;border-radius:8px;border:1.5px solid rgba(0,0,0,0.10);background:#fff;color:var(--testo-scuro);font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;display:flex;align-items:center;justify-content:center;padding:0 10px}
+.pg-btn{min-width:36px;height:36px;border-radius:8px;border:1.5px solid rgba(0,0,0,0.10);background:#fff;color:var(--testo-scuro);font-size:14px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:all .2s;display:flex;align-items:center;justify-content:center;padding:0 10px}
 .pg-btn:hover{border-color:var(--viola-light);color:var(--viola-dark)}
 .pg-btn.active{background:var(--viola);border-color:var(--viola);color:#fff}
 .pg-btn:disabled{opacity:.35;cursor:not-allowed}
 
 /* MOBILE */
-.mob-filter-btn{display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--viola);color:#fff;border:none;border-radius:100px;padding:14px 28px;font-size:15px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;z-index:150;box-shadow:0 8px 32px rgba(123,143,232,0.45);align-items:center;gap:8px}
+.mob-filter-btn{display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--viola);color:#fff;border:none;border-radius:100px;padding:14px 28px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif;z-index:150;box-shadow:0 8px 32px rgba(123,143,232,0.45);align-items:center;gap:8px}
 
 /* FOOTER */
 footer{background:var(--testo-scuro);color:rgba(255,255,255,0.45);padding:32px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:13px}
@@ -156,12 +156,12 @@ footer a:hover{color:rgba(255,255,255,.7)}
 <body>
 
 <nav>
-  <a href="procedimento-aste.html" class="nav-logo">
+  <a href="/" class="nav-logo">
     <div class="nav-logo-mark"><div class="nlb"></div></div>
     <div class="nav-logo-text">Procedimento<span>Aste</span></div>
   </a>
   <ul class="nav-links">
-    <li><a href="procedimento-aste.html">Home</a></li>
+    <li><a href="/">Home</a></li>
     <li><a href="#" class="active">Annunci</a></li>
     <li><a href="procedimento-aste.html#come-funziona">Come funziona</a></li>
     <li><a href="procedimento-aste.html#contatti">Contatti</a></li>
@@ -170,7 +170,7 @@ footer a:hover{color:rgba(255,255,255,.7)}
 </nav>
 
 <div class="page-header">
-  <div class="header-bc"><a href="procedimento-aste.html">Home</a> › Annunci</div>
+  <div class="header-bc"><a href="/">Home</a> › Annunci</div>
   <h1 class="header-title">Immobili all'Asta in <em>tutta Italia</em></h1>
   <p class="header-sub">Appartamenti, ville, locali commerciali e terreni — aste giudiziarie aggiornate</p>
   <div class="header-search">
@@ -433,6 +433,11 @@ function toggleMobileFilters() {
 
 // Avvio
 loadAnnunci();
+</script>
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:#fff;border-top:1px solid rgba(0,0,0,0.1);box-shadow:0 -8px 40px rgba(0,0,0,0.12);padding:20px 5%;display:none;align-items:center;gap:24px;flex-wrap:wrap"><div style="flex:1;min-width:260px;font-size:13px;color:#6B7280;line-height:1.5"><strong style="color:#1A1F36">Questo sito utilizza cookie</strong> — Usiamo cookie tecnici e, previo consenso, cookie analitici. <a href="cookie-policy.html" style="color:#5A6FCC">Cookie Policy</a> · <a href="privacy-policy.html" style="color:#5A6FCC">Privacy Policy</a></div><div style="display:flex;gap:10px;flex-shrink:0"><button onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookie_consent','rejected')" style="background:transparent;color:#6B7280;border:1.5px solid rgba(0,0,0,0.12);border-radius:8px;padding:9px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">Solo necessari</button><button onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookie_consent','accepted')" style="background:#7B8FE8;color:#fff;border:none;border-radius:8px;padding:10px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">Accetta tutti</button></div></div>
+<script>
+if(!localStorage.getItem("cookie_consent")){setTimeout(function(){var b=document.getElementById("cookie-banner");if(b)b.style.display="flex"},800)}
 </script>
 </body>
 </html>
