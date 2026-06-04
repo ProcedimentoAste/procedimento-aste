@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Appartamento Via Roma 12, Arezzo — Procedimento Aste</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --viola: #7B8FE8; --viola-dark: #5A6FCC; --viola-light: #A8B5EF; --viola-bg: #EEF0FC;
+  --oro: #B8963E; --rosso: #C0392B; --blu-scuro: #3D4F6B;
+  --grigio-chiaro: #F4F5FB; --grigio-testo: #6B7280; --testo-scuro: #1A1F36;
+  --radius: 12px; --radius-lg: 20px; --border: 1px solid rgba(0,0,0,0.08);
+  --shadow: 0 4px 24px rgba(61,79,107,0.10);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; color: var(--testo-scuro); background: #fff; overflow-x: hidden; }
+
+/* NAVBAR */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(123,143,232,0.15); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo-mark { width: 36px; height: 36px; background: var(--viola); border-radius: 9px; position: relative; overflow: hidden; }
+.nav-logo-mark::before { content: ''; position: absolute; width: 100%; height: 40%; background: var(--oro); top: 10%; transform: skewY(-10deg); }
+.nav-logo-mark::after { content: ''; position: absolute; width: 100%; height: 35%; background: var(--rosso); top: 38%; transform: skewY(-10deg); }
+.nlb { position: absolute; width: 90%; height: 28%; background: var(--blu-scuro); bottom: 8%; left: 5%; border-radius: 2px; }
+.nav-logo-text { font-size: 13px; font-weight: 700; color: var(--testo-scuro); line-height: 1.2; }
+.nav-logo-text span { color: var(--viola-dark); display: block; }
+.nav-breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--grigio-testo); }
+.nav-breadcrumb a { text-decoration: none; color: var(--grigio-testo); transition: color .2s; }
+.nav-breadcrumb a:hover { color: var(--viola-dark); }
+.nav-actions { display: flex; align-items: center; gap: 10px; }
+.btn-icon { width: 38px; height: 38px; border-radius: 9px; border: 1.5px solid rgba(0,0,0,0.10); background: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all .2s; color: var(--grigio-testo); }
+.btn-icon:hover { border-color: var(--viola); color: var(--viola-dark); }
+.btn-icon svg { width: 18px; height: 18px; }
+.btn-icon.saved { background: #fee2e2; border-color: #fca5a5; color: var(--rosso); }
+.nav-cta { background: var(--viola); color: #fff; border: none; border-radius: 8px; padding: 10px 20px; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; font-family: 'DM Sans', sans-serif; transition: background .2s; }
+.nav-cta:hover { background: var(--viola-dark); }
+
+/* CAROSELLO FOTO */
+.carousel-section { margin-top: 68px; position: relative; background: var(--testo-scuro); }
+.carousel-track { display: flex; overflow: hidden; }
+.carousel-slide { min-width: 100%; aspect-ratio: 16/7; position: relative; flex-shrink: 0; transition: none; }
+.slide-inner { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.1); }
+.slide-inner svg { width: 72px; height: 72px; }
+.s1 { background: linear-gradient(145deg, #2A3550, var(--blu-scuro)); }
+.s2 { background: linear-gradient(145deg, var(--viola-bg), #c8d2f0); }
+.s2 .slide-inner { color: rgba(90,111,204,0.25); }
+.s3 { background: linear-gradient(145deg, #dce3f4, #b8c5ec); }
+.s3 .slide-inner { color: rgba(61,79,107,0.2); }
+.s4 { background: linear-gradient(145deg, #e8f0fe, #c5d0f8); }
+.s4 .slide-inner { color: rgba(90,111,204,0.2); }
+
+.carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.92); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; transition: background .2s; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+.carousel-btn:hover { background: #fff; }
+.carousel-btn svg { width: 20px; height: 20px; color: var(--testo-scuro); }
+.carousel-prev { left: 20px; }
+.carousel-next { right: 20px; }
+.carousel-dots { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.45); cursor: pointer; transition: all .2s; border: none; }
+.dot.active { background: #fff; width: 24px; border-radius: 4px; }
+.carousel-counter { position: absolute; bottom: 16px; right: 20px; background: rgba(0,0,0,0.5); backdrop-filter: blur(6px); color: #fff; border-radius: 8px; padding: 5px 12px; font-size: 12px; font-weight: 600; }
+.tipo-badge-hero { position: absolute; top: 16px; left: 20px; border-radius: 7px; padding: 5px 14px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; background: var(--viola-bg); color: var(--viola-dark); }
+
+/* LAYOUT */
+.page-layout { max-width: 1160px; margin: 0 auto; padding: 44px 5% 100px; display: grid; grid-template-columns: 1fr 340px; gap: 48px; align-items: start; }
+
+/* MAIN */
+.prop-title { font-family: 'DM Serif Display', serif; font-size: clamp(22px, 3vw, 34px); line-height: 1.15; margin-bottom: 14px; }
+.prop-loc-row { display: flex; align-items: center; gap: 6px; color: var(--grigio-testo); font-size: 15px; margin-bottom: 32px; }
+.prop-loc-row svg { width: 16px; height: 16px; color: var(--viola); flex-shrink: 0; }
+
+/* Descrizione */
+.section-block { margin-bottom: 36px; }
+.section-block h3 { font-family: 'DM Serif Display', serif; font-size: 20px; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 2px solid var(--viola-bg); }
+.description-text { font-size: 15px; line-height: 1.8; color: #374151; }
+.description-text p { margin-bottom: 14px; }
+.description-text p:last-child { margin-bottom: 0; }
+
+/* SIDEBAR */
+.sidebar { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 18px; }
+.info-card { background: #fff; border-radius: var(--radius-lg); border: var(--border); overflow: hidden; box-shadow: 0 8px 40px rgba(61,79,107,0.10); }
+.info-card-header { background: linear-gradient(120deg, var(--blu-scuro) 0%, #2A3550 100%); padding: 20px 24px; }
+.info-card-header-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,0.5); margin-bottom: 6px; }
+.info-tipo { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.9); border-radius: 6px; padding: 4px 12px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 12px; }
+.info-card-title { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.9); line-height: 1.4; margin-bottom: 6px; }
+.info-card-loc { font-size: 13px; color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 5px; }
+.info-card-loc svg { width: 13px; height: 13px; }
+.price-section { padding: 22px 24px; border-bottom: var(--border); }
+.price-lbl { font-size: 11px; color: var(--grigio-testo); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px; }
+.price-main { font-size: 38px; font-weight: 700; line-height: 1; }
+.price-main sup { font-size: 20px; font-weight: 600; vertical-align: super; }
+.cta-section { padding: 20px 24px; display: flex; flex-direction: column; gap: 10px; }
+.btn-wa { width: 100%; padding: 15px; border-radius: 12px; border: none; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; background: #25d366; color: #fff; display: flex; align-items: center; justify-content: center; gap: 10px; transition: background .2s; box-shadow: 0 6px 20px rgba(37,211,102,0.3); }
+.btn-wa:hover { background: #1da851; }
+.btn-wa svg { width: 20px; height: 20px; flex-shrink: 0; }
+.btn-email { width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid var(--viola-light); font-size: 15px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; background: transparent; color: var(--viola-dark); display: flex; align-items: center; justify-content: center; gap: 8px; transition: all .2s; }
+.btn-email:hover { background: var(--viola-bg); border-color: var(--viola); }
+.btn-email svg { width: 18px; height: 18px; }
+.cta-note { font-size: 11px; color: var(--grigio-testo); text-align: center; line-height: 1.5; padding: 0 24px 18px; }
+
+/* FORM RICHIESTA INFO */
+.form-card { background: #fff; border-radius: var(--radius-lg); border: var(--border); overflow: hidden; }
+.form-card-header { background: var(--viola-bg); padding: 16px 20px; }
+.form-card-header h4 { font-size: 14px; font-weight: 700; color: var(--viola-dark); display: flex; align-items: center; gap: 8px; }
+.form-card-header h4 svg { width: 16px; height: 16px; }
+.form-card-header p { font-size: 12px; color: var(--grigio-testo); margin-top: 4px; }
+.form-body { padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; }
+.form-field { display: flex; flex-direction: column; gap: 5px; }
+.form-field label { font-size: 12px; font-weight: 600; color: var(--testo-scuro); }
+.form-field input, .form-field textarea { border: 1.5px solid rgba(0,0,0,0.10); border-radius: 8px; padding: 10px 14px; font-size: 14px; font-family: 'DM Sans', sans-serif; outline: none; transition: border-color .2s; resize: none; }
+.form-field input:focus, .form-field textarea:focus { border-color: var(--viola); }
+.form-field textarea { min-height: 80px; }
+.form-submit { width: 100%; padding: 13px; border-radius: 10px; border: none; background: var(--viola); color: #fff; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background .2s; }
+.form-submit:hover { background: var(--viola-dark); }
+.form-privacy { font-size: 11px; color: var(--grigio-testo); line-height: 1.5; }
+.form-privacy a { color: var(--viola-dark); text-decoration: none; }
+
+/* CORRELATI */
+.correlati-section { margin-top: 48px; }
+.correlati-section h3 { font-family: 'DM Serif Display', serif; font-size: 22px; margin-bottom: 20px; }
+.correlati-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.mini-card { border: var(--border); border-radius: var(--radius); overflow: hidden; cursor: pointer; transition: all .2s; text-decoration: none; color: inherit; display: block; background: #fff; }
+.mini-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.mini-img { aspect-ratio: 16/9; background: linear-gradient(135deg, var(--viola-bg), #d8deff); display: flex; align-items: center; justify-content: center; color: rgba(90,111,204,0.2); }
+.mini-img svg { width: 36px; height: 36px; }
+.mini-body { padding: 12px 14px; }
+.mini-tipo { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--viola-dark); margin-bottom: 3px; }
+.mini-city { font-size: 12px; color: var(--grigio-testo); margin-bottom: 4px; }
+.mini-name { font-size: 13px; font-weight: 600; margin-bottom: 8px; line-height: 1.3; }
+.mini-price { font-size: 15px; font-weight: 700; }
+
+/* MOBILE STICKY */
+.sticky-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: var(--border); padding: 12px 20px; z-index: 99; box-shadow: 0 -4px 20px rgba(0,0,0,0.08); }
+.sticky-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.sticky-price { font-size: 20px; font-weight: 700; }
+.sticky-price span { font-size: 12px; font-weight: 400; color: var(--grigio-testo); display: block; }
+.sticky-wa { background: #25d366; color: #fff; border: none; border-radius: 10px; padding: 13px 22px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; white-space: nowrap; }
+
+/* FOOTER */
+footer { background: var(--testo-scuro); color: rgba(255,255,255,0.45); padding: 28px 5%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; }
+footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+footer a:hover { color: rgba(255,255,255,.7); }
+.footer-logo-sm { font-size: 13px; font-weight: 700; color: rgba(255,255,255,.8); }
+.footer-logo-sm em { color: var(--viola-light); font-style: normal; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .page-layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  .correlati-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-breadcrumb { display: none; }
+  .carousel-slide { aspect-ratio: 4/3; }
+  .correlati-grid { grid-template-columns: 1fr; }
+  .sticky-cta { display: block; }
+  .sidebar .cta-section, .sidebar .cta-note { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="procedimento-aste.html" class="nav-logo">
+    <div class="nav-logo-mark"><div class="nlb"></div></div>
+    <div class="nav-logo-text">Procedimento<span>Aste</span></div>
+  </a>
+  <div class="nav-breadcrumb">
+    <a href="procedimento-aste.html">Home</a> ›
+    <a href="procedimento-aste-lista.html">Annunci</a> ›
+    <span style="color:var(--testo-scuro);font-weight:500">Via Roma 12, Arezzo</span>
+  </div>
+  <div class="nav-actions">
+    <button class="btn-icon" id="fav-btn" title="Salva nei preferiti" onclick="toggleFavBtn()">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+    </button>
+    <a href="procedimento-aste.html#contatti" class="nav-cta">Contattaci</a>
+  </div>
+</nav>
+
+<!-- CAROSELLO -->
+<div class="carousel-section">
+  <div class="carousel-track" id="carousel-track">
+    <div class="carousel-slide s1">
+      <div class="slide-inner"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.6"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>
+    </div>
+    <div class="carousel-slide s2">
+      <div class="slide-inner"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.6"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+    </div>
+    <div class="carousel-slide s3">
+      <div class="slide-inner"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.6"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+    </div>
+    <div class="carousel-slide s4">
+      <div class="slide-inner"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.6"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+    </div>
+  </div>
+  <div class="tipo-badge-hero">Residenziale · Appartamento</div>
+  <button class="carousel-btn carousel-prev" onclick="prevSlide()"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></button>
+  <button class="carousel-btn carousel-next" onclick="nextSlide()"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+  <div class="carousel-dots" id="carousel-dots">
+    <button class="dot active" onclick="goSlide(0)"></button>
+    <button class="dot" onclick="goSlide(1)"></button>
+    <button class="dot" onclick="goSlide(2)"></button>
+    <button class="dot" onclick="goSlide(3)"></button>
+  </div>
+  <div class="carousel-counter" id="carousel-counter">1 / 4</div>
+</div>
+
+<!-- LAYOUT -->
+<div class="page-layout">
+
+  <!-- MAIN CONTENT -->
+  <div>
+    <h1 class="prop-title">Appartamento 4 locali con cantina e box auto — Centro Storico</h1>
+    <div class="prop-loc-row">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Via Roma 12, 52100 Arezzo (AR)
+    </div>
+
+    <div class="section-block">
+      <h3>Descrizione dell'immobile</h3>
+      <div class="description-text">
+        <p>Ampio appartamento di 120 m² situato al terzo piano di un palazzo d'epoca nel cuore del centro storico di Arezzo, a pochi passi dai principali servizi e monumenti. L'immobile è oggetto di procedura esecutiva immobiliare.</p>
+        <p>L'appartamento si compone di ingresso, ampio soggiorno con doppia esposizione, cucina abitabile separata, tre camere da letto (di cui una matrimoniale con bagno en suite), due bagni completi e ampio corridoio. L'immobile necessita di interventi di ristrutturazione e si presenta in discreto stato conservativo.</p>
+        <p>La proprietà include una cantina al piano interrato di circa 15 m² e un box auto singolo al piano terra del medesimo stabile. L'edificio è dotato di ascensore e riscaldamento centralizzato.</p>
+        <p>Per richiedere informazioni dettagliate sulla procedura, la documentazione completa o fissare un appuntamento, contattaci tramite i pulsanti qui a fianco oppure scrivici via email.</p>
+      </div>
+    </div>
+
+    <!-- CORRELATI -->
+    <div class="correlati-section">
+      <h3>Annunci simili</h3>
+      <div class="correlati-grid">
+        <a href="#" class="mini-card">
+          <div class="mini-img"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+          <div class="mini-body"><div class="mini-tipo">Residenziale</div><div class="mini-city">Arezzo, Zona Ovest</div><div class="mini-name">Trilocale con terrazzo, 85 m²</div><div class="mini-price">€ 92.000</div></div>
+        </a>
+        <a href="#" class="mini-card">
+          <div class="mini-img" style="background:linear-gradient(135deg,#e8edf8,#c8d2f0)"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+          <div class="mini-body"><div class="mini-tipo">Residenziale</div><div class="mini-city">San Giovanni Valdarno</div><div class="mini-name">Appartamento 5 locali, 145 m²</div><div class="mini-price">€ 115.000</div></div>
+        </a>
+        <a href="#" class="mini-card">
+          <div class="mini-img" style="background:linear-gradient(135deg,#fef3e8,#f8d9b0)"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+          <div class="mini-body"><div class="mini-tipo">Residenziale</div><div class="mini-city">Firenze, Centro</div><div class="mini-name">Bilocale ristrutturato, 60 m²</div><div class="mini-price">€ 78.000</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="info-card">
+      <div class="info-card-header">
+        <div class="info-tipo">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          Residenziale · Appartamento
+        </div>
+        <div class="info-card-title">Via Roma 12, Arezzo (AR)</div>
+        <div class="info-card-loc">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          52100 Arezzo, Toscana
+        </div>
+      </div>
+      <div class="price-section">
+        <div class="price-lbl">Offerta minima d'asta</div>
+        <div class="price-main"><sup>€</sup>145.000</div>
+      </div>
+      <div class="cta-section">
+        <a href="https://wa.me/393494547318?text=Salve%2C%20sono%20interessato%20all'immobile%20in%20Via%20Roma%2012%2C%20Arezzo%20(ID%3A%20PA-2024-08471).%20Vorrei%20ricevere%20informazioni%20e%20fissare%20un%20appuntamento." target="_blank" class="btn-wa">
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Scrivici su WhatsApp
+        </a>
+        <a href="mailto:procedimentoaste@gmail.com?subject=Richiesta info: Via Roma 12 Arezzo&body=Salve, sono interessato all'immobile in Via Roma 12, Arezzo. Vorrei ricevere informazioni e fissare un appuntamento." class="btn-email">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Invia email
+        </a>
+      </div>
+      <div class="cta-note">Ti risponderemo entro poche ore per fissare un appuntamento nel nostro studio di <strong>Arezzo</strong> o <strong>San Giovanni Valdarno</strong>.</div>
+    </div>
+
+    <!-- FORM -->
+    <div class="form-card">
+      <div class="form-card-header">
+        <h4>
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          Richiedi informazioni
+        </h4>
+        <p>Compila il form e ti contattiamo noi</p>
+      </div>
+      <div class="form-body">
+        <div class="form-field">
+          <label>Nome e cognome *</label>
+          <input type="text" placeholder="Mario Rossi" id="f-nome">
+        </div>
+        <div class="form-field">
+          <label>Telefono *</label>
+          <input type="tel" placeholder="+39 333 000 0000" id="f-tel">
+        </div>
+        <div class="form-field">
+          <label>Email</label>
+          <input type="email" placeholder="mario@email.it" id="f-email">
+        </div>
+        <div class="form-field">
+          <label>Messaggio</label>
+          <textarea placeholder="Sono interessato a questo immobile e vorrei fissare un appuntamento..." id="f-msg"></textarea>
+        </div>
+        <button class="form-submit" onclick="sendForm()">Invia richiesta</button>
+        <p class="form-privacy">Inviando accetti la nostra <a href="privacy-policy.html">Privacy Policy</a>. I tuoi dati saranno trattati esclusivamente per rispondere alla tua richiesta.</p>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- MOBILE STICKY -->
+<div class="sticky-cta">
+  <div class="sticky-inner">
+    <div class="sticky-price"><span>Offerta minima</span>€ 145.000</div>
+    <a href="https://wa.me/393494547318?text=Interesse per Via Roma 12 Arezzo" target="_blank" class="sticky-wa">WhatsApp →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo-sm">Procedimento<em>Aste</em></div>
+  <span>© 2025 · SGV (AR) · Arezzo (AR) · <a href="privacy-policy.html">Privacy</a> · <a href="cookie-policy.html">Cookie</a> · <a href="note-legali.html">Note legali</a></span>
+</footer>
+
+<script>
+// CAROSELLO
+let current = 0;
+const total = 4;
+function goSlide(n) {
+  current = (n + total) % total;
+  document.getElementById('carousel-track').style.transform = `translateX(-${current * 100}%)`;
+  document.getElementById('carousel-track').style.transition = 'transform .4s ease';
+  document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+  document.getElementById('carousel-counter').textContent = `${current + 1} / ${total}`;
+}
+function nextSlide() { goSlide(current + 1); }
+function prevSlide() { goSlide(current - 1); }
+
+// Preferiti navbar
+function toggleFavBtn() {
+  const btn = document.getElementById('fav-btn');
+  btn.classList.toggle('saved');
+  const svg = btn.querySelector('svg');
+  svg.setAttribute('fill', btn.classList.contains('saved') ? 'currentColor' : 'none');
+}
+
+// Form
+function sendForm() {
+  const nome = document.getElementById('f-nome').value.trim();
+  const tel = document.getElementById('f-tel').value.trim();
+  if (!nome || !tel) { alert('Inserisci nome e telefono per continuare.'); return; }
+  const msg = encodeURIComponent(`Salve, mi chiamo ${nome} (${tel}). Sono interessato all'immobile in Via Roma 12, Arezzo. ${document.getElementById('f-msg').value}`);
+  window.open(`https://wa.me/393494547318?text=${msg}`, '_blank');
+}
+
+// Navbar scroll
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.boxShadow = window.scrollY > 10 ? '0 4px 20px rgba(0,0,0,0.08)' : '0 2px 12px rgba(0,0,0,0.05)';
+});
+</script>
+</body>
+</html>
