@@ -1,98 +1,12 @@
-backend:
-  name: git-gateway
-  branch: main
-
-media_folder: "uploads"
-public_folder: "/uploads"
-
-locale: "it"
-
-collections:
-  - name: "annunci"
-    label: "Annunci Immobili"
-    label_singular: "Annuncio"
-    folder: "content/annunci"
-    create: true
-    slug: "{{slug}}"
-    identifier_field: "titolo"
-    summary: "{{sottotipologia}} — {{citta}} — € {{offerta_minima}}"
-
-    fields:
-      - label: "Pubblica annuncio"
-        name: "pubblicato"
-        widget: "boolean"
-        default: true
-        hint: "Disattiva per nascondere l'annuncio senza eliminarlo"
-
-      - label: "Tipologia"
-        name: "tipologia"
-        widget: "select"
-        options:
-          - { label: "Residenziale", value: "Residenziale" }
-          - { label: "Commerciale", value: "Commerciale" }
-          - { label: "Ufficio", value: "Ufficio" }
-          - { label: "Terreno", value: "Terreno" }
-          - { label: "Garage / Box auto", value: "Garage" }
-
-      - label: "Sottotipologia (es: Appartamento, Villa, Negozio...)"
-        name: "sottotipologia"
-        widget: "string"
-
-      - label: "Titolo annuncio"
-        name: "titolo"
-        widget: "string"
-        hint: "Es: Appartamento 3 locali con garage — Centro storico"
-
-      - label: "Via e numero civico"
-        name: "indirizzo"
-        widget: "string"
-
-      - label: "Città"
-        name: "citta"
-        widget: "string"
-
-      - label: "Provincia (sigla)"
-        name: "provincia"
-        widget: "string"
-        default: "AR"
-
-      - label: "CAP"
-        name: "cap"
-        widget: "string"
-        required: false
-
-      - label: "Offerta minima d'asta (€)"
-        name: "offerta_minima"
-        widget: "number"
-        value_type: "int"
-        hint: "Solo il numero senza simbolo €. Es: 145000"
-
-      - label: "Descrizione immobile"
-        name: "descrizione"
-        widget: "markdown"
-        minimal: true
-
-      - label: "Foto copertina"
-        name: "foto_copertina"
-        widget: "image"
-        required: false
-
-      - label: "Galleria foto"
-        name: "galleria"
-        widget: "list"
-        required: false
-        field:
-          label: "Foto"
-          name: "foto"
-          widget: "image"
-
-      - label: "Data pubblicazione"
-        name: "data_pubblicazione"
-        widget: "datetime"
-        date_format: "YYYY-MM-DD"
-        time_format: false
-
-      - label: "In evidenza (mostra in homepage)"
-        name: "in_evidenza"
-        widget: "boolean"
-        default: false
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Procedimento Aste</title>
+</head>
+<body>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+</body>
+</html>
