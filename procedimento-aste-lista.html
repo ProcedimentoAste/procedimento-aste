@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Annunci Immobili all'Asta — Procedimento Aste</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -20,9 +20,9 @@ body{font-family:'Space Grotesk',sans-serif;color:var(--testo-scuro);background:
 nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(123,143,232,0.15);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;box-shadow:0 2px 12px rgba(0,0,0,0.05)}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .nav-logo-mark{width:36px;height:36px;background:var(--viola);border-radius:9px;position:relative;overflow:hidden}
-.nav-logo-mark::before{content:'';position:absolute;width:100%;height:40%;background:var(--oro);top:10%;transform:skewY(-10deg)}
-.nav-logo-mark::after{content:'';position:absolute;width:100%;height:35%;background:var(--rosso);top:38%;transform:skewY(-10deg)}
-.nlb{position:absolute;width:90%;height:28%;background:var(--blu-scuro);bottom:8%;left:5%;border-radius:2px}
+.nav-logo-mark::before{content:'';position:absolute;width:110%;height:38%;background:var(--oro);top:8%;left:-5%;transform:skewY(-8deg)}
+.nav-logo-mark::after{content:'';position:absolute;width:110%;height:33%;background:var(--rosso);top:37%;left:-5%;transform:skewY(-8deg)}
+.nlb{position:absolute;width:110%;height:28%;background:var(--blu-scuro);bottom:6%;left:-5%;transform:skewY(-8deg)}
 .nav-logo-text{font-size:13px;font-weight:700;color:var(--testo-scuro);line-height:1.2}
 .nav-logo-text span{color:var(--viola-dark);display:block}
 .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
@@ -37,18 +37,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .header-bc{font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:14px}
 .header-bc a{color:rgba(255,255,255,0.45);text-decoration:none}
 .header-bc a:hover{color:rgba(255,255,255,.8)}
-.header-title{font-family:'DM Serif Display',serif;font-size:clamp(24px,3vw,34px);color:#fff;margin-bottom:6px}
-.header-title em{font-style:italic;color:var(--viola-light)}
-.header-sub{font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:28px}
+.header-title{font-size:clamp(24px,3vw,34px);font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-.02em}
+.header-title em{font-style:normal;color:var(--viola-light)}
+.header-sub{font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:28px;font-weight:400}
+
+/* SEARCH BAR */
 .header-search{background:#fff;border-radius:var(--radius) var(--radius) 0 0;display:flex;align-items:stretch;overflow:hidden;box-shadow:0 -8px 32px rgba(0,0,0,0.12)}
 .hs-field{flex:1;padding:14px 20px;border-right:var(--border);display:flex;flex-direction:column;gap:3px;min-width:120px}
-.hs-field label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--grigio-testo)}
+.hs-field label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--grigio-testo)}
 .hs-field input,.hs-field select{border:none;outline:none;font-size:14px;font-weight:500;color:var(--testo-scuro);background:transparent;font-family:'Space Grotesk',sans-serif;appearance:none;cursor:pointer}
 .hs-btn{background:var(--viola);color:#fff;border:none;padding:0 32px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:background .2s;display:flex;align-items:center;gap:8px;white-space:nowrap}
 .hs-btn:hover{background:var(--viola-dark)}
 .hs-btn svg{width:16px;height:16px}
 
-/* LAYOUT */
+/* MAIN LAYOUT */
 .main-layout{max-width:1300px;margin:0 auto;padding:28px 5% 80px;display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:start}
 
 /* FILTRI */
@@ -59,7 +61,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .filters-reset{font-size:12px;font-weight:600;color:var(--rosso);cursor:pointer;border:none;background:none;font-family:'Space Grotesk',sans-serif;padding:0}
 .filter-group{border-bottom:var(--border);padding:18px 20px}
 .filter-group:last-child{border-bottom:none}
-.fg-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--grigio-testo);margin-bottom:14px}
+.fg-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--grigio-testo);margin-bottom:14px}
 .check-list{display:flex;flex-direction:column;gap:10px}
 .check-item{display:flex;align-items:center;gap:10px;cursor:pointer}
 .check-item input[type=checkbox]{width:16px;height:16px;accent-color:var(--viola);cursor:pointer;flex-shrink:0}
@@ -71,7 +73,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .range-sep{font-size:13px;color:var(--grigio-testo)}
 .range-slider{width:100%;accent-color:var(--viola);cursor:pointer}
 
-/* RESULTS */
+/* TOOLBAR */
 .results-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;gap:16px;flex-wrap:wrap}
 .results-count{font-size:14px;color:var(--grigio-testo)}
 .results-count strong{color:var(--testo-scuro);font-size:17px;font-weight:700;margin-right:4px}
@@ -101,11 +103,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .card-sottotipo{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--viola-dark);margin-bottom:5px}
 .card-loc{font-size:13px;color:var(--grigio-testo);display:flex;align-items:center;gap:4px;margin-bottom:10px}
 .card-loc svg{width:13px;height:13px;flex-shrink:0}
-.card-title{font-weight:600;font-size:15px;line-height:1.4;margin-bottom:14px}
+.card-title{font-weight:600;font-size:15px;line-height:1.4;margin-bottom:14px;letter-spacing:-.01em}
 .card-divider{height:1px;background:rgba(0,0,0,0.06);margin-bottom:14px}
 .card-foot{display:flex;align-items:flex-end;justify-content:space-between}
 .card-price-lbl{font-size:10px;color:var(--grigio-testo);text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
-.card-price{font-size:22px;font-weight:700}
+.card-price{font-size:22px;font-weight:700;letter-spacing:-.02em}
 .card-price sup{font-size:12px;vertical-align:super;font-weight:600}
 .card-action{background:var(--viola-bg);color:var(--viola-dark);border:none;border-radius:8px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:all .2s;white-space:nowrap}
 .card-action:hover{background:var(--viola);color:#fff}
@@ -118,7 +120,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .loading-spinner{width:40px;height:40px;border:3px solid rgba(123,143,232,0.2);border-top-color:var(--viola);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 16px}
 @keyframes spin{to{transform:rotate(360deg)}}
 .empty-state{text-align:center;padding:80px 20px}
-.empty-state svg{width:64px;height:64px;color:rgba(123,143,232,0.25);margin-bottom:16px}
+.empty-state svg{width:56px;height:56px;color:rgba(123,143,232,0.25);margin-bottom:16px}
 .empty-state h4{font-size:18px;font-weight:700;margin-bottom:8px}
 .empty-state p{font-size:14px;color:var(--grigio-testo)}
 
@@ -128,9 +130,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .pg-btn:hover{border-color:var(--viola-light);color:var(--viola-dark)}
 .pg-btn.active{background:var(--viola);border-color:var(--viola);color:#fff}
 .pg-btn:disabled{opacity:.35;cursor:not-allowed}
+.pg-btn svg{width:16px;height:16px}
+
+/* COOKIE BANNER */
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:999;background:#fff;border-top:1px solid rgba(0,0,0,0.1);box-shadow:0 -8px 40px rgba(0,0,0,0.12);padding:20px 5%;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.cookie-text{flex:1;min-width:260px;font-size:13px;color:var(--grigio-testo);line-height:1.5}
+.cookie-text strong{color:var(--testo-scuro)}
+.cookie-text a{color:var(--viola-dark);text-decoration:none}
+.cookie-btns{display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap}
+.cookie-accept{background:var(--viola);color:#fff;border:none;border-radius:8px;padding:10px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:background .2s}
+.cookie-accept:hover{background:var(--viola-dark)}
+.cookie-reject{background:transparent;color:var(--grigio-testo);border:1.5px solid rgba(0,0,0,0.12);border-radius:8px;padding:9px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:all .2s}
+.cookie-reject:hover{border-color:var(--testo-scuro);color:var(--testo-scuro)}
 
 /* MOBILE */
-.mob-filter-btn{display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--viola);color:#fff;border:none;border-radius:100px;padding:14px 28px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif;z-index:150;box-shadow:0 8px 32px rgba(123,143,232,0.45);align-items:center;gap:8px}
+.mob-filter-btn{display:none;position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--viola);color:#fff;border:none;border-radius:100px;padding:14px 28px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif;z-index:150;box-shadow:0 8px 32px rgba(123,143,232,0.45);align-items:center;gap:8px}
+.mob-filter-btn svg{width:18px;height:18px}
 
 /* FOOTER */
 footer{background:var(--testo-scuro);color:rgba(255,255,255,0.45);padding:32px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:13px}
@@ -150,6 +165,7 @@ footer a:hover{color:rgba(255,255,255,.7)}
   .header-search{flex-wrap:wrap}
   .hs-field{border-right:none;border-bottom:var(--border)}
   .hs-btn{width:100%;justify-content:center;padding:16px;border-radius:0}
+  .cookie-banner{flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
@@ -163,10 +179,10 @@ footer a:hover{color:rgba(255,255,255,.7)}
   <ul class="nav-links">
     <li><a href="/">Home</a></li>
     <li><a href="#" class="active">Annunci</a></li>
-    <li><a href="procedimento-aste.html#come-funziona">Come funziona</a></li>
-    <li><a href="procedimento-aste.html#contatti">Contatti</a></li>
+    <li><a href="/#come-funziona">Come funziona</a></li>
+    <li><a href="/#contatti">Contatti</a></li>
   </ul>
-  <a href="procedimento-aste.html#contatti" class="nav-cta">Contattaci</a>
+  <a href="/#contatti" class="nav-cta">Contattaci</a>
 </nav>
 
 <div class="page-header">
@@ -231,8 +247,8 @@ footer a:hover{color:rgba(255,255,255,.7)}
         oninput="document.getElementById('price-max-input').value='€ '+Number(this.value).toLocaleString('it-IT');applyFilters()">
     </div>
     <div class="filter-group">
-      <div class="fg-label">Regione</div>
-      <div class="check-list" id="check-regioni"></div>
+      <div class="fg-label">Città</div>
+      <div class="check-list" id="check-citta"></div>
     </div>
   </aside>
 
@@ -256,7 +272,6 @@ footer a:hover{color:rgba(255,255,255,.7)}
         </div>
       </div>
     </div>
-
     <div id="cards-container">
       <div class="loading-state">
         <div class="loading-spinner"></div>
@@ -266,10 +281,21 @@ footer a:hover{color:rgba(255,255,255,.7)}
   </div>
 </div>
 
-<button class="mob-filter-btn" onclick="toggleMobileFilters()">
-  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+<button class="mob-filter-btn" id="mob-btn" onclick="toggleMobileFilters()">
+  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
   Filtri
 </button>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookie-banner" style="display:none">
+  <div class="cookie-text">
+    <strong>Questo sito utilizza cookie</strong> — Usiamo cookie tecnici necessari al funzionamento e, previo consenso, cookie analitici per migliorare l'esperienza. Consulta la <a href="cookie-policy.html">Cookie Policy</a> e la <a href="privacy-policy.html">Privacy Policy</a>.
+  </div>
+  <div class="cookie-btns">
+    <button class="cookie-reject" onclick="setCookieConsent('rejected')">Solo necessari</button>
+    <button class="cookie-accept" onclick="setCookieConsent('accepted')">Accetta tutti</button>
+  </div>
+</div>
 
 <footer>
   <div class="footer-logo-sm">Procedimento<em>Aste</em></div>
@@ -277,11 +303,7 @@ footer a:hover{color:rgba(255,255,255,.7)}
 </footer>
 
 <script>
-// =============================================
-// GESTIONE DATI — carica i JSON da content/annunci/
-// =============================================
-
-// Lista dei file JSON degli annunci (aggiornare quando si aggiunge un annuncio)
+// Lista file annunci — aggiungere qui ogni nuovo annuncio creato dal CMS
 const ANNUNCI_FILES = [
   'content/annunci/appartamento-via-roma-arezzo.json',
   'content/annunci/locale-commerciale-arezzo.json',
@@ -291,63 +313,48 @@ const ANNUNCI_FILES = [
 let allAnnunci = [];
 let filteredAnnunci = [];
 
-// Carica tutti gli annunci dai file JSON
 async function loadAnnunci() {
   try {
-    const promises = ANNUNCI_FILES.map(f => fetch(f).then(r => r.ok ? r.json() : null).catch(() => null));
+    const promises = ANNUNCI_FILES.map(f =>
+      fetch(f).then(r => r.ok ? r.json() : null).catch(() => null)
+    );
     const results = await Promise.all(promises);
     allAnnunci = results
-      .filter(r => r !== null && r.pubblicato !== false)
-      .map((a, i) => ({ ...a, _file: ANNUNCI_FILES[i], _id: i }));
+      .map((a, i) => a ? { ...a, _file: ANNUNCI_FILES[i] } : null)
+      .filter(a => a && a.pubblicato !== false);
     buildSidebarFilters();
     applyFilters();
   } catch(e) {
-    document.getElementById('cards-container').innerHTML = `
-      <div class="empty-state">
-        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        <h4>Nessun annuncio disponibile</h4>
-        <p>Gli annunci sono in fase di caricamento.</p>
-      </div>`;
+    document.getElementById('cards-container').innerHTML =
+      '<div class="empty-state"><p>Nessun annuncio disponibile al momento.</p></div>';
   }
 }
 
-// Costruisce i checkbox dinamicamente dai dati
 function buildSidebarFilters() {
   const tipologie = [...new Set(allAnnunci.map(a => a.tipologia))];
   const citta = [...new Set(allAnnunci.map(a => a.citta))];
-
-  document.getElementById('check-tipologie').innerHTML = tipologie.map(t => `
-    <label class="check-item">
-      <input type="checkbox" value="${t}" checked onchange="applyFilters()">
-      <label>${t}</label>
-      <span class="cnt">${allAnnunci.filter(a => a.tipologia === t).length}</span>
-    </label>`).join('');
-
-  document.getElementById('check-regioni').innerHTML = citta.map(c => `
-    <label class="check-item">
-      <input type="checkbox" value="${c}" checked onchange="applyFilters()">
-      <label>${c}</label>
-      <span class="cnt">${allAnnunci.filter(a => a.citta === c).length}</span>
-    </label>`).join('');
+  document.getElementById('check-tipologie').innerHTML = tipologie.map(t =>
+    `<label class="check-item"><input type="checkbox" value="${t}" checked onchange="applyFilters()"><label>${t}</label><span class="cnt">${allAnnunci.filter(a=>a.tipologia===t).length}</span></label>`
+  ).join('');
+  document.getElementById('check-citta').innerHTML = citta.map(c =>
+    `<label class="check-item"><input type="checkbox" value="${c}" checked onchange="applyFilters()"><label>${c}</label><span class="cnt">${allAnnunci.filter(a=>a.citta===c).length}</span></label>`
+  ).join('');
 }
 
-// Applica tutti i filtri attivi
 function applyFilters() {
-  const tipoSearch = document.getElementById('filter-tipo').value;
-  const cittaSearch = document.getElementById('filter-citta').value.toLowerCase();
-  const prezzoMax = document.getElementById('filter-prezzo').value;
-
+  const tipo = document.getElementById('filter-tipo').value;
+  const citta = document.getElementById('filter-citta').value.toLowerCase();
+  const maxP = document.getElementById('filter-prezzo').value;
   const tipoChecked = [...document.querySelectorAll('#check-tipologie input:checked')].map(cb => cb.value);
-  const cittaChecked = [...document.querySelectorAll('#check-regioni input:checked')].map(cb => cb.value);
-  const priceMaxInput = document.getElementById('price-max-input').value.replace(/[^\d]/g,'');
+  const cittaChecked = [...document.querySelectorAll('#check-citta input:checked')].map(cb => cb.value);
+  const maxPInput = document.getElementById('price-max-input').value.replace(/[^\d]/g, '');
 
   filteredAnnunci = allAnnunci.filter(a => {
-    const matchTipo = (!tipoSearch || a.tipologia === tipoSearch) && tipoChecked.includes(a.tipologia);
-    const matchCitta = (!cittaSearch || a.citta.toLowerCase().includes(cittaSearch) || a.indirizzo.toLowerCase().includes(cittaSearch)) && cittaChecked.includes(a.citta);
-    const matchPrezzo = (!prezzoMax || a.offerta_minima <= Number(prezzoMax)) && (!priceMaxInput || a.offerta_minima <= Number(priceMaxInput));
-    return matchTipo && matchCitta && matchPrezzo;
+    const okTipo = (!tipo || a.tipologia === tipo) && tipoChecked.includes(a.tipologia);
+    const okCitta = (!citta || a.citta.toLowerCase().includes(citta) || a.indirizzo.toLowerCase().includes(citta)) && cittaChecked.includes(a.citta);
+    const okPrezzo = (!maxP || a.offerta_minima <= Number(maxP)) && (!maxPInput || a.offerta_minima <= Number(maxPInput));
+    return okTipo && okCitta && okPrezzo;
   });
-
   renderCards();
 }
 
@@ -360,19 +367,17 @@ function resetFilters() {
   applyFilters();
 }
 
-// Render delle card
 function renderCards() {
   const sort = document.getElementById('sort-select').value;
   let sorted = [...filteredAnnunci];
-  if (sort === 'price-asc') sorted.sort((a,b) => a.offerta_minima - b.offerta_minima);
-  if (sort === 'price-desc') sorted.sort((a,b) => b.offerta_minima - a.offerta_minima);
-  if (sort === 'recent') sorted.sort((a,b) => new Date(b.data_pubblicazione||0) - new Date(a.data_pubblicazione||0));
+  if (sort === 'price-asc') sorted.sort((a, b) => a.offerta_minima - b.offerta_minima);
+  if (sort === 'price-desc') sorted.sort((a, b) => b.offerta_minima - a.offerta_minima);
+  if (sort === 'recent') sorted.sort((a, b) => new Date(b.data_pubblicazione||0) - new Date(a.data_pubblicazione||0));
 
   document.getElementById('results-num').textContent = sorted.length;
+  const isList = document.getElementById('list-btn').classList.contains('active');
 
-  const isListView = document.getElementById('cards-container').querySelector('.cards-grid')?.classList.contains('list-view');
-
-  if (sorted.length === 0) {
+  if (!sorted.length) {
     document.getElementById('cards-container').innerHTML = `
       <div class="empty-state">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
@@ -382,22 +387,19 @@ function renderCards() {
     return;
   }
 
-  const gridClass = isListView ? 'cards-grid list-view' : 'cards-grid';
-  const cards = sorted.map(a => buildCard(a)).join('');
-  document.getElementById('cards-container').innerHTML = `<div class="${gridClass}" id="cards-grid">${cards}</div>`;
+  const gridClass = isList ? 'cards-grid list-view' : 'cards-grid';
+  document.getElementById('cards-container').innerHTML =
+    `<div class="${gridClass}" id="cards-grid">${sorted.map(buildCard).join('')}</div>`;
 }
 
 function buildCard(a) {
-  const imgHtml = a.foto_copertina
+  const img = a.foto_copertina
     ? `<img src="${a.foto_copertina}" alt="${a.titolo}" loading="lazy">`
     : `<div class="card-img-placeholder"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>`;
-
-  const waMsg = encodeURIComponent(`Salve, sono interessato all'immobile: ${a.sottotipologia||a.tipologia} in ${a.indirizzo}, ${a.citta}. Vorrei informazioni e fissare un appuntamento.`);
-
   return `
     <a href="procedimento-aste-dettaglio.html?id=${encodeURIComponent(a._file)}" class="prop-card">
       <div class="card-img">
-        ${imgHtml}
+        ${img}
         <span class="tipo-badge t-${a.tipologia}">${a.tipologia}</span>
       </div>
       <div class="card-body">
@@ -428,16 +430,24 @@ function setView(mode) {
 
 function toggleMobileFilters() {
   const p = document.getElementById('filters-panel');
-  p.style.cssText = p.style.display === 'block' ? '' : 'display:block;position:fixed;inset:68px 0 0 0;z-index:150;overflow-y:auto;border-radius:0;';
+  const isOpen = p.style.display === 'block';
+  p.style.cssText = isOpen ? '' : 'display:block;position:fixed;inset:68px 0 0 0;z-index:150;overflow-y:auto;border-radius:0;';
 }
 
-// Avvio
-loadAnnunci();
-</script>
-<!-- COOKIE BANNER -->
-<div class="cookie-banner" id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:#fff;border-top:1px solid rgba(0,0,0,0.1);box-shadow:0 -8px 40px rgba(0,0,0,0.12);padding:20px 5%;display:none;align-items:center;gap:24px;flex-wrap:wrap"><div style="flex:1;min-width:260px;font-size:13px;color:#6B7280;line-height:1.5"><strong style="color:#1A1F36">Questo sito utilizza cookie</strong> — Usiamo cookie tecnici e, previo consenso, cookie analitici. <a href="cookie-policy.html" style="color:#5A6FCC">Cookie Policy</a> · <a href="privacy-policy.html" style="color:#5A6FCC">Privacy Policy</a></div><div style="display:flex;gap:10px;flex-shrink:0"><button onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookie_consent','rejected')" style="background:transparent;color:#6B7280;border:1.5px solid rgba(0,0,0,0.12);border-radius:8px;padding:9px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">Solo necessari</button><button onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookie_consent','accepted')" style="background:#7B8FE8;color:#fff;border:none;border-radius:8px;padding:10px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">Accetta tutti</button></div></div>
-<script>
-if(!localStorage.getItem("cookie_consent")){setTimeout(function(){var b=document.getElementById("cookie-banner");if(b)b.style.display="flex"},800)}
+// Cookie banner
+function setCookieConsent(val) {
+  localStorage.setItem('cookie_consent', val);
+  document.getElementById('cookie-banner').style.display = 'none';
+}
+
+window.addEventListener('DOMContentLoaded', function() {
+  if (!localStorage.getItem('cookie_consent')) {
+    setTimeout(function() {
+      document.getElementById('cookie-banner').style.display = 'flex';
+    }, 800);
+  }
+  loadAnnunci();
+});
 </script>
 </body>
 </html>
