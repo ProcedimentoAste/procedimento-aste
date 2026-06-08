@@ -19,16 +19,14 @@ body{font-family:'Space Grotesk',sans-serif;color:var(--testo-scuro);background:
 /* NAVBAR */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(123,143,232,0.15);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;transition:box-shadow .3s}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-logo-mark{width:36px;height:36px;background:var(--viola);border-radius:9px;position:relative;overflow:hidden;flex-shrink:0}
-.nav-logo-mark::before{content:'';position:absolute;width:110%;height:38%;background:var(--oro);top:8%;left:-5%;transform:skewY(-8deg)}
-.nav-logo-mark::after{content:'';position:absolute;width:110%;height:33%;background:var(--rosso);top:37%;left:-5%;transform:skewY(-8deg)}
-.nlb{position:absolute;width:110%;height:28%;background:var(--blu-scuro);bottom:6%;left:-5%;transform:skewY(-8deg)}
+.nav-logo-mark{width:36px;height:36px;border-radius:9px;overflow:hidden;flex-shrink:0}
+.nav-logo-mark img{width:100%;height:100%;object-fit:cover;display:block}
 .nav-logo-text{font-size:13px;font-weight:700;color:var(--testo-scuro);line-height:1.2;letter-spacing:-.01em}
 .nav-logo-text span{color:var(--viola-dark);display:block}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
 .nav-links a{text-decoration:none;color:var(--grigio-testo);font-size:14px;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:var(--viola-dark)}
-.nav-cta{background:var(--viola);color:#fff;border:none;border-radius:8px;padding:10px 22px;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;transition:background .2s;letter-spacing:-.01em}
+.nav-cta{background:var(--viola);color:#fff;border:none;border-radius:8px;padding:10px 22px;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;transition:background .2s}
 .nav-cta:hover{background:var(--viola-dark)}
 
 /* HERO */
@@ -40,20 +38,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .hero-content{max-width:720px;position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
 
 /* LOGO HERO */
-.hero-logo{margin-bottom:36px;display:flex;flex-direction:column;align-items:center;gap:0}
-.hero-logo-top{font-size:clamp(18px,2.5vw,26px);font-weight:400;color:rgba(255,255,255,0.75);letter-spacing:.18em;text-transform:uppercase;margin-bottom:2px}
-.hero-logo-bottom{display:flex;align-items:center;justify-content:center;gap:2px;line-height:1}
-.hero-logo-a,.hero-logo-ste{font-size:clamp(60px,9vw,96px);font-weight:700;color:#fff;letter-spacing:-.03em}
-.hero-logo-icon{display:flex;flex-direction:column;gap:3px;width:clamp(42px,6vw,64px);margin:0 4px;padding-bottom:6px}
-.stripe{height:clamp(10px,1.6vw,16px);border-radius:3px;transform:skewX(-8deg)}
-.stripe-1{background:var(--oro);width:100%}
-.stripe-2{background:var(--rosso);width:100%}
-.stripe-3{background:var(--blu-scuro);width:100%;border:1.5px solid rgba(168,181,239,0.4)}
-.hero-logo-divider{width:60px;height:2px;background:rgba(255,255,255,0.15);border-radius:2px;margin:12px 0 24px}
-
+.hero-logo{margin-bottom:36px;display:flex;flex-direction:column;align-items:center}
+.hero-logo img{width:clamp(220px,30vw,320px);border-radius:20px;box-shadow:0 24px 60px rgba(0,0,0,0.35);display:block}
+.hero-logo-divider{width:60px;height:2px;background:rgba(255,255,255,0.15);border-radius:2px;margin:20px 0 24px}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(184,150,62,0.18);border:1px solid rgba(184,150,62,0.35);color:var(--oro-light);border-radius:100px;padding:6px 16px;font-size:13px;font-weight:500;margin-bottom:24px}
 .hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--oro-light);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+@keyframes spin{to{transform:rotate(360deg)}}
 .hero h1{font-size:clamp(28px,4vw,48px);color:#fff;line-height:1.15;margin-bottom:16px;font-weight:700;letter-spacing:-.02em}
 .hero h1 em{font-style:normal;color:var(--viola-light)}
 .hero-sub{color:rgba(255,255,255,0.55);font-size:17px;line-height:1.6;margin-bottom:40px;font-weight:300;max-width:560px}
@@ -88,7 +79,7 @@ section{padding:80px 5%}
 .chip:hover{border-color:var(--viola);color:var(--viola-dark)}
 .chip.active{background:var(--viola);border-color:var(--viola);color:#fff}
 
-/* CARDS */
+/* ANNUNCI CARDS */
 .annunci-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
 .card{background:#fff;border-radius:var(--radius-lg);border:1px solid rgba(0,0,0,0.07);overflow:hidden;transition:transform .25s,box-shadow .25s;cursor:pointer;text-decoration:none;color:inherit;display:block}
 .card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(61,79,107,0.15)}
@@ -97,10 +88,10 @@ section{padding:80px 5%}
 .card-img-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:rgba(90,111,204,0.25)}
 .card-img-inner svg{width:52px;height:52px}
 .card-badge{position:absolute;top:14px;left:14px;border-radius:6px;padding:4px 12px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
-.badge-residenziale{background:var(--viola-bg);color:var(--viola-dark)}
-.badge-commerciale{background:rgba(192,57,43,0.1);color:var(--rosso)}
-.badge-terreno{background:rgba(184,150,62,0.12);color:#8a6c1a}
-.badge-ufficio{background:rgba(61,79,107,0.1);color:var(--blu-scuro)}
+.badge-Residenziale{background:var(--viola-bg);color:var(--viola-dark)}
+.badge-Commerciale{background:rgba(192,57,43,0.1);color:var(--rosso)}
+.badge-Terreno{background:rgba(184,150,62,0.12);color:#8a6c1a}
+.badge-Ufficio{background:rgba(61,79,107,0.1);color:var(--blu-scuro)}
 .card-body{padding:20px 22px 22px}
 .card-location{font-size:12px;color:var(--grigio-testo);margin-bottom:6px;display:flex;align-items:center;gap:4px}
 .card-location svg{width:13px;height:13px}
@@ -112,10 +103,6 @@ section{padding:80px 5%}
 .card-prezzo sup{font-size:13px;font-weight:600;vertical-align:super}
 .card-btn{background:var(--viola-bg);color:var(--viola-dark);border:none;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'Space Grotesk',sans-serif}
 .card-btn:hover{background:var(--viola);color:#fff}
-.card-featured{grid-column:span 2;display:grid;grid-template-columns:1.2fr 1fr}
-.card-featured .card-img{aspect-ratio:auto;min-height:280px}
-.card-featured .card-body{padding:32px;display:flex;flex-direction:column;justify-content:space-between}
-.featured-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(184,150,62,0.12);color:#8a6c1a;border-radius:6px;padding:4px 12px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
 
 /* COME FUNZIONA */
 .come-funziona{background:var(--grigio-chiaro)}
@@ -131,22 +118,30 @@ section{padding:80px 5%}
 
 /* CONTATTI */
 .contatti-section{background:var(--grigio-chiaro)}
-.contatti-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.contatto-card{background:#fff;border-radius:var(--radius-lg);padding:32px;border:1px solid rgba(0,0,0,0.07)}
-.contatto-card h3{font-size:20px;font-weight:700;margin-bottom:6px;letter-spacing:-.02em}
-.contatto-indirizzo{font-size:14px;color:var(--grigio-testo);margin-bottom:24px;line-height:1.6}
-.contatto-links{display:flex;flex-direction:column;gap:12px}
-.contatto-link{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--testo-scuro);font-size:14px;font-weight:500;padding:12px 16px;border-radius:10px;border:1px solid rgba(0,0,0,0.08);transition:all .2s}
-.contatto-link:hover{border-color:var(--viola-light);background:var(--viola-bg);color:var(--viola-dark)}
-.contatto-link.whatsapp:hover{border-color:#25d366;background:#f0fdf4;color:#16a34a}
-.contatto-link-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.contatto-link-icon.wa{background:#dcfce7}
-.contatto-link-icon.wa svg{color:#16a34a}
-.contatto-link-icon.em{background:var(--viola-bg)}
-.contatto-link-icon.em svg{color:var(--viola-dark)}
-.contatto-link-icon.fb{background:#dbeafe}
-.contatto-link-icon.fb svg{color:#1d4ed8}
-.contatto-link-icon svg{width:18px;height:18px}
+.sedi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:24px}
+.sede-card{background:#fff;border-radius:var(--radius-lg);padding:28px;border:1px solid rgba(0,0,0,0.07);display:flex;gap:18px;align-items:flex-start;transition:box-shadow .2s}
+.sede-card:hover{box-shadow:0 8px 32px rgba(61,79,107,0.10)}
+.sede-pin{width:44px;height:44px;border-radius:12px;background:var(--viola-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sede-pin svg{width:20px;height:20px;color:var(--viola-dark)}
+.sede-info{}
+.sede-citta{font-size:16px;font-weight:700;margin-bottom:2px;letter-spacing:-.01em}
+.sede-prov{font-size:11px;font-weight:600;color:var(--viola-dark);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.sede-via{font-size:13px;color:var(--grigio-testo);line-height:1.5}
+/* Banner contatti unico */
+.contatti-banner{background:linear-gradient(120deg,var(--blu-scuro) 0%,#2A3550 100%);border-radius:var(--radius-lg);padding:32px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.contatti-banner-text h4{font-size:17px;font-weight:700;color:#fff;margin-bottom:4px;letter-spacing:-.01em}
+.contatti-banner-text p{font-size:13px;color:rgba(255,255,255,0.5)}
+.contatti-btn-row{display:flex;gap:12px;flex-wrap:wrap}
+.cbtn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;transition:all .2s;font-family:'Space Grotesk',sans-serif;border:none;white-space:nowrap}
+.cbtn-wa{background:#25d366;color:#fff;box-shadow:0 4px 16px rgba(37,211,102,0.3)}
+.cbtn-wa:hover{background:#1da851}
+.cbtn-wa2{background:rgba(37,211,102,0.15);color:#4ade80;border:1px solid rgba(37,211,102,0.3)}
+.cbtn-wa2:hover{background:rgba(37,211,102,0.25)}
+.cbtn-em{background:rgba(123,143,232,0.2);color:var(--viola-light);border:1px solid rgba(123,143,232,0.35)}
+.cbtn-em:hover{background:rgba(123,143,232,0.32)}
+.cbtn-fb{background:rgba(29,78,216,0.4);color:#93c5fd;border:1px solid rgba(29,78,216,0.4)}
+.cbtn-fb:hover{background:rgba(29,78,216,0.55)}
+.cbtn svg{width:18px;height:18px;flex-shrink:0}
 
 /* CTA BANNER */
 .cta-banner{background:linear-gradient(120deg,var(--blu-scuro) 0%,#2A3550 100%);border-radius:var(--radius-lg);padding:60px;display:flex;align-items:center;justify-content:space-between;gap:32px;position:relative;overflow:hidden}
@@ -165,17 +160,15 @@ section{padding:80px 5%}
 footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5% 36px}
 .footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;margin-bottom:48px}
 .footer-logo{display:flex;align-items:center;gap:10px}
-.footer-logo-mark{width:36px;height:36px;background:var(--viola);border-radius:9px;position:relative;overflow:hidden}
-.footer-logo-mark::before{content:'';position:absolute;width:110%;height:38%;background:var(--oro);top:8%;left:-5%;transform:skewY(-8deg)}
-.footer-logo-mark::after{content:'';position:absolute;width:110%;height:33%;background:var(--rosso);top:37%;left:-5%;transform:skewY(-8deg)}
-.footer-logo-mark-b{position:absolute;width:110%;height:28%;background:var(--blu-scuro);bottom:6%;left:-5%;transform:skewY(-8deg)}
+.footer-logo-mark{width:36px;height:36px;border-radius:9px;overflow:hidden;flex-shrink:0}
+.footer-logo-mark img{width:100%;height:100%;object-fit:cover;display:block}
 .footer-logo-text{font-size:13px;font-weight:700;color:#fff;line-height:1.2}
 .footer-logo-text span{color:var(--viola-light)}
 .footer-brand p{font-size:14px;line-height:1.7;margin:16px 0 20px}
-.footer-contacts{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.footer-contacts{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
 .footer-contact-item{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color .2s}
 .footer-contact-item:hover{color:#fff}
-.footer-contact-item svg{width:15px;height:15px;flex-shrink:0;opacity:.6}
+.footer-contact-item svg{width:14px;height:14px;flex-shrink:0;opacity:.6}
 .social-row{display:flex;gap:10px}
 .social-btn{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);transition:all .2s;text-decoration:none}
 .social-btn:hover{background:var(--viola);border-color:var(--viola);color:#fff}
@@ -193,21 +186,18 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
 .cookie-text{flex:1;min-width:260px;font-size:13px;color:var(--grigio-testo);line-height:1.5}
 .cookie-text strong{color:var(--testo-scuro)}
 .cookie-text a{color:var(--viola-dark);text-decoration:none}
-.cookie-text a:hover{text-decoration:underline}
 .cookie-btns{display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap}
 .cookie-accept{background:var(--viola);color:#fff;border:none;border-radius:8px;padding:10px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:background .2s}
 .cookie-accept:hover{background:var(--viola-dark)}
-.cookie-reject{background:transparent;color:var(--grigio-testo);border:1.5px solid rgba(0,0,0,0.12);border-radius:8px;padding:9px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:all .2s}
-.cookie-reject:hover{border-color:var(--testo-scuro);color:var(--testo-scuro)}
+.cookie-reject{background:transparent;color:var(--grigio-testo);border:1.5px solid rgba(0,0,0,0.12);border-radius:8px;padding:9px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif}
 
 /* RESPONSIVE */
 @media(max-width:1024px){
-  .card-featured{grid-column:span 1;grid-template-columns:1fr}
-  .card-featured .card-img{min-height:200px}
   .steps-grid{grid-template-columns:repeat(2,1fr)}
   .steps-grid::before{display:none}
-  .contatti-grid{grid-template-columns:1fr}
+  .sedi-grid{grid-template-columns:1fr 1fr}
   .footer-top{grid-template-columns:1fr 1fr}
+  .contatti-banner{flex-direction:column;align-items:flex-start}
 }
 @media(max-width:640px){
   .nav-links{display:none}
@@ -219,6 +209,8 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
   .search-field:last-of-type{border-bottom:none}
   .search-btn{width:100%;justify-content:center}
   .annunci-grid{grid-template-columns:1fr}
+  .sedi-grid{grid-template-columns:1fr}
+  .contatti-btn-row{flex-direction:column;width:100%}
   .cta-banner{flex-direction:column;padding:36px 28px}
   .cta-banner-btns{flex-direction:column;width:100%}
   .footer-top{grid-template-columns:1fr}
@@ -230,10 +222,11 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
 </head>
 <body>
 
-<!-- NAVBAR -->
 <nav id="main-nav">
   <a href="/" class="nav-logo">
-    <div class="nav-logo-mark"><div class="nlb"></div></div>
+    <div class="nav-logo-mark">
+      <img src="/uploads/Icona_Procedimento_Aste_1_1.png" alt="Procedimento Aste">
+    </div>
     <div class="nav-logo-text">Procedimento<span>Aste</span></div>
   </a>
   <ul class="nav-links">
@@ -250,29 +243,16 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
   <div class="hero-circle hc2"></div>
   <div class="hero-circle hc3"></div>
   <div class="hero-content">
-
-    <!-- LOGO GRANDE CENTRATO -->
     <div class="hero-logo">
-      <div class="hero-logo-top">Procedimento</div>
-      <div class="hero-logo-bottom">
-        <span class="hero-logo-a">A</span>
-        <div class="hero-logo-icon">
-          <div class="stripe stripe-1"></div>
-          <div class="stripe stripe-2"></div>
-          <div class="stripe stripe-3"></div>
-        </div>
-        <span class="hero-logo-ste">ste</span>
-      </div>
+      <img src="/uploads/Logo_Procedimento_Aste_1_1.png" alt="Procedimento Aste">
       <div class="hero-logo-divider"></div>
     </div>
-
     <div class="hero-badge">
       <div class="hero-badge-dot"></div>
-      Studio con sede a San Giovanni Valdarno e Arezzo
+      3 sedi: San Giovanni Valdarno · Arezzo · Figline Valdarno
     </div>
     <h1>Immobili all'Asta<br><em>a portata di click</em></h1>
     <p class="hero-sub">Trova appartamenti, ville e locali commerciali nelle aste giudiziarie. Ti assistiamo in ogni fase del procedimento.</p>
-
     <div class="search-box">
       <div class="search-field">
         <label>Tipologia</label>
@@ -291,16 +271,15 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
         Cerca
       </a>
     </div>
-
     <div class="hero-stats">
-      <div><div class="hero-stat-num">2<span> sedi</span></div><div class="hero-stat-lbl">AR · SGV</div></div>
+      <div><div class="hero-stat-num">3<span> sedi</span></div><div class="hero-stat-lbl">AR · SGV · FI</div></div>
       <div><div class="hero-stat-num">100<span>%</span></div><div class="hero-stat-lbl">Assistenza dedicata</div></div>
       <div><div class="hero-stat-num">40<span>%</span></div><div class="hero-stat-lbl">Risparmio medio</div></div>
     </div>
   </div>
 </section>
 
-<!-- ANNUNCI -->
+<!-- ANNUNCI IN EVIDENZA -->
 <section id="annunci">
   <div class="section-header">
     <div>
@@ -316,7 +295,10 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
     <div class="chip">Terreni</div>
   </div>
   <div class="annunci-grid" id="homepage-annunci">
-    <div style="grid-column:span 3;text-align:center;padding:60px;color:var(--grigio-testo);font-size:14px">Caricamento annunci...</div>
+    <div style="grid-column:span 3;text-align:center;padding:60px;color:var(--grigio-testo);font-size:14px">
+      <div style="width:32px;height:32px;border:3px solid rgba(123,143,232,0.2);border-top-color:var(--viola);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 12px"></div>
+      Caricamento annunci...
+    </div>
   </div>
 </section>
 
@@ -334,44 +316,70 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
   </div>
 </section>
 
-<!-- CONTATTI -->
+<!-- CONTATTI — 3 SEDI + BANNER CONTATTI -->
 <section class="contatti-section" id="contatti">
   <div style="text-align:center;margin-bottom:44px">
     <div class="section-eyebrow">Siamo qui per te</div>
-    <div class="section-title">I nostri <em>uffici</em></div>
+    <div class="section-title">Le nostre <em>3 sedi</em></div>
   </div>
-  <div class="contatti-grid">
-    <div class="contatto-card">
-      <h3>San Giovanni Valdarno</h3>
-      <p class="contatto-indirizzo">Via Pier Sansoni n° 3<br>52027 San Giovanni Valdarno (AR)</p>
-      <div class="contatto-links">
-        <a href="https://wa.me/393494547318" target="_blank" class="contatto-link whatsapp">
-          <div class="contatto-link-icon wa"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
-          <div><div style="font-size:11px;color:var(--grigio-testo)">WhatsApp / Chiamata</div><div style="font-weight:600">349 454 7318</div></div>
-        </a>
-        <a href="mailto:procedimentoaste@gmail.com" class="contatto-link">
-          <div class="contatto-link-icon em"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <div><div style="font-size:11px;color:var(--grigio-testo)">Email</div><div style="font-weight:600">procedimentoaste@gmail.com</div></div>
-        </a>
+
+  <!-- GRIGLIA SEDI -->
+  <div class="sedi-grid">
+    <div class="sede-card">
+      <div class="sede-pin">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="sede-info">
+        <div class="sede-citta">San Giovanni Valdarno</div>
+        <div class="sede-prov">AR · 52027</div>
+        <div class="sede-via">Via Pier Sansoni n° 3</div>
       </div>
     </div>
-    <div class="contatto-card">
-      <h3>Arezzo</h3>
-      <p class="contatto-indirizzo">Via Vittorio Veneto n° 83<br>52100 Arezzo (AR)</p>
-      <div class="contatto-links">
-        <a href="https://wa.me/393287014996" target="_blank" class="contatto-link whatsapp">
-          <div class="contatto-link-icon wa"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
-          <div><div style="font-size:11px;color:var(--grigio-testo)">WhatsApp / Chiamata</div><div style="font-weight:600">328 701 4996</div></div>
-        </a>
-        <a href="https://www.facebook.com/people/Procedimento-Aste/61557314746672/" target="_blank" class="contatto-link">
-          <div class="contatto-link-icon fb"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div>
-          <div><div style="font-size:11px;color:var(--grigio-testo)">Seguici su</div><div style="font-weight:600">Facebook — Procedimento Aste</div></div>
-        </a>
-        <a href="mailto:procedimentoaste@gmail.com" class="contatto-link">
-          <div class="contatto-link-icon em"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <div><div style="font-size:11px;color:var(--grigio-testo)">Email</div><div style="font-weight:600">procedimentoaste@gmail.com</div></div>
-        </a>
+    <div class="sede-card">
+      <div class="sede-pin">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
       </div>
+      <div class="sede-info">
+        <div class="sede-citta">Arezzo</div>
+        <div class="sede-prov">AR · 52100</div>
+        <div class="sede-via">Via Vittorio Veneto n° 83</div>
+      </div>
+    </div>
+    <div class="sede-card">
+      <div class="sede-pin">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="sede-info">
+        <div class="sede-citta">Figline Valdarno</div>
+        <div class="sede-prov">FI · 50063</div>
+        <div class="sede-via">Via Francesco Petrarca 19/E</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BANNER CONTATTI UNICO -->
+  <div class="contatti-banner">
+    <div class="contatti-banner-text">
+      <h4>Contattaci per ricevere informazioni</h4>
+      <p>Siamo disponibili via WhatsApp, email e Facebook per qualsiasi sede.</p>
+    </div>
+    <div class="contatti-btn-row">
+      <a href="https://wa.me/393494547318" target="_blank" class="cbtn cbtn-wa">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        349 454 7318
+      </a>
+      <a href="https://wa.me/393287014996" target="_blank" class="cbtn cbtn-wa">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        328 701 4996
+      </a>
+      <a href="https://www.facebook.com/people/Procedimento-Aste/61557314746672/" target="_blank" class="cbtn cbtn-fb">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        Facebook
+      </a>
+      <a href="mailto:procedimentoaste@gmail.com" class="cbtn cbtn-em">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        procedimentoaste@gmail.com
+      </a>
     </div>
   </div>
 </section>
@@ -395,12 +403,14 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
   <div class="footer-top">
     <div class="footer-brand">
       <div class="footer-logo">
-        <div class="footer-logo-mark"><div class="footer-logo-mark-b"></div></div>
+        <div class="footer-logo-mark">
+          <img src="/uploads/Icona_Procedimento_Aste_1_1.png" alt="Procedimento Aste">
+        </div>
         <div class="footer-logo-text">Procedimento<span>Aste</span></div>
       </div>
-      <p>Il riferimento per le aste immobiliari giudiziarie in Toscana e in tutta Italia. Due sedi per assisterti di persona.</p>
+      <p>Il riferimento per le aste immobiliari giudiziarie in Toscana e in tutta Italia. Tre sedi per assisterti di persona.</p>
       <div class="footer-contacts">
-        <a href="https://wa.me/393494547318" class="footer-contact-item"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.06a16 16 0 006.02 6.02l.42-.42a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>349 454 7318 (SGV) · 328 701 4996 (AR)</a>
+        <a href="https://wa.me/393494547318" class="footer-contact-item"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.06a16 16 0 006.02 6.02l.42-.42a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>349 454 7318 (SGV · FI) · 328 701 4996 (AR)</a>
         <a href="mailto:procedimentoaste@gmail.com" class="footer-contact-item"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>procedimentoaste@gmail.com</a>
       </div>
       <div class="social-row">
@@ -422,7 +432,7 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
       <h4>Studio</h4>
       <ul>
         <li><a href="#come-funziona">Come funziona</a></li>
-        <li><a href="#contatti">Contatti</a></li>
+        <li><a href="#contatti">Le nostre sedi</a></li>
         <li><a href="privacy-policy.html">Privacy Policy</a></li>
         <li><a href="cookie-policy.html">Cookie Policy</a></li>
         <li><a href="note-legali.html">Note Legali</a></li>
@@ -430,7 +440,7 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 Procedimento Aste — San Giovanni Valdarno (AR) · Arezzo (AR)</span>
+    <span>© 2025 Procedimento Aste — San Giovanni Valdarno · Arezzo · Figline Valdarno</span>
     <span><a href="privacy-policy.html">Privacy</a> · <a href="cookie-policy.html">Cookie</a> · <a href="note-legali.html">Note legali</a></span>
   </div>
 </footer>
@@ -438,7 +448,7 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
 <!-- COOKIE BANNER -->
 <div class="cookie-banner" id="cookie-banner" style="display:none">
   <div class="cookie-text">
-    <strong>Questo sito utilizza cookie</strong> — Usiamo cookie tecnici necessari al funzionamento e, previo consenso, cookie analitici per migliorare l'esperienza. Per saperne di più consulta la nostra <a href="cookie-policy.html">Cookie Policy</a> e la <a href="privacy-policy.html">Privacy Policy</a>.
+    <strong>Questo sito utilizza cookie</strong> — Usiamo cookie tecnici necessari al funzionamento e, previo consenso, cookie analitici per migliorare l'esperienza. Consulta la <a href="cookie-policy.html">Cookie Policy</a> e la <a href="privacy-policy.html">Privacy Policy</a>.
   </div>
   <div class="cookie-btns">
     <button class="cookie-reject" onclick="setCookie('rejected')">Solo necessari</button>
@@ -446,37 +456,30 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
   </div>
 </div>
 
-<!-- Netlify Identity Widget -->
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>
 if(window.netlifyIdentity){window.netlifyIdentity.on("init",function(u){if(!u){window.netlifyIdentity.on("login",function(){document.location.href="/admin/"})}})}
 
-// Cookie banner
 function setCookie(val){localStorage.setItem('cookie_consent',val);document.getElementById('cookie-banner').style.display='none'}
-window.addEventListener('DOMContentLoaded',function(){if(!localStorage.getItem('cookie_consent')){setTimeout(function(){document.getElementById('cookie-banner').style.display='flex'},800)}});
+window.addEventListener('DOMContentLoaded',function(){
+  if(!localStorage.getItem('cookie_consent')){setTimeout(function(){document.getElementById('cookie-banner').style.display='flex'},800)}
+});
 
-// Navbar scroll
 window.addEventListener('scroll',function(){document.getElementById('main-nav').style.boxShadow=window.scrollY>20?'0 4px 20px rgba(0,0,0,0.08)':'none'});
-
-// Chips
 document.querySelectorAll('.chip').forEach(function(c){c.addEventListener('click',function(){document.querySelectorAll('.chip').forEach(function(x){x.classList.remove('active')});this.classList.add('active')})});
 
-// Carica annunci in evidenza dalla lista JSON
 const ANNUNCI_FILES=['content/annunci/appartamento-via-roma-arezzo.json','content/annunci/locale-commerciale-arezzo.json','content/annunci/terreno-san-giovanni-valdarno.json'];
 async function loadHomeAnnunci(){
   const container=document.getElementById('homepage-annunci');
   try{
     const results=await Promise.all(ANNUNCI_FILES.map(f=>fetch(f).then(r=>r.ok?r.json():null).catch(()=>null)));
     const annunci=results.filter(a=>a&&a.pubblicato!==false).slice(0,3);
-    if(!annunci.length){container.innerHTML='<p style="color:var(--grigio-testo);text-align:center;padding:40px">Nessun annuncio disponibile</p>';return}
+    if(!annunci.length){container.innerHTML='<p style="color:var(--grigio-testo);text-align:center;padding:40px;grid-column:span 3">Nessun annuncio disponibile al momento.</p>';return}
     container.innerHTML=annunci.map((a,i)=>{
       const img=a.foto_copertina?`<img src="${a.foto_copertina}" alt="${a.titolo}" style="width:100%;height:100%;object-fit:cover">`:`<div class="card-img-inner"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>`;
-      const tipoClass='badge-'+a.tipologia.toLowerCase();
-      const featured=i===0&&a.in_evidenza;
-      return`<a href="procedimento-aste-dettaglio.html?id=${encodeURIComponent(ANNUNCI_FILES[i])}" class="card${featured?' card-featured':''}">
-        <div class="card-img">${img}<span class="card-badge ${tipoClass}">${a.tipologia}</span></div>
+      return`<a href="procedimento-aste-dettaglio.html?id=${encodeURIComponent(ANNUNCI_FILES[i])}" class="card">
+        <div class="card-img">${img}<span class="card-badge badge-${a.tipologia}">${a.tipologia}</span></div>
         <div class="card-body">
-          ${featured?'<div class="featured-tag">★ In evidenza</div>':''}
           <div class="card-location"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>${a.indirizzo}, ${a.citta}</div>
           <div class="card-title">${a.titolo}</div>
           <div class="card-divider"></div>
