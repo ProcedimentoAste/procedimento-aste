@@ -3,158 +3,142 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Tutti gli annunci di immobili all'asta di Procedimento Aste: appartamenti, ville, locali commerciali e terreni.">
-<title>Annunci Immobili all'Asta — Procedimento Aste</title>
+<title>Dettaglio Immobile — Procedimento Aste</title>
 <link rel="icon" type="image/png" href="/uploads/icona.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --viola:#7C8EFC;--viola-dark:#5C72E8;--viola-light:#AAB7FD;--viola-bg:#EEF1FE;
-  --oro:#B8963E;--rosso:#C0392B;--blu-scuro:#3D4F6B;
-  --grigio-chiaro:#F4F5FB;--grigio-testo:#6B7280;--testo-scuro:#1A1F36;
-  --radius:12px;--radius-lg:18px;--border:1px solid rgba(0,0,0,0.08);
-}
+:root{--viola:#7C8EFC;--viola-dark:#5C72E8;--viola-light:#AAB7FD;--viola-bg:#EEF1FE;--oro:#B8963E;--rosso:#C0392B;--blu-scuro:#3D4F6B;--grigio-chiaro:#F4F5FB;--grigio-testo:#6B7280;--testo-scuro:#1A1F36;--radius:12px;--radius-lg:20px;--border:1px solid rgba(0,0,0,0.08)}
 html{scroll-behavior:smooth}
-body{font-family:'Space Grotesk',sans-serif;color:var(--testo-scuro);background:var(--grigio-chiaro);overflow-x:hidden}
+body{font-family:'Space Grotesk',sans-serif;color:var(--testo-scuro);background:#fff;overflow-x:hidden}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* NAVBAR */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(123,143,232,0.15);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;box-shadow:0 2px 12px rgba(0,0,0,0.05)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(123,143,232,0.15);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;box-shadow:0 2px 12px rgba(0,0,0,0.05)}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .nav-logo-mark{width:38px;height:38px;border-radius:9px;overflow:hidden;flex-shrink:0}
 .nav-logo-mark img{width:100%;height:100%;object-fit:cover;display:block}
 .nav-logo-text{font-size:13px;font-weight:700;color:var(--testo-scuro);line-height:1.2}
 .nav-logo-text span{color:var(--viola-dark);display:block}
-.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
-.nav-links a{text-decoration:none;color:var(--grigio-testo);font-size:14px;font-weight:500;transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--viola-dark);font-weight:600}
-.nav-cta{background:var(--viola);color:#fff;border:none;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:background .2s;text-decoration:none}
+.nav-bc{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--grigio-testo)}
+.nav-bc a{text-decoration:none;color:var(--grigio-testo);transition:color .2s}
+.nav-bc a:hover{color:var(--viola-dark)}
+.nav-cta{background:var(--viola);color:#fff;border:none;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;font-family:'Space Grotesk',sans-serif;transition:background .2s}
 .nav-cta:hover{background:var(--viola-dark)}
 
-/* HEADER */
-.page-header{margin-top:68px;background:linear-gradient(135deg,#93A2F8 0%,#7C8EFC 100%);padding:40px 5% 0;position:relative;overflow:hidden}
-.page-header::after{content:'';position:absolute;right:-60px;top:-80px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,0.14);pointer-events:none}
-.header-bc{font-size:13px;color:rgba(255,255,255,0.85);margin-bottom:14px}
-.header-bc a{color:rgba(255,255,255,0.85);text-decoration:none}
-.header-bc a:hover{color:rgba(255,255,255,.8)}
-.header-title{font-size:clamp(24px,3vw,34px);font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-.02em}
-.header-title em{font-style:normal;color:#2E3B5E}
-.header-sub{font-size:14px;color:rgba(255,255,255,0.92);margin-bottom:28px}
-.header-search{background:#fff;border-radius:var(--radius) var(--radius) 0 0;display:flex;align-items:stretch;overflow:hidden;box-shadow:0 -8px 32px rgba(0,0,0,0.12)}
-.hs-field{flex:1;padding:14px 20px;border-right:var(--border);display:flex;flex-direction:column;gap:3px;min-width:120px}
-.hs-field label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--grigio-testo)}
-.hs-field input,.hs-field select{border:none;outline:none;font-size:14px;font-weight:500;color:var(--testo-scuro);background:transparent;font-family:'Space Grotesk',sans-serif;appearance:none;cursor:pointer;width:100%}
-.hs-btn{background:var(--viola);color:#fff;border:none;padding:0 32px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:background .2s;display:flex;align-items:center;gap:8px;white-space:nowrap}
-.hs-btn:hover{background:var(--viola-dark)}
-.hs-btn svg{width:16px;height:16px}
+/* CAROSELLO */
+.carousel-section{margin-top:68px;position:relative;background:var(--testo-scuro);overflow:hidden}
+.carousel-track-wrap{overflow:hidden}
+.carousel-track{display:flex;transition:transform .4s ease}
+.carousel-slide{min-width:100%;aspect-ratio:16/7;position:relative;flex-shrink:0}
+.carousel-slide img{width:100%;height:100%;object-fit:cover;display:block}
+.slide-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:rgba(255,255,255,0.15);font-size:14px;background:linear-gradient(145deg,#2A3550,var(--blu-scuro))}
+.slide-placeholder svg{width:64px;height:64px}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.92);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:all .2s;box-shadow:0 4px 16px rgba(0,0,0,0.2)}
+.carousel-btn:hover{background:#fff}
+.carousel-btn svg{width:20px;height:20px;color:var(--testo-scuro)}
+.carousel-prev{left:20px}
+.carousel-next{right:20px}
+.carousel-dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:5}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;border:none;transition:all .2s;padding:0}
+.dot.active{background:#fff;width:24px;border-radius:4px}
+.carousel-counter{position:absolute;bottom:16px;right:20px;background:rgba(0,0,0,0.5);backdrop-filter:blur(6px);color:#fff;border-radius:8px;padding:5px 12px;font-size:12px;font-weight:600;z-index:5}
+.tipo-badge-hero{position:absolute;top:16px;left:20px;border-radius:7px;padding:5px 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;background:var(--viola-bg);color:var(--viola-dark);z-index:5}
 
 /* LAYOUT */
-.main-layout{max-width:1300px;margin:0 auto;padding:28px 5% 80px;display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:start}
-
-/* FILTRI */
-.filters-panel{background:#fff;border-radius:var(--radius-lg);border:var(--border);position:sticky;top:88px;overflow:hidden}
-.filters-header{padding:18px 20px;border-bottom:var(--border);display:flex;align-items:center;justify-content:space-between}
-.filters-header h3{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px}
-.filters-header h3 svg{width:16px;height:16px;color:var(--viola-dark)}
-.filters-reset{font-size:12px;font-weight:600;color:var(--rosso);cursor:pointer;border:none;background:none;font-family:'Space Grotesk',sans-serif;padding:0}
-.filter-group{border-bottom:var(--border);padding:18px 20px}
-.filter-group:last-child{border-bottom:none}
-.fg-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--grigio-testo);margin-bottom:14px}
-.check-list{display:flex;flex-direction:column;gap:10px}
-.check-item{display:flex;align-items:center;gap:10px;cursor:pointer}
-.check-item input[type=checkbox]{width:16px;height:16px;accent-color:var(--viola);cursor:pointer;flex-shrink:0}
-.check-item label{font-size:14px;color:var(--testo-scuro);cursor:pointer;flex:1}
-.check-item .cnt{font-size:11px;color:var(--grigio-testo);background:rgba(0,0,0,0.05);border-radius:100px;padding:2px 8px;font-weight:600}
-.range-inputs{display:flex;gap:8px;align-items:center;margin-bottom:10px}
-.range-input{flex:1;border:1.5px solid rgba(0,0,0,0.10);border-radius:8px;padding:8px 12px;font-size:13px;font-weight:600;color:var(--testo-scuro);font-family:'Space Grotesk',sans-serif;outline:none;width:100%}
-.range-input:focus{border-color:var(--viola)}
-.range-sep{font-size:13px;color:var(--grigio-testo)}
-.range-slider{width:100%;accent-color:var(--viola);cursor:pointer}
-
-/* TOOLBAR */
-.results-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;gap:16px;flex-wrap:wrap}
-.results-count{font-size:14px;color:var(--grigio-testo)}
-.results-count strong{color:var(--testo-scuro);font-size:17px;font-weight:700;margin-right:4px}
-.toolbar-right{display:flex;align-items:center;gap:10px}
-.sort-select{border:1.5px solid rgba(0,0,0,0.10);border-radius:8px;padding:8px 32px 8px 14px;font-size:13px;font-weight:600;color:var(--testo-scuro);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") no-repeat right 10px center;font-family:'Space Grotesk',sans-serif;cursor:pointer;outline:none;appearance:none}
-.view-toggle{display:flex;gap:4px;background:rgba(0,0,0,0.05);border-radius:8px;padding:3px}
-.view-btn{width:32px;height:32px;border-radius:6px;border:none;background:transparent;cursor:pointer;color:var(--grigio-testo);display:flex;align-items:center;justify-content:center;transition:all .2s}
-.view-btn svg{width:16px;height:16px}
-.view-btn.active{background:#fff;color:var(--testo-scuro);box-shadow:0 1px 4px rgba(0,0,0,0.1)}
-
-/* CARDS */
-.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
-.cards-grid.list-view{grid-template-columns:1fr}
-.prop-card{background:#fff;border-radius:var(--radius-lg);border:var(--border);overflow:hidden;transition:transform .25s,box-shadow .25s;cursor:pointer;text-decoration:none;color:inherit;display:block}
-.prop-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(61,79,107,0.14)}
-.card-img{aspect-ratio:16/10;position:relative;overflow:hidden;background:linear-gradient(145deg,var(--viola-bg) 0%,#d8deff 100%)}
-.card-img img{width:100%;height:100%;object-fit:cover;display:block}
-.card-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:rgba(90,111,204,0.2)}
-.card-img-placeholder svg{width:52px;height:52px}
-.tipo-badge{position:absolute;top:12px;left:12px;border-radius:6px;padding:4px 10px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
-.t-Residenziale{background:var(--viola-bg);color:var(--viola-dark)}
-.t-Commerciale{background:rgba(192,57,43,0.1);color:var(--rosso)}
-.t-Terreno{background:rgba(184,150,62,0.12);color:#8a6c1a}
-.t-Ufficio{background:rgba(61,79,107,0.1);color:var(--blu-scuro)}
-.t-Garage{background:rgba(0,0,0,0.06);color:var(--grigio-testo)}
-.card-body{padding:16px 18px 20px}
-.card-sottotipo{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--viola-dark);margin-bottom:5px}
-.card-loc{font-size:13px;color:var(--grigio-testo);display:flex;align-items:center;gap:4px;margin-bottom:10px}
-.card-loc svg{width:13px;height:13px;flex-shrink:0}
-.card-title{font-weight:600;font-size:15px;line-height:1.4;margin-bottom:14px}
-.card-divider{height:1px;background:rgba(0,0,0,0.06);margin-bottom:14px}
-.card-foot{display:flex;align-items:flex-end;justify-content:space-between}
-.card-price-lbl{font-size:10px;color:var(--grigio-testo);text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
-.card-price{font-size:22px;font-weight:700;letter-spacing:-.02em}
-.card-price sup{font-size:12px;vertical-align:super;font-weight:600}
-.card-action{background:var(--viola-bg);color:var(--viola-dark);border:none;border-radius:8px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:all .2s;white-space:nowrap}
-.card-action:hover{background:var(--viola);color:#fff}
-.cards-grid.list-view .prop-card{display:grid;grid-template-columns:220px 1fr}
-.cards-grid.list-view .card-img{aspect-ratio:auto;min-height:140px}
-.cards-grid.list-view .card-body{display:flex;flex-direction:column;justify-content:space-between;padding:16px 20px}
-
-/* STATES */
-.loading-state{text-align:center;padding:80px 20px;color:var(--grigio-testo)}
+.page-layout{max-width:1160px;margin:0 auto;padding:44px 5% 120px;display:grid;grid-template-columns:1fr 340px;gap:48px;align-items:start}
+.prop-title{font-size:clamp(22px,3vw,34px);font-weight:700;line-height:1.15;margin-bottom:14px;letter-spacing:-.02em}
+.prop-loc{display:flex;align-items:center;gap:6px;color:var(--grigio-testo);font-size:15px;margin-bottom:32px}
+.prop-loc svg{width:16px;height:16px;color:var(--viola);flex-shrink:0}
+.section-block{margin-bottom:36px}
+.section-block h3{font-size:20px;font-weight:700;margin-bottom:14px;padding-bottom:12px;border-bottom:2px solid var(--viola-bg)}
+.desc-text{font-size:15px;line-height:1.8;color:#374151}
+.desc-text p{margin-bottom:14px}
+.desc-text p:last-child{margin-bottom:0}
+.loading-state{text-align:center;padding:80px 20px;color:rgba(255,255,255,0.4)}
 .loading-spinner{width:40px;height:40px;border:3px solid rgba(123,143,232,0.2);border-top-color:var(--viola);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 16px}
-.empty-state{text-align:center;padding:80px 20px}
-.empty-state svg{width:56px;height:56px;color:rgba(123,143,232,0.25);margin-bottom:16px}
-.empty-state h4{font-size:18px;font-weight:700;margin-bottom:8px}
-.empty-state p{font-size:14px;color:var(--grigio-testo)}
 
-/* COOKIE BANNER */
+/* SIDEBAR */
+.sidebar{position:sticky;top:88px;display:flex;flex-direction:column;gap:18px}
+.info-card{background:#fff;border-radius:var(--radius-lg);border:var(--border);overflow:hidden;box-shadow:0 8px 40px rgba(61,79,107,0.10)}
+.info-card-header{background:linear-gradient(120deg,#93A2F8 0%,#7C8EFC 100%);padding:20px 24px}
+.info-tipo{display:inline-flex;align-items:center;gap:6px;background:var(--blu-scuro);color:#fff;border-radius:6px;padding:4px 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.info-card-title{font-size:15px;font-weight:600;color:#fff;line-height:1.4;margin-bottom:6px}
+.info-card-loc{font-size:13px;color:rgba(255,255,255,0.92);display:flex;align-items:center;gap:5px}
+.info-card-loc svg{width:13px;height:13px;flex-shrink:0}
+.price-section{padding:22px 24px;border-bottom:var(--border)}
+.price-lbl{font-size:11px;color:var(--grigio-testo);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.price-main{font-size:38px;font-weight:700;line-height:1;letter-spacing:-.02em}
+.price-main sup{font-size:20px;font-weight:600;vertical-align:super}
+.cta-section{padding:20px 24px;display:flex;flex-direction:column;gap:10px}
+.btn-wa{width:100%;padding:15px;border-radius:12px;border:none;font-size:15px;font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .2s;box-shadow:0 6px 20px rgba(37,211,102,0.3);text-decoration:none}
+.btn-wa:hover{background:#1da851}
+.btn-wa svg{width:20px;height:20px;flex-shrink:0}
+.btn-email{width:100%;padding:14px;border-radius:12px;border:1.5px solid var(--viola-light);font-size:15px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif;background:transparent;color:var(--viola-dark);display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;text-decoration:none}
+.btn-email:hover{background:var(--viola-bg);border-color:var(--viola)}
+.btn-email svg{width:18px;height:18px}
+.cta-note{font-size:11px;color:var(--grigio-testo);text-align:center;line-height:1.5;padding:0 24px 18px}
+
+/* FORM */
+.form-card{background:#fff;border-radius:var(--radius-lg);border:var(--border);overflow:hidden}
+.form-card-header{background:var(--viola-bg);padding:16px 20px}
+.form-card-header h4{font-size:14px;font-weight:700;color:var(--viola-dark);display:flex;align-items:center;gap:8px}
+.form-card-header h4 svg{width:16px;height:16px}
+.form-card-header p{font-size:12px;color:var(--grigio-testo);margin-top:4px}
+.form-body{padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+.form-field{display:flex;flex-direction:column;gap:5px}
+.form-field label{font-size:12px;font-weight:600}
+.form-field input,.form-field textarea{border:1.5px solid rgba(0,0,0,0.10);border-radius:8px;padding:10px 14px;font-size:14px;font-family:'Space Grotesk',sans-serif;outline:none;transition:border-color .2s;resize:none}
+.form-field input:focus,.form-field textarea:focus{border-color:var(--viola)}
+.form-field textarea{min-height:80px}
+.form-submit{width:100%;padding:13px;border-radius:10px;border:none;background:var(--viola);color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:background .2s}
+.form-submit:hover{background:var(--viola-dark)}
+.form-privacy{font-size:11px;color:var(--grigio-testo);line-height:1.5}
+.form-privacy a{color:var(--viola-dark);text-decoration:none}
+
+/* CORRELATI */
+.correlati-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.mini-card{border:var(--border);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:all .2s;text-decoration:none;color:inherit;display:block;background:#fff}
+.mini-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(61,79,107,0.10)}
+.mini-img{aspect-ratio:16/9;background:linear-gradient(135deg,var(--viola-bg),#d8deff);display:flex;align-items:center;justify-content:center;color:rgba(90,111,204,0.2);overflow:hidden}
+.mini-img img{width:100%;height:100%;object-fit:cover}
+.mini-img svg{width:36px;height:36px}
+.mini-body{padding:12px 14px}
+.mini-tipo{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--viola-dark);margin-bottom:3px}
+.mini-city{font-size:12px;color:var(--grigio-testo);margin-bottom:4px}
+.mini-name{font-size:13px;font-weight:600;margin-bottom:8px;line-height:1.3}
+.mini-price{font-size:15px;font-weight:700}
+
+/* MOBILE STICKY */
+.sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:var(--border);padding:12px 20px;z-index:99;box-shadow:0 -4px 20px rgba(0,0,0,0.08)}
+.sticky-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.sticky-price{font-size:20px;font-weight:700}
+.sticky-price span{font-size:12px;font-weight:400;color:var(--grigio-testo);display:block}
+.sticky-wa{background:#25d366;color:#fff;border:none;border-radius:10px;padding:13px 22px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif;white-space:nowrap;text-decoration:none}
+
+/* COOKIE */
 .cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:999;background:#fff;border-top:1px solid rgba(0,0,0,0.1);box-shadow:0 -8px 40px rgba(0,0,0,0.12);padding:20px 5%;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
 .cookie-text{flex:1;min-width:260px;font-size:13px;color:var(--grigio-testo);line-height:1.5}
 .cookie-text strong{color:var(--testo-scuro)}
 .cookie-text a{color:var(--viola-dark);text-decoration:none}
 .cookie-btns{display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap}
 .cookie-accept{background:var(--viola);color:#fff;border:none;border-radius:8px;padding:10px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif}
-.cookie-accept:hover{background:var(--viola-dark)}
 .cookie-reject{background:transparent;color:var(--grigio-testo);border:1.5px solid rgba(0,0,0,0.12);border-radius:8px;padding:9px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif}
 
-/* MOBILE FILTER BTN */
-.mob-filter-btn{display:none;position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--viola);color:#fff;border:none;border-radius:100px;padding:14px 28px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif;z-index:150;box-shadow:0 8px 32px rgba(123,143,232,0.45);align-items:center;gap:8px}
-.mob-filter-btn svg{width:18px;height:18px}
-
 /* FOOTER */
-footer{background:var(--testo-scuro);color:rgba(255,255,255,0.45);padding:32px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:13px}
+footer{background:var(--testo-scuro);color:rgba(255,255,255,0.45);padding:28px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px}
 footer a{color:rgba(255,255,255,0.4);text-decoration:none}
-footer a:hover{color:rgba(255,255,255,.7)}
 .footer-logo-sm{font-size:13px;font-weight:700;color:rgba(255,255,255,.8)}
 .footer-logo-sm em{color:var(--viola-light);font-style:normal}
 
-@media(max-width:1024px){.main-layout{grid-template-columns:220px 1fr}}
+@media(max-width:1024px){.page-layout{grid-template-columns:1fr}.sidebar{position:static}.correlati-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:768px){
-  .nav-links{display:none}
-  .main-layout{grid-template-columns:1fr}
-  .filters-panel{display:none}
-  .mob-filter-btn{display:flex}
-  .cards-grid.list-view .prop-card{grid-template-columns:1fr}
-  .cards-grid.list-view .card-img{min-height:180px}
-  .header-search{flex-wrap:wrap}
-  .hs-field{border-right:none;border-bottom:var(--border)}
-  .hs-btn{width:100%;justify-content:center;padding:16px}
+  .nav-bc{display:none}
+  .carousel-slide{aspect-ratio:4/3}
+  .correlati-grid{grid-template-columns:1fr}
+  .sticky-cta{display:block}
+  .sidebar .cta-section,.sidebar .cta-note{display:none}
   .cookie-banner{flex-direction:column;align-items:flex-start}
 }
 </style>
@@ -166,113 +150,105 @@ footer a:hover{color:rgba(255,255,255,.7)}
     <div class="nav-logo-mark"><img src="/uploads/icona.png" alt="Procedimento Aste"></div>
     <div class="nav-logo-text">Procedimento<span>Aste</span></div>
   </a>
-  <ul class="nav-links">
-    <li><a href="/">Home</a></li>
-    <li><a href="#" class="active">Annunci</a></li>
-    <li><a href="/#come-funziona">Come funziona</a></li>
-    <li><a href="/#contatti">Contatti</a></li>
-  </ul>
-  <a href="/#contatti" class="nav-cta">Contattaci</a>
+  <div class="nav-bc">
+    <a href="/">Home</a> ›
+    <a href="procedimento-aste-lista.html">Annunci</a> ›
+    <span id="bc-title" style="color:var(--testo-scuro);font-weight:500">Dettaglio</span>
+  </div>
+  <a href="procedimento-aste-lista.html" class="nav-cta">Tutti gli annunci</a>
 </nav>
 
-<div class="page-header">
-  <div class="header-bc"><a href="/">Home</a> › Annunci</div>
-  <h1 class="header-title">Immobili all'Asta in <em>tutta Italia</em></h1>
-  <p class="header-sub">Appartamenti, ville, locali commerciali e terreni — aste giudiziarie aggiornate</p>
-  <div class="header-search">
-    <div class="hs-field">
-      <label>Tipologia</label>
-      <select id="filter-tipo" onchange="applyFilters()">
-        <option value="">Tutti</option>
-        <option value="Residenziale">Residenziale</option>
-        <option value="Commerciale">Commerciale</option>
-        <option value="Ufficio">Ufficio</option>
-        <option value="Terreno">Terreno</option>
-        <option value="Garage">Garage</option>
-      </select>
+<div class="carousel-section" id="carousel-section">
+  <div class="loading-state" id="carousel-loading">
+    <div class="loading-spinner"></div>
+    <p>Caricamento...</p>
+  </div>
+  <div style="display:none" id="carousel-wrap">
+    <div class="carousel-track-wrap">
+      <div class="carousel-track" id="carousel-track"></div>
     </div>
-    <div class="hs-field">
-      <label>Città / Zona</label>
-      <input type="text" id="filter-citta" placeholder="Es. Arezzo, Firenze..." oninput="applyFilters()"/>
-    </div>
-    <div class="hs-field" style="border-right:none">
-      <label>Offerta massima</label>
-      <select id="filter-prezzo" onchange="applyFilters()">
-        <option value="">Nessun limite</option>
-        <option value="50000">Fino a € 50.000</option>
-        <option value="100000">Fino a € 100.000</option>
-        <option value="200000">Fino a € 200.000</option>
-        <option value="500000">Fino a € 500.000</option>
-      </select>
-    </div>
-    <button class="hs-btn" onclick="applyFilters()">
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-      Cerca
+    <div class="tipo-badge-hero" id="tipo-badge">—</div>
+    <button class="carousel-btn carousel-prev" id="btn-prev" onclick="prevSlide()" aria-label="Foto precedente">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
     </button>
+    <button class="carousel-btn carousel-next" id="btn-next" onclick="nextSlide()" aria-label="Foto successiva">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <div class="carousel-dots" id="carousel-dots"></div>
+    <div class="carousel-counter" id="carousel-counter">1 / 1</div>
   </div>
 </div>
 
-<div class="main-layout">
-  <aside class="filters-panel" id="filters-panel">
-    <div class="filters-header">
-      <h3>
-        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
-        Filtri
-      </h3>
-      <button class="filters-reset" onclick="resetFilters()">Azzera</button>
-    </div>
-    <div class="filter-group">
-      <div class="fg-label">Tipologia</div>
-      <div class="check-list" id="check-tipologie"></div>
-    </div>
-    <div class="filter-group">
-      <div class="fg-label">Offerta minima</div>
-      <div class="range-inputs">
-        <input type="text" class="range-input" placeholder="Min €" id="price-min" oninput="applyFilters()">
-        <span class="range-sep">—</span>
-        <input type="text" class="range-input" placeholder="Max €" id="price-max-input" oninput="applyFilters()">
-      </div>
-      <input type="range" class="range-slider" min="0" max="1000000" value="1000000" step="5000"
-        oninput="document.getElementById('price-max-input').value='€ '+Number(this.value).toLocaleString('it-IT');applyFilters()">
-    </div>
-    <div class="filter-group">
-      <div class="fg-label">Città</div>
-      <div class="check-list" id="check-citta"></div>
-    </div>
-  </aside>
-
+<div class="page-layout" id="page-layout" style="display:none">
   <div>
-    <div class="results-toolbar">
-      <div class="results-count"><strong id="results-num">—</strong> annunci trovati</div>
-      <div class="toolbar-right">
-        <select class="sort-select" id="sort-select" onchange="renderCards()">
-          <option value="recent">Più recenti</option>
-          <option value="price-asc">Prezzo crescente</option>
-          <option value="price-desc">Prezzo decrescente</option>
-        </select>
-        <div class="view-toggle">
-          <button class="view-btn active" id="grid-btn" onclick="setView('grid')" title="Griglia">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-          </button>
-          <button class="view-btn" id="list-btn" onclick="setView('list')" title="Lista">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-          </button>
+    <h1 class="prop-title" id="prop-title">—</h1>
+    <div class="prop-loc">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span id="prop-loc">—</span>
+    </div>
+    <div class="section-block">
+      <h3>Descrizione dell'immobile</h3>
+      <div class="desc-text" id="prop-desc"></div>
+    </div>
+    <div class="section-block" id="correlati-block">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:20px">
+        <h3 style="margin-bottom:0;border-bottom:none;padding-bottom:0">Annunci simili</h3>
+        <a href="procedimento-aste-lista.html" style="font-size:13px;font-weight:600;color:var(--viola-dark);text-decoration:none">Vedi tutti →</a>
+      </div>
+      <div class="correlati-grid" id="correlati-grid"></div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="info-card">
+      <div class="info-card-header">
+        <div class="info-tipo" id="info-tipo">—</div>
+        <div class="info-card-title" id="info-title">—</div>
+        <div class="info-card-loc">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span id="info-loc">—</span>
         </div>
       </div>
+      <div class="price-section">
+        <div class="price-lbl">Offerta minima d'asta</div>
+        <div class="price-main" id="info-price">—</div>
+      </div>
+      <div class="cta-section">
+        <a id="btn-wa" href="#" target="_blank" rel="noopener" class="btn-wa">
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Scrivici su WhatsApp
+        </a>
+        <a id="btn-email" href="mailto:procedimentoaste@gmail.com" class="btn-email">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Invia email
+        </a>
+      </div>
+      <div class="cta-note">Ti risponderemo entro poche ore per fissare un appuntamento in una delle nostre sedi: <strong>San Giovanni Valdarno</strong>, <strong>Arezzo</strong> o <strong>Figline Valdarno</strong>.</div>
     </div>
-    <div id="cards-container">
-      <div class="loading-state">
-        <div class="loading-spinner"></div>
-        <p>Caricamento annunci...</p>
+
+    <div class="form-card">
+      <div class="form-card-header">
+        <h4><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Richiedi informazioni</h4>
+        <p>Compila il form e ti contattiamo noi</p>
+      </div>
+      <div class="form-body">
+        <div class="form-field"><label>Nome e cognome *</label><input type="text" placeholder="Mario Rossi" id="f-nome"></div>
+        <div class="form-field"><label>Telefono *</label><input type="tel" placeholder="+39 333 000 0000" id="f-tel"></div>
+        <div class="form-field"><label>Email</label><input type="email" placeholder="mario@email.it" id="f-email"></div>
+        <div class="form-field"><label>Messaggio</label><textarea placeholder="Sono interessato a questo immobile..." id="f-msg"></textarea></div>
+        <button class="form-submit" onclick="sendForm()">Invia richiesta</button>
+        <p class="form-privacy">Inviando accetti la nostra <a href="privacy-policy.html">Privacy Policy</a>.</p>
       </div>
     </div>
-  </div>
+  </aside>
 </div>
 
-<button class="mob-filter-btn" onclick="toggleMobileFilters()">
-  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
-  Filtri
-</button>
+<div class="sticky-cta" id="sticky-cta" style="display:none">
+  <div class="sticky-inner">
+    <div class="sticky-price"><span>Offerta minima</span><span id="sticky-price-val">—</span></div>
+    <a id="sticky-wa" href="#" target="_blank" rel="noopener" class="sticky-wa">WhatsApp →</a>
+  </div>
+</div>
 
 <div class="cookie-banner" id="cookie-banner" style="display:none">
   <div class="cookie-text">
@@ -290,143 +266,183 @@ footer a:hover{color:rgba(255,255,255,.7)}
 </footer>
 
 <script>
-let allAnnunci = [];
-let filteredAnnunci = [];
+// ===== CAROSELLO =====
+let current = 0, total = 0;
+let touchStartX = 0;
 
-async function loadAnnunci() {
-  try {
-    const manifest = await fetch('content/annunci-manifest.json').then(r => r.json());
-    const results = await Promise.all(
-      manifest.map(f => fetch(f).then(r => r.ok ? r.json() : null).catch(() => null))
-    );
-    allAnnunci = results
-      .map((a, i) => a ? { ...a, _file: manifest[i] } : null)
-      .filter(a => a && a.pubblicato !== false);
-    buildSidebarFilters();
-    applyUrlParams();
-    applyFilters();
-  } catch(e) {
-    document.getElementById('cards-container').innerHTML =
-      '<div class="empty-state"><h4>Nessun annuncio disponibile</h4><p>Riprova più tardi.</p></div>';
+function buildCarousel(slides) {
+  const track = document.getElementById('carousel-track');
+  const dots = document.getElementById('carousel-dots');
+  total = slides.length;
+  if (total <= 1) {
+    document.getElementById('btn-prev').style.display = 'none';
+    document.getElementById('btn-next').style.display = 'none';
+    dots.style.display = 'none';
   }
-}
+  track.innerHTML = slides.map(s => `<div class="carousel-slide">${s}</div>`).join('');
+  dots.innerHTML = slides.map((_, i) =>
+    `<button class="dot${i === 0 ? ' active' : ''}" onclick="goSlide(${i})" aria-label="Foto ${i+1}"></button>`
+  ).join('');
+  document.getElementById('carousel-counter').textContent = `1 / ${total}`;
+  document.getElementById('carousel-loading').style.display = 'none';
+  document.getElementById('carousel-wrap').style.display = 'block';
 
-// Legge i parametri passati dalla ricerca in homepage
-function applyUrlParams() {
+  // Swipe su mobile
+  track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive: true});
+  track.addEventListener('touchend', e => {
+    const diff = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(diff) > 50) { diff < 0 ? nextSlide() : prevSlide(); }
+  }, {passive: true});
+}
+function goSlide(n) {
+  current = (n + total) % total;
+  document.getElementById('carousel-track').style.transform = `translateX(-${current * 100}%)`;
+  document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+  document.getElementById('carousel-counter').textContent = `${current + 1} / ${total}`;
+}
+function nextSlide() { goSlide(current + 1); }
+function prevSlide() { goSlide(current - 1); }
+
+// Frecce tastiera
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') nextSlide();
+  if (e.key === 'ArrowLeft') prevSlide();
+});
+
+// ===== CARICAMENTO DINAMICO =====
+let MANIFEST = [];
+
+async function loadDetail() {
+  // Carica il manifest
+  try {
+    MANIFEST = await fetch('content/annunci-manifest.json').then(r => r.json());
+  } catch(e) { MANIFEST = []; }
+
   const params = new URLSearchParams(window.location.search);
-  if (params.get('tipo')) document.getElementById('filter-tipo').value = params.get('tipo');
-  if (params.get('citta')) document.getElementById('filter-citta').value = params.get('citta');
-  if (params.get('prezzo')) document.getElementById('filter-prezzo').value = params.get('prezzo');
-}
+  const id = params.get('id');
+  const url = id || MANIFEST[0];
 
-function buildSidebarFilters() {
-  const tipologie = [...new Set(allAnnunci.map(a => a.tipologia))];
-  const citta = [...new Set(allAnnunci.map(a => a.citta))];
-  document.getElementById('check-tipologie').innerHTML = tipologie.map(t =>
-    `<label class="check-item"><input type="checkbox" value="${t}" checked onchange="applyFilters()"><label>${t}</label><span class="cnt">${allAnnunci.filter(a=>a.tipologia===t).length}</span></label>`
-  ).join('');
-  document.getElementById('check-citta').innerHTML = citta.map(c =>
-    `<label class="check-item"><input type="checkbox" value="${c}" checked onchange="applyFilters()"><label>${c}</label><span class="cnt">${allAnnunci.filter(a=>a.citta===c).length}</span></label>`
-  ).join('');
-}
+  let data = null;
+  try {
+    const res = await fetch(url);
+    if (res.ok) data = await res.json();
+  } catch(e) {}
 
-function applyFilters() {
-  const tipo = document.getElementById('filter-tipo').value;
-  const citta = document.getElementById('filter-citta').value.toLowerCase();
-  const maxP = document.getElementById('filter-prezzo').value;
-  const tipoChecked = [...document.querySelectorAll('#check-tipologie input:checked')].map(cb => cb.value);
-  const cittaChecked = [...document.querySelectorAll('#check-citta input:checked')].map(cb => cb.value);
-  const minPInput = (document.getElementById('price-min').value || '').replace(/[^\d]/g, '');
-  const maxPInput = (document.getElementById('price-max-input').value || '').replace(/[^\d]/g, '');
-
-  filteredAnnunci = allAnnunci.filter(a => {
-    const okTipo = (!tipo || a.tipologia === tipo) && (tipoChecked.length === 0 || tipoChecked.includes(a.tipologia));
-    const okCitta = (!citta || a.citta.toLowerCase().includes(citta) || a.indirizzo.toLowerCase().includes(citta)) && (cittaChecked.length === 0 || cittaChecked.includes(a.citta));
-    const okPrezzo = (!maxP || a.offerta_minima <= Number(maxP))
-      && (!minPInput || a.offerta_minima >= Number(minPInput))
-      && (!maxPInput || a.offerta_minima <= Number(maxPInput));
-    return okTipo && okCitta && okPrezzo;
-  });
-  renderCards();
-}
-
-function resetFilters() {
-  document.querySelectorAll('.filters-panel input[type=checkbox]').forEach(cb => cb.checked = true);
-  document.getElementById('filter-tipo').value = '';
-  document.getElementById('filter-citta').value = '';
-  document.getElementById('filter-prezzo').value = '';
-  document.getElementById('price-min').value = '';
-  document.getElementById('price-max-input').value = '';
-  history.replaceState(null, '', window.location.pathname);
-  applyFilters();
-}
-
-function renderCards() {
-  const sort = document.getElementById('sort-select').value;
-  let sorted = [...filteredAnnunci];
-  if (sort === 'price-asc') sorted.sort((a, b) => a.offerta_minima - b.offerta_minima);
-  if (sort === 'price-desc') sorted.sort((a, b) => b.offerta_minima - a.offerta_minima);
-  if (sort === 'recent') sorted.sort((a, b) => new Date(b.data_pubblicazione || 0) - new Date(a.data_pubblicazione || 0));
-
-  document.getElementById('results-num').textContent = sorted.length;
-  const isList = document.getElementById('list-btn').classList.contains('active');
-
-  if (!sorted.length) {
-    document.getElementById('cards-container').innerHTML = `
-      <div class="empty-state">
-        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-        <h4>Nessun annuncio trovato</h4>
-        <p>Prova a modificare i filtri di ricerca.</p>
-      </div>`;
+  if (!data) {
+    document.getElementById('carousel-loading').innerHTML =
+      '<p style="padding:40px">Annuncio non trovato. <a href="procedimento-aste-lista.html" style="color:var(--viola-light)">Torna agli annunci</a></p>';
     return;
   }
 
-  document.getElementById('cards-container').innerHTML =
-    `<div class="cards-grid${isList ? ' list-view' : ''}" id="cards-grid">${sorted.map(buildCard).join('')}</div>`;
+  // Meta
+  document.title = `${data.titolo} — Procedimento Aste`;
+  document.getElementById('bc-title').textContent = data.citta || 'Dettaglio';
+  document.getElementById('tipo-badge').textContent = `${data.tipologia}${data.sottotipologia ? ' · ' + data.sottotipologia : ''}`;
+
+  // Carosello: copertina + galleria (senza duplicati)
+  const slides = [];
+  const seen = new Set();
+  function addPhoto(src) {
+    if (src && !seen.has(src)) {
+      seen.add(src);
+      slides.push(`<img src="${src}" alt="${data.titolo}" loading="lazy">`);
+    }
+  }
+  addPhoto(data.foto_copertina);
+  if (Array.isArray(data.galleria)) {
+    data.galleria.forEach(g => addPhoto(typeof g === 'string' ? g : (g && g.foto)));
+  }
+  if (!slides.length) {
+    slides.push(`<div class="slide-placeholder"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.6"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg><span>Foto non disponibile</span></div>`);
+  }
+  buildCarousel(slides);
+
+  // Contenuti
+  document.getElementById('prop-title').textContent = data.titolo;
+  document.getElementById('prop-loc').textContent =
+    `${data.indirizzo}, ${data.cap ? data.cap + ' ' : ''}${data.citta} (${data.provincia})`;
+
+  const desc = data.descrizione || '';
+  document.getElementById('prop-desc').innerHTML = desc
+    .split(/\n\n+/).filter(Boolean)
+    .map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
+
+  // Sidebar
+  document.getElementById('info-tipo').textContent = `${data.tipologia}${data.sottotipologia ? ' · ' + data.sottotipologia : ''}`;
+  document.getElementById('info-title').textContent = data.titolo;
+  document.getElementById('info-loc').textContent = `${data.indirizzo}, ${data.citta}`;
+  const prezzoNum = Number(data.offerta_minima).toLocaleString('it-IT');
+  document.getElementById('info-price').innerHTML = `<sup>€</sup>${prezzoNum}`;
+  document.getElementById('sticky-price-val').textContent = `€ ${prezzoNum}`;
+
+  // Link WhatsApp / email con messaggio precompilato per l'immobile
+  const waMsg = encodeURIComponent(
+    `Salve, sono interessato all'immobile: ${data.sottotipologia || data.tipologia} in ${data.indirizzo}, ${data.citta}. Vorrei ricevere informazioni e fissare un appuntamento.`
+  );
+  const waUrl = `https://wa.me/393494547318?text=${waMsg}`;
+  document.getElementById('btn-wa').href = waUrl;
+  document.getElementById('sticky-wa').href = waUrl;
+  document.getElementById('btn-email').href =
+    `mailto:procedimentoaste@gmail.com?subject=${encodeURIComponent('Richiesta info: ' + data.titolo)}&body=${encodeURIComponent('Salve, sono interessato all\'immobile in ' + data.indirizzo + ', ' + data.citta + '. Vorrei ricevere informazioni e fissare un appuntamento.')}`;
+
+  // Mostra layout
+  document.getElementById('page-layout').style.display = 'grid';
+  document.getElementById('sticky-cta').style.display = 'block';
+
+  loadCorrelati(url);
 }
 
-function buildCard(a) {
-  const img = a.foto_copertina
-    ? `<img src="${a.foto_copertina}" alt="${a.titolo}" loading="lazy">`
-    : `<div class="card-img-placeholder"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>`;
-  return `
-    <a href="procedimento-aste-dettaglio.html?id=${encodeURIComponent(a._file)}" class="prop-card">
-      <div class="card-img">
-        ${img}
-        <span class="tipo-badge t-${a.tipologia}">${a.tipologia}</span>
-      </div>
-      <div class="card-body">
-        <div class="card-sottotipo">${a.sottotipologia || a.tipologia}</div>
-        <div class="card-loc">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          ${a.indirizzo}, ${a.citta} (${a.provincia})
-        </div>
-        <div class="card-title">${a.titolo}</div>
-        <div class="card-divider"></div>
-        <div class="card-foot">
-          <div>
-            <div class="card-price-lbl">Offerta minima</div>
-            <div class="card-price"><sup>€</sup>${Number(a.offerta_minima).toLocaleString('it-IT')}</div>
-          </div>
-          <span class="card-action">Vedi →</span>
-        </div>
+async function loadCorrelati(currentFile) {
+  const others = MANIFEST.filter(f => f !== currentFile).slice(0, 3);
+  if (!others.length) {
+    document.getElementById('correlati-block').style.display = 'none';
+    return;
+  }
+  const results = await Promise.all(
+    others.map(f => fetch(f).then(r => r.ok ? r.json() : null).catch(() => null))
+  );
+  const correlati = results
+    .map((a, i) => a ? { ...a, _file: others[i] } : null)
+    .filter(a => a && a.pubblicato !== false);
+
+  if (!correlati.length) {
+    document.getElementById('correlati-block').style.display = 'none';
+    return;
+  }
+
+  document.getElementById('correlati-grid').innerHTML = correlati.map(a => {
+    const img = a.foto_copertina
+      ? `<img src="${a.foto_copertina}" alt="${a.titolo}" loading="lazy">`
+      : `<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>`;
+    return `<a href="procedimento-aste-dettaglio.html?id=${encodeURIComponent(a._file)}" class="mini-card">
+      <div class="mini-img">${img}</div>
+      <div class="mini-body">
+        <div class="mini-tipo">${a.tipologia}</div>
+        <div class="mini-city">${a.citta}</div>
+        <div class="mini-name">${a.titolo}</div>
+        <div class="mini-price">€ ${Number(a.offerta_minima).toLocaleString('it-IT')}</div>
       </div>
     </a>`;
+  }).join('');
 }
 
-function setView(mode) {
-  const grid = document.getElementById('cards-grid');
-  if (grid) grid.classList.toggle('list-view', mode === 'list');
-  document.getElementById('grid-btn').classList.toggle('active', mode === 'grid');
-  document.getElementById('list-btn').classList.toggle('active', mode === 'list');
+// ===== FORM =====
+function sendForm() {
+  const nome = document.getElementById('f-nome').value.trim();
+  const tel = document.getElementById('f-tel').value.trim();
+  if (!nome || !tel) {
+    alert('Inserisci nome e telefono per continuare.');
+    return;
+  }
+  const titolo = document.getElementById('prop-title').textContent;
+  const extra = document.getElementById('f-msg').value.trim();
+  const msg = encodeURIComponent(
+    `Salve, mi chiamo ${nome} (tel: ${tel}). Sono interessato a: ${titolo}.${extra ? ' ' + extra : ''}`
+  );
+  window.open(`https://wa.me/393494547318?text=${msg}`, '_blank');
 }
 
-function toggleMobileFilters() {
-  const p = document.getElementById('filters-panel');
-  const isOpen = p.style.display === 'block';
-  p.style.cssText = isOpen ? '' : 'display:block;position:fixed;inset:68px 0 0 0;z-index:150;overflow-y:auto;border-radius:0;';
-}
-
+// ===== COOKIE =====
 function setCookieConsent(val) {
   localStorage.setItem('cookie_consent', val);
   document.getElementById('cookie-banner').style.display = 'none';
@@ -438,7 +454,12 @@ window.addEventListener('DOMContentLoaded', function() {
       document.getElementById('cookie-banner').style.display = 'flex';
     }, 800);
   }
-  loadAnnunci();
+  loadDetail();
+});
+
+window.addEventListener('scroll', function() {
+  document.querySelector('nav').style.boxShadow =
+    window.scrollY > 10 ? '0 4px 20px rgba(0,0,0,0.08)' : '0 2px 12px rgba(0,0,0,0.05)';
 });
 </script>
 </body>
