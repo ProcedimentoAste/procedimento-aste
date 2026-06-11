@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tutti gli annunci di immobili all'asta di Procedimento Aste: appartamenti, ville, locali commerciali e terreni.">
 <title>Annunci Immobili all'Asta — Procedimento Aste</title>
+<link rel="icon" type="image/png" href="/uploads/icona.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -15,14 +18,13 @@
 }
 html{scroll-behavior:smooth}
 body{font-family:'Space Grotesk',sans-serif;color:var(--testo-scuro);background:var(--grigio-chiaro);overflow-x:hidden}
+@keyframes spin{to{transform:rotate(360deg)}}
 
 /* NAVBAR */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(123,143,232,0.15);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;box-shadow:0 2px 12px rgba(0,0,0,0.05)}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-logo-mark{width:36px;height:36px;background:var(--viola);border-radius:9px;position:relative;overflow:hidden}
-.nav-logo-mark::before{content:'';position:absolute;width:110%;height:38%;background:var(--oro);top:8%;left:-5%;transform:skewY(-8deg)}
-.nav-logo-mark::after{content:'';position:absolute;width:110%;height:33%;background:var(--rosso);top:37%;left:-5%;transform:skewY(-8deg)}
-.nlb{position:absolute;width:110%;height:28%;background:var(--blu-scuro);bottom:6%;left:-5%;transform:skewY(-8deg)}
+.nav-logo-mark{width:38px;height:38px;border-radius:9px;overflow:hidden;flex-shrink:0}
+.nav-logo-mark img{width:100%;height:100%;object-fit:cover;display:block}
 .nav-logo-text{font-size:13px;font-weight:700;color:var(--testo-scuro);line-height:1.2}
 .nav-logo-text span{color:var(--viola-dark);display:block}
 .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
@@ -31,7 +33,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .nav-cta{background:var(--viola);color:#fff;border:none;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:background .2s;text-decoration:none}
 .nav-cta:hover{background:var(--viola-dark)}
 
-/* PAGE HEADER */
+/* HEADER */
 .page-header{margin-top:68px;background:linear-gradient(135deg,var(--blu-scuro) 0%,#2A3550 100%);padding:40px 5% 0;position:relative;overflow:hidden}
 .page-header::after{content:'';position:absolute;right:-60px;top:-80px;width:320px;height:320px;border-radius:50%;background:rgba(123,143,232,0.12);pointer-events:none}
 .header-bc{font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:14px}
@@ -39,18 +41,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .header-bc a:hover{color:rgba(255,255,255,.8)}
 .header-title{font-size:clamp(24px,3vw,34px);font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-.02em}
 .header-title em{font-style:normal;color:var(--viola-light)}
-.header-sub{font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:28px;font-weight:400}
-
-/* SEARCH BAR */
+.header-sub{font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:28px}
 .header-search{background:#fff;border-radius:var(--radius) var(--radius) 0 0;display:flex;align-items:stretch;overflow:hidden;box-shadow:0 -8px 32px rgba(0,0,0,0.12)}
 .hs-field{flex:1;padding:14px 20px;border-right:var(--border);display:flex;flex-direction:column;gap:3px;min-width:120px}
 .hs-field label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--grigio-testo)}
-.hs-field input,.hs-field select{border:none;outline:none;font-size:14px;font-weight:500;color:var(--testo-scuro);background:transparent;font-family:'Space Grotesk',sans-serif;appearance:none;cursor:pointer}
+.hs-field input,.hs-field select{border:none;outline:none;font-size:14px;font-weight:500;color:var(--testo-scuro);background:transparent;font-family:'Space Grotesk',sans-serif;appearance:none;cursor:pointer;width:100%}
 .hs-btn{background:var(--viola);color:#fff;border:none;padding:0 32px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:background .2s;display:flex;align-items:center;gap:8px;white-space:nowrap}
 .hs-btn:hover{background:var(--viola-dark)}
 .hs-btn svg{width:16px;height:16px}
 
-/* MAIN LAYOUT */
+/* LAYOUT */
 .main-layout{max-width:1300px;margin:0 auto;padding:28px 5% 80px;display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:start}
 
 /* FILTRI */
@@ -68,7 +68,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .check-item label{font-size:14px;color:var(--testo-scuro);cursor:pointer;flex:1}
 .check-item .cnt{font-size:11px;color:var(--grigio-testo);background:rgba(0,0,0,0.05);border-radius:100px;padding:2px 8px;font-weight:600}
 .range-inputs{display:flex;gap:8px;align-items:center;margin-bottom:10px}
-.range-input{flex:1;border:1.5px solid rgba(0,0,0,0.10);border-radius:8px;padding:8px 12px;font-size:13px;font-weight:600;color:var(--testo-scuro);font-family:'Space Grotesk',sans-serif;outline:none}
+.range-input{flex:1;border:1.5px solid rgba(0,0,0,0.10);border-radius:8px;padding:8px 12px;font-size:13px;font-weight:600;color:var(--testo-scuro);font-family:'Space Grotesk',sans-serif;outline:none;width:100%}
 .range-input:focus{border-color:var(--viola)}
 .range-sep{font-size:13px;color:var(--grigio-testo)}
 .range-slider{width:100%;accent-color:var(--viola);cursor:pointer}
@@ -103,7 +103,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .card-sottotipo{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--viola-dark);margin-bottom:5px}
 .card-loc{font-size:13px;color:var(--grigio-testo);display:flex;align-items:center;gap:4px;margin-bottom:10px}
 .card-loc svg{width:13px;height:13px;flex-shrink:0}
-.card-title{font-weight:600;font-size:15px;line-height:1.4;margin-bottom:14px;letter-spacing:-.01em}
+.card-title{font-weight:600;font-size:15px;line-height:1.4;margin-bottom:14px}
 .card-divider{height:1px;background:rgba(0,0,0,0.06);margin-bottom:14px}
 .card-foot{display:flex;align-items:flex-end;justify-content:space-between}
 .card-price-lbl{font-size:10px;color:var(--grigio-testo);text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
@@ -115,22 +115,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .cards-grid.list-view .card-img{aspect-ratio:auto;min-height:140px}
 .cards-grid.list-view .card-body{display:flex;flex-direction:column;justify-content:space-between;padding:16px 20px}
 
-/* LOADING / EMPTY */
+/* STATES */
 .loading-state{text-align:center;padding:80px 20px;color:var(--grigio-testo)}
 .loading-spinner{width:40px;height:40px;border:3px solid rgba(123,143,232,0.2);border-top-color:var(--viola);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 16px}
-@keyframes spin{to{transform:rotate(360deg)}}
 .empty-state{text-align:center;padding:80px 20px}
 .empty-state svg{width:56px;height:56px;color:rgba(123,143,232,0.25);margin-bottom:16px}
 .empty-state h4{font-size:18px;font-weight:700;margin-bottom:8px}
 .empty-state p{font-size:14px;color:var(--grigio-testo)}
-
-/* PAGINATION */
-.pagination{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:40px}
-.pg-btn{min-width:36px;height:36px;border-radius:8px;border:1.5px solid rgba(0,0,0,0.10);background:#fff;color:var(--testo-scuro);font-size:14px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:all .2s;display:flex;align-items:center;justify-content:center;padding:0 10px}
-.pg-btn:hover{border-color:var(--viola-light);color:var(--viola-dark)}
-.pg-btn.active{background:var(--viola);border-color:var(--viola);color:#fff}
-.pg-btn:disabled{opacity:.35;cursor:not-allowed}
-.pg-btn svg{width:16px;height:16px}
 
 /* COOKIE BANNER */
 .cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:999;background:#fff;border-top:1px solid rgba(0,0,0,0.1);box-shadow:0 -8px 40px rgba(0,0,0,0.12);padding:20px 5%;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
@@ -138,12 +129,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .cookie-text strong{color:var(--testo-scuro)}
 .cookie-text a{color:var(--viola-dark);text-decoration:none}
 .cookie-btns{display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap}
-.cookie-accept{background:var(--viola);color:#fff;border:none;border-radius:8px;padding:10px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:background .2s}
+.cookie-accept{background:var(--viola);color:#fff;border:none;border-radius:8px;padding:10px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif}
 .cookie-accept:hover{background:var(--viola-dark)}
-.cookie-reject{background:transparent;color:var(--grigio-testo);border:1.5px solid rgba(0,0,0,0.12);border-radius:8px;padding:9px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:all .2s}
-.cookie-reject:hover{border-color:var(--testo-scuro);color:var(--testo-scuro)}
+.cookie-reject{background:transparent;color:var(--grigio-testo);border:1.5px solid rgba(0,0,0,0.12);border-radius:8px;padding:9px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif}
 
-/* MOBILE */
+/* MOBILE FILTER BTN */
 .mob-filter-btn{display:none;position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--viola);color:#fff;border:none;border-radius:100px;padding:14px 28px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif;z-index:150;box-shadow:0 8px 32px rgba(123,143,232,0.45);align-items:center;gap:8px}
 .mob-filter-btn svg{width:18px;height:18px}
 
@@ -164,7 +154,7 @@ footer a:hover{color:rgba(255,255,255,.7)}
   .cards-grid.list-view .card-img{min-height:180px}
   .header-search{flex-wrap:wrap}
   .hs-field{border-right:none;border-bottom:var(--border)}
-  .hs-btn{width:100%;justify-content:center;padding:16px;border-radius:0}
+  .hs-btn{width:100%;justify-content:center;padding:16px}
   .cookie-banner{flex-direction:column;align-items:flex-start}
 }
 </style>
@@ -173,7 +163,7 @@ footer a:hover{color:rgba(255,255,255,.7)}
 
 <nav>
   <a href="/" class="nav-logo">
-    <div class="nav-logo-mark"><div class="nlb"></div></div>
+    <div class="nav-logo-mark"><img src="/uploads/icona.png" alt="Procedimento Aste"></div>
     <div class="nav-logo-text">Procedimento<span>Aste</span></div>
   </a>
   <ul class="nav-links">
@@ -192,7 +182,7 @@ footer a:hover{color:rgba(255,255,255,.7)}
   <div class="header-search">
     <div class="hs-field">
       <label>Tipologia</label>
-      <select id="filter-tipo">
+      <select id="filter-tipo" onchange="applyFilters()">
         <option value="">Tutti</option>
         <option value="Residenziale">Residenziale</option>
         <option value="Commerciale">Commerciale</option>
@@ -203,11 +193,11 @@ footer a:hover{color:rgba(255,255,255,.7)}
     </div>
     <div class="hs-field">
       <label>Città / Zona</label>
-      <input type="text" id="filter-citta" placeholder="Es. Arezzo, Firenze..."/>
+      <input type="text" id="filter-citta" placeholder="Es. Arezzo, Firenze..." oninput="applyFilters()"/>
     </div>
     <div class="hs-field" style="border-right:none">
       <label>Offerta massima</label>
-      <select id="filter-prezzo">
+      <select id="filter-prezzo" onchange="applyFilters()">
         <option value="">Nessun limite</option>
         <option value="50000">Fino a € 50.000</option>
         <option value="100000">Fino a € 100.000</option>
@@ -223,7 +213,6 @@ footer a:hover{color:rgba(255,255,255,.7)}
 </div>
 
 <div class="main-layout">
-  <!-- FILTRI SIDEBAR -->
   <aside class="filters-panel" id="filters-panel">
     <div class="filters-header">
       <h3>
@@ -239,9 +228,9 @@ footer a:hover{color:rgba(255,255,255,.7)}
     <div class="filter-group">
       <div class="fg-label">Offerta minima</div>
       <div class="range-inputs">
-        <input type="text" class="range-input" placeholder="Min €" id="price-min">
+        <input type="text" class="range-input" placeholder="Min €" id="price-min" oninput="applyFilters()">
         <span class="range-sep">—</span>
-        <input type="text" class="range-input" placeholder="Max €" id="price-max-input">
+        <input type="text" class="range-input" placeholder="Max €" id="price-max-input" oninput="applyFilters()">
       </div>
       <input type="range" class="range-slider" min="0" max="1000000" value="1000000" step="5000"
         oninput="document.getElementById('price-max-input').value='€ '+Number(this.value).toLocaleString('it-IT');applyFilters()">
@@ -252,7 +241,6 @@ footer a:hover{color:rgba(255,255,255,.7)}
     </div>
   </aside>
 
-  <!-- RISULTATI -->
   <div>
     <div class="results-toolbar">
       <div class="results-count"><strong id="results-num">—</strong> annunci trovati</div>
@@ -281,15 +269,14 @@ footer a:hover{color:rgba(255,255,255,.7)}
   </div>
 </div>
 
-<button class="mob-filter-btn" id="mob-btn" onclick="toggleMobileFilters()">
+<button class="mob-filter-btn" onclick="toggleMobileFilters()">
   <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
   Filtri
 </button>
 
-<!-- COOKIE BANNER -->
 <div class="cookie-banner" id="cookie-banner" style="display:none">
   <div class="cookie-text">
-    <strong>Questo sito utilizza cookie</strong> — Usiamo cookie tecnici necessari al funzionamento e, previo consenso, cookie analitici per migliorare l'esperienza. Consulta la <a href="cookie-policy.html">Cookie Policy</a> e la <a href="privacy-policy.html">Privacy Policy</a>.
+    <strong>Questo sito utilizza cookie</strong> — Usiamo cookie tecnici necessari al funzionamento e, previo consenso, cookie analitici. Consulta la <a href="cookie-policy.html">Cookie Policy</a> e la <a href="privacy-policy.html">Privacy Policy</a>.
   </div>
   <div class="cookie-btns">
     <button class="cookie-reject" onclick="setCookieConsent('rejected')">Solo necessari</button>
@@ -299,35 +286,37 @@ footer a:hover{color:rgba(255,255,255,.7)}
 
 <footer>
   <div class="footer-logo-sm">Procedimento<em>Aste</em></div>
-  <span>© 2025 · San Giovanni Valdarno (AR) · Arezzo (AR) · <a href="privacy-policy.html">Privacy</a> · <a href="cookie-policy.html">Cookie</a> · <a href="note-legali.html">Note legali</a></span>
+  <span>© 2025 · San Giovanni Valdarno · Arezzo · Figline Valdarno · <a href="privacy-policy.html">Privacy</a> · <a href="cookie-policy.html">Cookie</a> · <a href="note-legali.html">Note legali</a></span>
 </footer>
 
 <script>
-// Lista file annunci — aggiungere qui ogni nuovo annuncio creato dal CMS
-const ANNUNCI_FILES = [
-  'content/annunci/appartamento-via-roma-arezzo.json',
-  'content/annunci/locale-commerciale-arezzo.json',
-  'content/annunci/terreno-san-giovanni-valdarno.json'
-];
-
 let allAnnunci = [];
 let filteredAnnunci = [];
 
 async function loadAnnunci() {
   try {
-    const promises = ANNUNCI_FILES.map(f =>
-      fetch(f).then(r => r.ok ? r.json() : null).catch(() => null)
+    const manifest = await fetch('content/annunci-manifest.json').then(r => r.json());
+    const results = await Promise.all(
+      manifest.map(f => fetch(f).then(r => r.ok ? r.json() : null).catch(() => null))
     );
-    const results = await Promise.all(promises);
     allAnnunci = results
-      .map((a, i) => a ? { ...a, _file: ANNUNCI_FILES[i] } : null)
+      .map((a, i) => a ? { ...a, _file: manifest[i] } : null)
       .filter(a => a && a.pubblicato !== false);
     buildSidebarFilters();
+    applyUrlParams();
     applyFilters();
   } catch(e) {
     document.getElementById('cards-container').innerHTML =
-      '<div class="empty-state"><p>Nessun annuncio disponibile al momento.</p></div>';
+      '<div class="empty-state"><h4>Nessun annuncio disponibile</h4><p>Riprova più tardi.</p></div>';
   }
+}
+
+// Legge i parametri passati dalla ricerca in homepage
+function applyUrlParams() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('tipo')) document.getElementById('filter-tipo').value = params.get('tipo');
+  if (params.get('citta')) document.getElementById('filter-citta').value = params.get('citta');
+  if (params.get('prezzo')) document.getElementById('filter-prezzo').value = params.get('prezzo');
 }
 
 function buildSidebarFilters() {
@@ -347,12 +336,15 @@ function applyFilters() {
   const maxP = document.getElementById('filter-prezzo').value;
   const tipoChecked = [...document.querySelectorAll('#check-tipologie input:checked')].map(cb => cb.value);
   const cittaChecked = [...document.querySelectorAll('#check-citta input:checked')].map(cb => cb.value);
-  const maxPInput = document.getElementById('price-max-input').value.replace(/[^\d]/g, '');
+  const minPInput = (document.getElementById('price-min').value || '').replace(/[^\d]/g, '');
+  const maxPInput = (document.getElementById('price-max-input').value || '').replace(/[^\d]/g, '');
 
   filteredAnnunci = allAnnunci.filter(a => {
-    const okTipo = (!tipo || a.tipologia === tipo) && tipoChecked.includes(a.tipologia);
-    const okCitta = (!citta || a.citta.toLowerCase().includes(citta) || a.indirizzo.toLowerCase().includes(citta)) && cittaChecked.includes(a.citta);
-    const okPrezzo = (!maxP || a.offerta_minima <= Number(maxP)) && (!maxPInput || a.offerta_minima <= Number(maxPInput));
+    const okTipo = (!tipo || a.tipologia === tipo) && (tipoChecked.length === 0 || tipoChecked.includes(a.tipologia));
+    const okCitta = (!citta || a.citta.toLowerCase().includes(citta) || a.indirizzo.toLowerCase().includes(citta)) && (cittaChecked.length === 0 || cittaChecked.includes(a.citta));
+    const okPrezzo = (!maxP || a.offerta_minima <= Number(maxP))
+      && (!minPInput || a.offerta_minima >= Number(minPInput))
+      && (!maxPInput || a.offerta_minima <= Number(maxPInput));
     return okTipo && okCitta && okPrezzo;
   });
   renderCards();
@@ -363,7 +355,9 @@ function resetFilters() {
   document.getElementById('filter-tipo').value = '';
   document.getElementById('filter-citta').value = '';
   document.getElementById('filter-prezzo').value = '';
+  document.getElementById('price-min').value = '';
   document.getElementById('price-max-input').value = '';
+  history.replaceState(null, '', window.location.pathname);
   applyFilters();
 }
 
@@ -372,7 +366,7 @@ function renderCards() {
   let sorted = [...filteredAnnunci];
   if (sort === 'price-asc') sorted.sort((a, b) => a.offerta_minima - b.offerta_minima);
   if (sort === 'price-desc') sorted.sort((a, b) => b.offerta_minima - a.offerta_minima);
-  if (sort === 'recent') sorted.sort((a, b) => new Date(b.data_pubblicazione||0) - new Date(a.data_pubblicazione||0));
+  if (sort === 'recent') sorted.sort((a, b) => new Date(b.data_pubblicazione || 0) - new Date(a.data_pubblicazione || 0));
 
   document.getElementById('results-num').textContent = sorted.length;
   const isList = document.getElementById('list-btn').classList.contains('active');
@@ -387,9 +381,8 @@ function renderCards() {
     return;
   }
 
-  const gridClass = isList ? 'cards-grid list-view' : 'cards-grid';
   document.getElementById('cards-container').innerHTML =
-    `<div class="${gridClass}" id="cards-grid">${sorted.map(buildCard).join('')}</div>`;
+    `<div class="cards-grid${isList ? ' list-view' : ''}" id="cards-grid">${sorted.map(buildCard).join('')}</div>`;
 }
 
 function buildCard(a) {
@@ -415,7 +408,7 @@ function buildCard(a) {
             <div class="card-price-lbl">Offerta minima</div>
             <div class="card-price"><sup>€</sup>${Number(a.offerta_minima).toLocaleString('it-IT')}</div>
           </div>
-          <button class="card-action">Vedi →</button>
+          <span class="card-action">Vedi →</span>
         </div>
       </div>
     </a>`;
@@ -434,7 +427,6 @@ function toggleMobileFilters() {
   p.style.cssText = isOpen ? '' : 'display:block;position:fixed;inset:68px 0 0 0;z-index:150;overflow-y:auto;border-radius:0;';
 }
 
-// Cookie banner
 function setCookieConsent(val) {
   localStorage.setItem('cookie_consent', val);
   document.getElementById('cookie-banner').style.display = 'none';
