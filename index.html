@@ -12,7 +12,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --viola:#7C8EFC;--viola-dark:#5C72E8;--viola-light:#AAB7FD;--viola-bg:#EEF1FE;
-  --oro:#B8963E;--oro-light:#D4AF62;--rosso:#C0392B;--blu-scuro:#3D4F6B;
+  --oro:#B8963E;--oro-light:#D4AF62;--rosso:#C0392B;--blu-scuro:#213567;
   --grigio-chiaro:#F4F5FB;--grigio-testo:#6B7280;--testo-scuro:#1A1F36;
   --radius:12px;--radius-lg:20px;
 }
@@ -47,7 +47,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.35);color:#fff;border-radius:100px;padding:6px 16px;font-size:13px;font-weight:500;margin:24px 0}
 .hero-badge-dot{width:6px;height:6px;border-radius:50%;background:#FFE9B8;animation:pulse 2s infinite}
 .hero h1{font-size:clamp(28px,4vw,48px);color:#fff;line-height:1.15;margin-bottom:16px;font-weight:700;letter-spacing:-.02em}
-.hero h1 em{font-style:normal;color:#2E3B5E}
+.hero h1 em{font-style:normal;color:#213567}
 .hero-sub{color:rgba(255,255,255,0.92);font-size:17px;line-height:1.6;margin-bottom:40px;font-weight:300;max-width:560px}
 .search-box{background:#fff;border-radius:var(--radius-lg);padding:10px 10px 10px 20px;display:flex;align-items:center;gap:10px;box-shadow:0 20px 60px rgba(0,0,0,0.25);flex-wrap:wrap;width:100%}
 .search-field{flex:1;min-width:140px;display:flex;flex-direction:column;gap:2px;padding:8px 16px 8px 0;border-right:1px solid rgba(0,0,0,0.08)}
@@ -59,7 +59,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .search-btn svg{width:18px;height:18px}
 .hero-stats{display:flex;gap:40px;margin-top:40px;justify-content:center}
 .hero-stat-num{font-size:28px;font-weight:700;color:#fff;letter-spacing:-.02em}
-.hero-stat-num span{color:#2E3B5E}
+.hero-stat-num span{color:#213567}
 .hero-stat-lbl{font-size:12px;color:rgba(255,255,255,0.85);margin-top:2px}
 
 /* ===== SECTIONS ===== */
@@ -140,7 +140,7 @@ section{padding:80px 5%}
 .cta-banner::after{content:'';position:absolute;right:-40px;top:-60px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,0.12)}
 .cta-banner-text{position:relative;z-index:1}
 .cta-banner h2{font-size:32px;font-weight:700;color:#fff;margin-bottom:10px;letter-spacing:-.02em}
-.cta-banner h2 em{font-style:normal;color:#2E3B5E}
+.cta-banner h2 em{font-style:normal;color:#213567}
 .cta-banner p{color:rgba(255,255,255,0.9);font-size:16px}
 .cta-banner-btns{display:flex;gap:14px;flex-shrink:0;position:relative;z-index:1}
 .btn-primary{background:#fff;color:var(--viola-dark);border:none;border-radius:10px;padding:14px 28px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:background .2s;text-decoration:none;display:inline-block}
