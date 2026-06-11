@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Procedimento Aste — Immobili residenziali e commerciali all'asta in Toscana e in tutta Italia. Tre sedi: San Giovanni Valdarno, Arezzo, Figline Valdarno.">
 <title>Procedimento Aste — Immobili all'Asta</title>
+<link rel="icon" type="image/png" href="/uploads/icona.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -15,11 +18,13 @@
 }
 html{scroll-behavior:smooth}
 body{font-family:'Space Grotesk',sans-serif;color:var(--testo-scuro);background:#fff;overflow-x:hidden}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+@keyframes spin{to{transform:rotate(360deg)}}
 
-/* NAVBAR */
+/* ===== NAVBAR ===== */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(123,143,232,0.15);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;transition:box-shadow .3s}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-logo-mark{width:36px;height:36px;border-radius:9px;overflow:hidden;flex-shrink:0}
+.nav-logo-mark{width:38px;height:38px;border-radius:9px;overflow:hidden;flex-shrink:0}
 .nav-logo-mark img{width:100%;height:100%;object-fit:cover;display:block}
 .nav-logo-text{font-size:13px;font-weight:700;color:var(--testo-scuro);line-height:1.2;letter-spacing:-.01em}
 .nav-logo-text span{color:var(--viola-dark);display:block}
@@ -29,41 +34,35 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .nav-cta{background:var(--viola);color:#fff;border:none;border-radius:8px;padding:10px 22px;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;transition:background .2s}
 .nav-cta:hover{background:var(--viola-dark)}
 
-/* HERO */
+/* ===== HERO ===== */
 .hero{margin-top:68px;background:linear-gradient(145deg,var(--blu-scuro) 0%,#253048 50%,#1A2340 100%);min-height:90vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:80px 5% 60px;text-align:center}
-.hero-circle{position:absolute;border-radius:50%;opacity:.10}
+.hero-circle{position:absolute;border-radius:50%;opacity:.10;pointer-events:none}
 .hc1{width:700px;height:700px;background:var(--viola);top:-250px;right:-150px}
 .hc2{width:400px;height:400px;background:var(--oro);bottom:-150px;left:-50px}
 .hc3{width:250px;height:250px;background:var(--rosso);top:55%;right:20%}
 .hero-content{max-width:720px;position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
-
-/* LOGO HERO */
-.hero-logo{margin-bottom:36px;display:flex;flex-direction:column;align-items:center}
+.hero-logo{margin-bottom:32px;display:flex;flex-direction:column;align-items:center}
 .hero-logo img{width:clamp(220px,30vw,320px);border-radius:20px;box-shadow:0 24px 60px rgba(0,0,0,0.35);display:block}
-.hero-logo-divider{width:60px;height:2px;background:rgba(255,255,255,0.15);border-radius:2px;margin:20px 0 24px}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(184,150,62,0.18);border:1px solid rgba(184,150,62,0.35);color:var(--oro-light);border-radius:100px;padding:6px 16px;font-size:13px;font-weight:500;margin-bottom:24px}
+.hero-logo-divider{width:60px;height:2px;background:rgba(255,255,255,0.15);border-radius:2px;margin:24px 0 0}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(184,150,62,0.18);border:1px solid rgba(184,150,62,0.35);color:var(--oro-light);border-radius:100px;padding:6px 16px;font-size:13px;font-weight:500;margin:24px 0}
 .hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--oro-light);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
-@keyframes spin{to{transform:rotate(360deg)}}
 .hero h1{font-size:clamp(28px,4vw,48px);color:#fff;line-height:1.15;margin-bottom:16px;font-weight:700;letter-spacing:-.02em}
 .hero h1 em{font-style:normal;color:var(--viola-light)}
 .hero-sub{color:rgba(255,255,255,0.55);font-size:17px;line-height:1.6;margin-bottom:40px;font-weight:300;max-width:560px}
-
-/* SEARCH */
 .search-box{background:#fff;border-radius:var(--radius-lg);padding:10px 10px 10px 20px;display:flex;align-items:center;gap:10px;box-shadow:0 20px 60px rgba(0,0,0,0.25);flex-wrap:wrap;width:100%}
 .search-field{flex:1;min-width:140px;display:flex;flex-direction:column;gap:2px;padding:8px 16px 8px 0;border-right:1px solid rgba(0,0,0,0.08)}
 .search-field:last-of-type{border-right:none}
 .search-field label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--grigio-testo)}
-.search-field select,.search-field input{border:none;outline:none;font-size:14px;font-weight:500;color:var(--testo-scuro);background:transparent;font-family:'Space Grotesk',sans-serif;appearance:none;cursor:pointer}
+.search-field select,.search-field input{border:none;outline:none;font-size:14px;font-weight:500;color:var(--testo-scuro);background:transparent;font-family:'Space Grotesk',sans-serif;appearance:none;cursor:pointer;width:100%}
 .search-btn{background:var(--viola);color:#fff;border:none;border-radius:12px;padding:14px 28px;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px;transition:background .2s;white-space:nowrap;font-family:'Space Grotesk',sans-serif;text-decoration:none}
 .search-btn:hover{background:var(--viola-dark)}
 .search-btn svg{width:18px;height:18px}
 .hero-stats{display:flex;gap:40px;margin-top:40px;justify-content:center}
 .hero-stat-num{font-size:28px;font-weight:700;color:#fff;letter-spacing:-.02em}
 .hero-stat-num span{color:var(--oro-light)}
-.hero-stat-lbl{font-size:12px;color:rgba(255,255,255,0.45);margin-top:2px;font-weight:400}
+.hero-stat-lbl{font-size:12px;color:rgba(255,255,255,0.45);margin-top:2px}
 
-/* SECTIONS */
+/* ===== SECTIONS ===== */
 section{padding:80px 5%}
 .section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:44px}
 .section-eyebrow{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--viola-dark);margin-bottom:10px}
@@ -73,13 +72,7 @@ section{padding:80px 5%}
 .see-all svg{width:16px;height:16px;transition:transform .2s}
 .see-all:hover svg{transform:translateX(4px)}
 
-/* CHIPS */
-.filter-row{display:flex;gap:10px;margin-bottom:36px;flex-wrap:wrap}
-.chip{border:1.5px solid rgba(123,143,232,0.3);background:#fff;border-radius:100px;padding:8px 20px;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;color:var(--grigio-testo);font-family:'Space Grotesk',sans-serif}
-.chip:hover{border-color:var(--viola);color:var(--viola-dark)}
-.chip.active{background:var(--viola);border-color:var(--viola);color:#fff}
-
-/* ANNUNCI CARDS */
+/* ===== CARDS ===== */
 .annunci-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
 .card{background:#fff;border-radius:var(--radius-lg);border:1px solid rgba(0,0,0,0.07);overflow:hidden;transition:transform .25s,box-shadow .25s;cursor:pointer;text-decoration:none;color:inherit;display:block}
 .card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(61,79,107,0.15)}
@@ -92,9 +85,10 @@ section{padding:80px 5%}
 .badge-Commerciale{background:rgba(192,57,43,0.1);color:var(--rosso)}
 .badge-Terreno{background:rgba(184,150,62,0.12);color:#8a6c1a}
 .badge-Ufficio{background:rgba(61,79,107,0.1);color:var(--blu-scuro)}
+.badge-Garage{background:rgba(0,0,0,0.06);color:var(--grigio-testo)}
 .card-body{padding:20px 22px 22px}
 .card-location{font-size:12px;color:var(--grigio-testo);margin-bottom:6px;display:flex;align-items:center;gap:4px}
-.card-location svg{width:13px;height:13px}
+.card-location svg{width:13px;height:13px;flex-shrink:0}
 .card-title{font-weight:600;font-size:15px;line-height:1.4;margin-bottom:14px;letter-spacing:-.01em}
 .card-divider{height:1px;background:rgba(0,0,0,0.06);margin-bottom:16px}
 .card-footer{display:flex;align-items:flex-end;justify-content:space-between}
@@ -103,8 +97,10 @@ section{padding:80px 5%}
 .card-prezzo sup{font-size:13px;font-weight:600;vertical-align:super}
 .card-btn{background:var(--viola-bg);color:var(--viola-dark);border:none;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'Space Grotesk',sans-serif}
 .card-btn:hover{background:var(--viola);color:#fff}
+.loading-cell{grid-column:1/-1;text-align:center;padding:60px;color:var(--grigio-testo);font-size:14px}
+.loading-spinner{width:32px;height:32px;border:3px solid rgba(123,143,232,0.2);border-top-color:var(--viola);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 12px}
 
-/* COME FUNZIONA */
+/* ===== COME FUNZIONA ===== */
 .come-funziona{background:var(--grigio-chiaro)}
 .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
 .steps-grid::before{content:'';position:absolute;top:36px;left:calc(12.5% + 36px);right:calc(12.5% + 36px);height:2px;background:linear-gradient(90deg,var(--viola) 0%,var(--viola-light) 100%);z-index:0}
@@ -113,37 +109,33 @@ section{padding:80px 5%}
 .step:nth-child(1) .step-num{background:var(--viola);color:#fff;box-shadow:0 8px 24px rgba(123,143,232,0.4)}
 .step:nth-child(2) .step-num,.step:nth-child(3) .step-num{background:#fff;color:var(--viola-dark);border-color:var(--viola-light)}
 .step:nth-child(4) .step-num{background:var(--oro);color:#fff;box-shadow:0 8px 24px rgba(184,150,62,0.35)}
-.step-title{font-weight:700;font-size:15px;margin-bottom:8px;letter-spacing:-.01em}
+.step-title{font-weight:700;font-size:15px;margin-bottom:8px}
 .step-desc{font-size:13px;color:var(--grigio-testo);line-height:1.6}
 
-/* CONTATTI */
+/* ===== SEDI + CONTATTI ===== */
 .contatti-section{background:var(--grigio-chiaro)}
 .sedi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:24px}
 .sede-card{background:#fff;border-radius:var(--radius-lg);padding:28px;border:1px solid rgba(0,0,0,0.07);display:flex;gap:18px;align-items:flex-start;transition:box-shadow .2s}
 .sede-card:hover{box-shadow:0 8px 32px rgba(61,79,107,0.10)}
 .sede-pin{width:44px;height:44px;border-radius:12px;background:var(--viola-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .sede-pin svg{width:20px;height:20px;color:var(--viola-dark)}
-.sede-info{}
-.sede-citta{font-size:16px;font-weight:700;margin-bottom:2px;letter-spacing:-.01em}
+.sede-citta{font-size:16px;font-weight:700;margin-bottom:2px}
 .sede-prov{font-size:11px;font-weight:600;color:var(--viola-dark);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
 .sede-via{font-size:13px;color:var(--grigio-testo);line-height:1.5}
-/* Banner contatti unico */
 .contatti-banner{background:linear-gradient(120deg,var(--blu-scuro) 0%,#2A3550 100%);border-radius:var(--radius-lg);padding:32px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.contatti-banner-text h4{font-size:17px;font-weight:700;color:#fff;margin-bottom:4px;letter-spacing:-.01em}
+.contatti-banner-text h4{font-size:17px;font-weight:700;color:#fff;margin-bottom:4px}
 .contatti-banner-text p{font-size:13px;color:rgba(255,255,255,0.5)}
 .contatti-btn-row{display:flex;gap:12px;flex-wrap:wrap}
-.cbtn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;transition:all .2s;font-family:'Space Grotesk',sans-serif;border:none;white-space:nowrap}
+.cbtn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;transition:all .2s;border:none;white-space:nowrap}
+.cbtn svg{width:18px;height:18px;flex-shrink:0}
 .cbtn-wa{background:#25d366;color:#fff;box-shadow:0 4px 16px rgba(37,211,102,0.3)}
 .cbtn-wa:hover{background:#1da851}
-.cbtn-wa2{background:rgba(37,211,102,0.15);color:#4ade80;border:1px solid rgba(37,211,102,0.3)}
-.cbtn-wa2:hover{background:rgba(37,211,102,0.25)}
-.cbtn-em{background:rgba(123,143,232,0.2);color:var(--viola-light);border:1px solid rgba(123,143,232,0.35)}
-.cbtn-em:hover{background:rgba(123,143,232,0.32)}
 .cbtn-fb{background:rgba(29,78,216,0.4);color:#93c5fd;border:1px solid rgba(29,78,216,0.4)}
 .cbtn-fb:hover{background:rgba(29,78,216,0.55)}
-.cbtn svg{width:18px;height:18px;flex-shrink:0}
+.cbtn-em{background:rgba(123,143,232,0.2);color:var(--viola-light);border:1px solid rgba(123,143,232,0.35)}
+.cbtn-em:hover{background:rgba(123,143,232,0.32)}
 
-/* CTA BANNER */
+/* ===== CTA BANNER ===== */
 .cta-banner{background:linear-gradient(120deg,var(--blu-scuro) 0%,#2A3550 100%);border-radius:var(--radius-lg);padding:60px;display:flex;align-items:center;justify-content:space-between;gap:32px;position:relative;overflow:hidden}
 .cta-banner::after{content:'';position:absolute;right:-40px;top:-60px;width:300px;height:300px;border-radius:50%;background:rgba(123,143,232,0.15)}
 .cta-banner-text{position:relative;z-index:1}
@@ -156,7 +148,7 @@ section{padding:80px 5%}
 .btn-outline{background:transparent;color:rgba(255,255,255,0.85);border:1.5px solid rgba(255,255,255,0.25);border-radius:10px;padding:14px 28px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:border-color .2s;text-decoration:none;display:inline-block}
 .btn-outline:hover{border-color:rgba(255,255,255,0.6)}
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5% 36px}
 .footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;margin-bottom:48px}
 .footer-logo{display:flex;align-items:center;gap:10px}
@@ -181,7 +173,7 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:13px;flex-wrap:wrap;gap:8px}
 .footer-bottom a{color:rgba(255,255,255,0.4);text-decoration:none}
 
-/* COOKIE BANNER */
+/* ===== COOKIE BANNER ===== */
 .cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:999;background:#fff;border-top:1px solid rgba(0,0,0,0.1);box-shadow:0 -8px 40px rgba(0,0,0,0.12);padding:20px 5%;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
 .cookie-text{flex:1;min-width:260px;font-size:13px;color:var(--grigio-testo);line-height:1.5}
 .cookie-text strong{color:var(--testo-scuro)}
@@ -191,7 +183,7 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
 .cookie-accept:hover{background:var(--viola-dark)}
 .cookie-reject{background:transparent;color:var(--grigio-testo);border:1.5px solid rgba(0,0,0,0.12);border-radius:8px;padding:9px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif}
 
-/* RESPONSIVE */
+/* ===== RESPONSIVE ===== */
 @media(max-width:1024px){
   .steps-grid{grid-template-columns:repeat(2,1fr)}
   .steps-grid::before{display:none}
@@ -203,7 +195,6 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
   .nav-links{display:none}
   .hero{padding:60px 5% 50px}
   .hero-stats{gap:24px}
-  .hero-logo-a,.hero-logo-ste{font-size:52px}
   .search-box{flex-direction:column;padding:16px}
   .search-field{border-right:none;border-bottom:1px solid rgba(0,0,0,0.08);width:100%;padding:8px 0}
   .search-field:last-of-type{border-bottom:none}
@@ -211,6 +202,7 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
   .annunci-grid{grid-template-columns:1fr}
   .sedi-grid{grid-template-columns:1fr}
   .contatti-btn-row{flex-direction:column;width:100%}
+  .cbtn{justify-content:center}
   .cta-banner{flex-direction:column;padding:36px 28px}
   .cta-banner-btns{flex-direction:column;width:100%}
   .footer-top{grid-template-columns:1fr}
@@ -224,9 +216,7 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
 
 <nav id="main-nav">
   <a href="/" class="nav-logo">
-    <div class="nav-logo-mark">
-      <img src="/uploads/Icona_Procedimento_Aste_1_1.png" alt="Procedimento Aste">
-    </div>
+    <div class="nav-logo-mark"><img src="/uploads/icona.png" alt="Procedimento Aste"></div>
     <div class="nav-logo-text">Procedimento<span>Aste</span></div>
   </a>
   <ul class="nav-links">
@@ -237,14 +227,13 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
   <a href="procedimento-aste-lista.html" class="nav-cta">Vedi tutti gli annunci</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-circle hc1"></div>
   <div class="hero-circle hc2"></div>
   <div class="hero-circle hc3"></div>
   <div class="hero-content">
     <div class="hero-logo">
-      <img src="/uploads/Logo_Procedimento_Aste_1_1.png" alt="Procedimento Aste">
+      <img src="/uploads/logo.png" alt="Procedimento Aste">
       <div class="hero-logo-divider"></div>
     </div>
     <div class="hero-badge">
@@ -256,17 +245,30 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
     <div class="search-box">
       <div class="search-field">
         <label>Tipologia</label>
-        <select><option>Tutti gli immobili</option><option>Appartamento</option><option>Villa / Casa</option><option>Locale commerciale</option><option>Ufficio</option><option>Terreno</option></select>
+        <select id="hs-tipo">
+          <option value="">Tutti gli immobili</option>
+          <option value="Residenziale">Residenziale</option>
+          <option value="Commerciale">Commerciale</option>
+          <option value="Ufficio">Ufficio</option>
+          <option value="Terreno">Terreno</option>
+          <option value="Garage">Garage</option>
+        </select>
       </div>
       <div class="search-field">
         <label>Città / Zona</label>
-        <input type="text" placeholder="Es. Arezzo, Firenze..."/>
+        <input type="text" id="hs-citta" placeholder="Es. Arezzo, Firenze..."/>
       </div>
       <div class="search-field">
         <label>Offerta massima</label>
-        <select><option>Nessun limite</option><option>Fino a €50.000</option><option>Fino a €100.000</option><option>Fino a €200.000</option><option>Fino a €500.000</option></select>
+        <select id="hs-prezzo">
+          <option value="">Nessun limite</option>
+          <option value="50000">Fino a €50.000</option>
+          <option value="100000">Fino a €100.000</option>
+          <option value="200000">Fino a €200.000</option>
+          <option value="500000">Fino a €500.000</option>
+        </select>
       </div>
-      <a href="procedimento-aste-lista.html" class="search-btn">
+      <a href="procedimento-aste-lista.html" class="search-btn" id="hs-btn">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
         Cerca
       </a>
@@ -279,7 +281,6 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
   </div>
 </section>
 
-<!-- ANNUNCI IN EVIDENZA -->
 <section id="annunci">
   <div class="section-header">
     <div>
@@ -288,21 +289,14 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
     </div>
     <a href="procedimento-aste-lista.html" class="see-all">Vedi tutti <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
   </div>
-  <div class="filter-row">
-    <div class="chip active">Tutti</div>
-    <div class="chip">Residenziale</div>
-    <div class="chip">Commerciale</div>
-    <div class="chip">Terreni</div>
-  </div>
   <div class="annunci-grid" id="homepage-annunci">
-    <div style="grid-column:span 3;text-align:center;padding:60px;color:var(--grigio-testo);font-size:14px">
-      <div style="width:32px;height:32px;border:3px solid rgba(123,143,232,0.2);border-top-color:var(--viola);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 12px"></div>
+    <div class="loading-cell">
+      <div class="loading-spinner"></div>
       Caricamento annunci...
     </div>
   </div>
 </section>
 
-<!-- COME FUNZIONA -->
 <section class="come-funziona" id="come-funziona">
   <div style="text-align:center;margin-bottom:52px">
     <div class="section-eyebrow">Semplice e trasparente</div>
@@ -316,63 +310,52 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
   </div>
 </section>
 
-<!-- CONTATTI — 3 SEDI + BANNER CONTATTI -->
 <section class="contatti-section" id="contatti">
   <div style="text-align:center;margin-bottom:44px">
     <div class="section-eyebrow">Siamo qui per te</div>
     <div class="section-title">Le nostre <em>3 sedi</em></div>
   </div>
-
-  <!-- GRIGLIA SEDI -->
   <div class="sedi-grid">
     <div class="sede-card">
-      <div class="sede-pin">
-        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      </div>
-      <div class="sede-info">
+      <div class="sede-pin"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <div>
         <div class="sede-citta">San Giovanni Valdarno</div>
         <div class="sede-prov">AR · 52027</div>
         <div class="sede-via">Via Pier Sansoni n° 3</div>
       </div>
     </div>
     <div class="sede-card">
-      <div class="sede-pin">
-        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      </div>
-      <div class="sede-info">
+      <div class="sede-pin"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <div>
         <div class="sede-citta">Arezzo</div>
         <div class="sede-prov">AR · 52100</div>
         <div class="sede-via">Via Vittorio Veneto n° 83</div>
       </div>
     </div>
     <div class="sede-card">
-      <div class="sede-pin">
-        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      </div>
-      <div class="sede-info">
+      <div class="sede-pin"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <div>
         <div class="sede-citta">Figline Valdarno</div>
         <div class="sede-prov">FI · 50063</div>
         <div class="sede-via">Via Francesco Petrarca 19/E</div>
       </div>
     </div>
   </div>
-
-  <!-- BANNER CONTATTI UNICO -->
   <div class="contatti-banner">
     <div class="contatti-banner-text">
       <h4>Contattaci per ricevere informazioni</h4>
       <p>Siamo disponibili via WhatsApp, email e Facebook per qualsiasi sede.</p>
     </div>
     <div class="contatti-btn-row">
-      <a href="https://wa.me/393494547318" target="_blank" class="cbtn cbtn-wa">
+      <a href="https://wa.me/393494547318" target="_blank" rel="noopener" class="cbtn cbtn-wa">
         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         349 454 7318
       </a>
-      <a href="https://wa.me/393287014996" target="_blank" class="cbtn cbtn-wa">
+      <a href="https://wa.me/393287014996" target="_blank" rel="noopener" class="cbtn cbtn-wa">
         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         328 701 4996
       </a>
-      <a href="https://www.facebook.com/people/Procedimento-Aste/61557314746672/" target="_blank" class="cbtn cbtn-fb">
+      <a href="https://www.facebook.com/people/Procedimento-Aste/61557314746672/" target="_blank" rel="noopener" class="cbtn cbtn-fb">
         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
         Facebook
       </a>
@@ -384,7 +367,6 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
   </div>
 </section>
 
-<!-- CTA -->
 <section>
   <div class="cta-banner">
     <div class="cta-banner-text">
@@ -392,30 +374,27 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
       <p>Contattaci subito: ti assistiamo in ogni fase dell'asta.</p>
     </div>
     <div class="cta-banner-btns">
-      <a href="https://wa.me/393494547318" target="_blank" class="btn-primary">Scrivici su WhatsApp</a>
+      <a href="https://wa.me/393494547318" target="_blank" rel="noopener" class="btn-primary">Scrivici su WhatsApp</a>
       <a href="mailto:procedimentoaste@gmail.com" class="btn-outline">Invia una email</a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
       <div class="footer-logo">
-        <div class="footer-logo-mark">
-          <img src="/uploads/Icona_Procedimento_Aste_1_1.png" alt="Procedimento Aste">
-        </div>
+        <div class="footer-logo-mark"><img src="/uploads/icona.png" alt="Procedimento Aste"></div>
         <div class="footer-logo-text">Procedimento<span>Aste</span></div>
       </div>
       <p>Il riferimento per le aste immobiliari giudiziarie in Toscana e in tutta Italia. Tre sedi per assisterti di persona.</p>
       <div class="footer-contacts">
-        <a href="https://wa.me/393494547318" class="footer-contact-item"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.06a16 16 0 006.02 6.02l.42-.42a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>349 454 7318 (SGV · FI) · 328 701 4996 (AR)</a>
+        <a href="https://wa.me/393494547318" class="footer-contact-item"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.06a16 16 0 006.02 6.02l.42-.42a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>349 454 7318 · 328 701 4996</a>
         <a href="mailto:procedimentoaste@gmail.com" class="footer-contact-item"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>procedimentoaste@gmail.com</a>
       </div>
       <div class="social-row">
-        <a class="social-btn" href="https://www.facebook.com/people/Procedimento-Aste/61557314746672/" target="_blank"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-        <a class="social-btn" href="https://wa.me/393494547318" target="_blank"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        <a class="social-btn" href="https://www.facebook.com/people/Procedimento-Aste/61557314746672/" target="_blank" rel="noopener" title="Facebook"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a class="social-btn" href="https://wa.me/393494547318" target="_blank" rel="noopener" title="WhatsApp"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
       </div>
     </div>
     <div class="footer-col">
@@ -445,50 +424,108 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
   </div>
 </footer>
 
-<!-- COOKIE BANNER -->
 <div class="cookie-banner" id="cookie-banner" style="display:none">
   <div class="cookie-text">
     <strong>Questo sito utilizza cookie</strong> — Usiamo cookie tecnici necessari al funzionamento e, previo consenso, cookie analitici per migliorare l'esperienza. Consulta la <a href="cookie-policy.html">Cookie Policy</a> e la <a href="privacy-policy.html">Privacy Policy</a>.
   </div>
   <div class="cookie-btns">
-    <button class="cookie-reject" onclick="setCookie('rejected')">Solo necessari</button>
-    <button class="cookie-accept" onclick="setCookie('accepted')">Accetta tutti</button>
+    <button class="cookie-reject" onclick="setCookieConsent('rejected')">Solo necessari</button>
+    <button class="cookie-accept" onclick="setCookieConsent('accepted')">Accetta tutti</button>
   </div>
 </div>
 
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>
-if(window.netlifyIdentity){window.netlifyIdentity.on("init",function(u){if(!u){window.netlifyIdentity.on("login",function(){document.location.href="/admin/"})}})}
+// Netlify Identity redirect
+if (window.netlifyIdentity) {
+  window.netlifyIdentity.on("init", function(user) {
+    if (!user) {
+      window.netlifyIdentity.on("login", function() {
+        document.location.href = "/admin/";
+      });
+    }
+  });
+}
 
-function setCookie(val){localStorage.setItem('cookie_consent',val);document.getElementById('cookie-banner').style.display='none'}
-window.addEventListener('DOMContentLoaded',function(){
-  if(!localStorage.getItem('cookie_consent')){setTimeout(function(){document.getElementById('cookie-banner').style.display='flex'},800)}
+// Cookie banner
+function setCookieConsent(val) {
+  localStorage.setItem('cookie_consent', val);
+  document.getElementById('cookie-banner').style.display = 'none';
+}
+
+// Navbar shadow on scroll
+window.addEventListener('scroll', function() {
+  document.getElementById('main-nav').style.boxShadow =
+    window.scrollY > 20 ? '0 4px 20px rgba(0,0,0,0.08)' : 'none';
 });
 
-window.addEventListener('scroll',function(){document.getElementById('main-nav').style.boxShadow=window.scrollY>20?'0 4px 20px rgba(0,0,0,0.08)':'none'});
-document.querySelectorAll('.chip').forEach(function(c){c.addEventListener('click',function(){document.querySelectorAll('.chip').forEach(function(x){x.classList.remove('active')});this.classList.add('active')})});
+// Ricerca hero → passa i parametri alla pagina lista
+document.getElementById('hs-btn').addEventListener('click', function(e) {
+  e.preventDefault();
+  const params = new URLSearchParams();
+  const tipo = document.getElementById('hs-tipo').value;
+  const citta = document.getElementById('hs-citta').value.trim();
+  const prezzo = document.getElementById('hs-prezzo').value;
+  if (tipo) params.set('tipo', tipo);
+  if (citta) params.set('citta', citta);
+  if (prezzo) params.set('prezzo', prezzo);
+  const qs = params.toString();
+  window.location.href = 'procedimento-aste-lista.html' + (qs ? '?' + qs : '');
+});
 
-const ANNUNCI_FILES=['content/annunci/appartamento-via-roma-arezzo.json','content/annunci/locale-commerciale-arezzo.json','content/annunci/terreno-san-giovanni-valdarno.json'];
-async function loadHomeAnnunci(){
-  const container=document.getElementById('homepage-annunci');
-  try{
-    const results=await Promise.all(ANNUNCI_FILES.map(f=>fetch(f).then(r=>r.ok?r.json():null).catch(()=>null)));
-    const annunci=results.filter(a=>a&&a.pubblicato!==false).slice(0,3);
-    if(!annunci.length){container.innerHTML='<p style="color:var(--grigio-testo);text-align:center;padding:40px;grid-column:span 3">Nessun annuncio disponibile al momento.</p>';return}
-    container.innerHTML=annunci.map((a,i)=>{
-      const img=a.foto_copertina?`<img src="${a.foto_copertina}" alt="${a.titolo}" style="width:100%;height:100%;object-fit:cover">`:`<div class="card-img-inner"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>`;
-      return`<a href="procedimento-aste-dettaglio.html?id=${encodeURIComponent(ANNUNCI_FILES[i])}" class="card">
+// Annunci in evidenza — caricati dal manifest
+async function loadHomeAnnunci() {
+  const container = document.getElementById('homepage-annunci');
+  try {
+    const manifest = await fetch('content/annunci-manifest.json').then(r => r.json());
+    const results = await Promise.all(
+      manifest.map(f => fetch(f).then(r => r.ok ? r.json() : null).catch(() => null))
+    );
+    let annunci = results
+      .map((a, i) => a ? { ...a, _file: manifest[i] } : null)
+      .filter(a => a && a.pubblicato !== false);
+
+    // Prima quelli in evidenza, poi i più recenti — max 3
+    annunci.sort((a, b) => {
+      if (a.in_evidenza !== b.in_evidenza) return a.in_evidenza ? -1 : 1;
+      return new Date(b.data_pubblicazione || 0) - new Date(a.data_pubblicazione || 0);
+    });
+    annunci = annunci.slice(0, 3);
+
+    if (!annunci.length) {
+      container.innerHTML = '<p class="loading-cell">Nessun annuncio disponibile al momento.</p>';
+      return;
+    }
+
+    container.innerHTML = annunci.map(a => {
+      const img = a.foto_copertina
+        ? `<img src="${a.foto_copertina}" alt="${a.titolo}" loading="lazy">`
+        : `<div class="card-img-inner"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>`;
+      return `<a href="procedimento-aste-dettaglio.html?id=${encodeURIComponent(a._file)}" class="card">
         <div class="card-img">${img}<span class="card-badge badge-${a.tipologia}">${a.tipologia}</span></div>
         <div class="card-body">
           <div class="card-location"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>${a.indirizzo}, ${a.citta}</div>
           <div class="card-title">${a.titolo}</div>
           <div class="card-divider"></div>
-          <div class="card-footer"><div><div class="card-prezzo-lbl">Offerta minima</div><div class="card-prezzo"><sup>€</sup>${Number(a.offerta_minima).toLocaleString('it-IT')}</div></div><button class="card-btn">Vedi →</button></div>
+          <div class="card-footer">
+            <div><div class="card-prezzo-lbl">Offerta minima</div><div class="card-prezzo"><sup>€</sup>${Number(a.offerta_minima).toLocaleString('it-IT')}</div></div>
+            <span class="card-btn">Vedi →</span>
+          </div>
         </div></a>`;
     }).join('');
-  }catch(e){container.innerHTML=''}
+  } catch(e) {
+    container.innerHTML = '<p class="loading-cell">Nessun annuncio disponibile al momento.</p>';
+  }
 }
-loadHomeAnnunci();
+
+window.addEventListener('DOMContentLoaded', function() {
+  if (!localStorage.getItem('cookie_consent')) {
+    setTimeout(function() {
+      document.getElementById('cookie-banner').style.display = 'flex';
+    }, 800);
+  }
+  loadHomeAnnunci();
+});
 </script>
 </body>
 </html>
