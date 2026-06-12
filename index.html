@@ -183,6 +183,21 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
 .cookie-accept:hover{background:var(--viola-dark)}
 .cookie-reject{background:transparent;color:var(--grigio-testo);border:1.5px solid rgba(0,0,0,0.12);border-radius:8px;padding:9px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif}
 
+
+/* ===== DROPDOWN CUSTOM ===== */
+.cselect{position:relative;width:100%}
+.cselect-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;border:none;background:transparent;font-size:14px;font-weight:500;color:var(--testo-scuro);font-family:'Space Grotesk',sans-serif;cursor:pointer;padding:0;text-align:left}
+.cselect-btn svg{width:14px;height:14px;color:var(--grigio-testo);transition:transform .2s;flex-shrink:0}
+.cselect.open .cselect-btn svg{transform:rotate(180deg)}
+.cselect-panel{position:absolute;top:calc(100% + 14px);left:-12px;min-width:calc(100% + 24px);background:#fff;border-radius:12px;border:1px solid rgba(0,0,0,0.08);box-shadow:0 16px 48px rgba(33,53,103,0.22);padding:6px;z-index:300;display:none;max-height:280px;overflow-y:auto}
+.cselect.open .cselect-panel{display:block;animation:dropIn .15s ease}
+@keyframes dropIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.cselect-opt{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;border-radius:8px;font-size:14px;font-weight:500;color:var(--testo-scuro);cursor:pointer;transition:background .15s;white-space:nowrap}
+.cselect-opt:hover{background:var(--viola-bg)}
+.cselect-opt.selected{color:var(--viola-dark);font-weight:600;background:var(--viola-bg)}
+.cselect-opt .check{width:16px;height:16px;color:var(--viola-dark);opacity:0;flex-shrink:0}
+.cselect-opt.selected .check{opacity:1}
+
 /* ===== RESPONSIVE ===== */
 @media(max-width:1024px){
   .steps-grid{grid-template-columns:repeat(2,1fr)}
@@ -518,7 +533,65 @@ async function loadHomeAnnunci() {
   }
 }
 
+
+// ===== DROPDOWN CUSTOM =====
+function enhanceSelect(sel) {
+  const wrap = document.createElement('div');
+  wrap.className = 'cselect';
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'cselect-btn';
+  const label = document.createElement('span');
+  const chev = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  chev.setAttribute('fill', 'none');
+  chev.setAttribute('viewBox', '0 0 24 24');
+  chev.setAttribute('stroke', 'currentColor');
+  chev.setAttribute('stroke-width', '2.5');
+  chev.innerHTML = '<polyline points="6 9 12 15 18 9"/>';
+  btn.appendChild(label);
+  btn.appendChild(chev);
+  const panel = document.createElement('div');
+  panel.className = 'cselect-panel';
+
+  function rebuild() {
+    label.textContent = sel.options[sel.selectedIndex].text;
+    panel.innerHTML = '';
+    [...sel.options].forEach((opt, i) => {
+      const row = document.createElement('div');
+      row.className = 'cselect-opt' + (i === sel.selectedIndex ? ' selected' : '');
+      row.innerHTML = '<span>' + opt.text + '</span><svg class="check" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>';
+      row.addEventListener('click', function(e) {
+        e.stopPropagation();
+        sel.selectedIndex = i;
+        sel.dispatchEvent(new Event('change'));
+        rebuild();
+        wrap.classList.remove('open');
+      });
+      panel.appendChild(row);
+    });
+  }
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    document.querySelectorAll('.cselect.open').forEach(c => { if (c !== wrap) c.classList.remove('open'); });
+    wrap.classList.toggle('open');
+  });
+  rebuild();
+  wrap.appendChild(btn);
+  wrap.appendChild(panel);
+  sel.style.display = 'none';
+  sel.parentNode.insertBefore(wrap, sel);
+  sel.addEventListener('change', rebuild);
+}
+document.addEventListener('click', function() {
+  document.querySelectorAll('.cselect.open').forEach(c => c.classList.remove('open'));
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') document.querySelectorAll('.cselect.open').forEach(c => c.classList.remove('open'));
+});
+
 window.addEventListener('DOMContentLoaded', function() {
+  enhanceSelect(document.getElementById('hs-tipo'));
+  enhanceSelect(document.getElementById('hs-prezzo'));
   if (!localStorage.getItem('cookie_consent')) {
     setTimeout(function() {
       document.getElementById('cookie-banner').style.display = 'flex';
