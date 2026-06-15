@@ -5,6 +5,8 @@ backend:
 media_folder: "uploads"
 public_folder: "/uploads"
 
+locale: "it"
+
 collections:
   - name: "annunci"
     label: "Annunci Immobili"
@@ -13,11 +15,13 @@ collections:
     create: true
     slug: "{{slug}}"
     identifier_field: "titolo"
+    summary: "{{sottotipologia}} — {{citta}} — € {{offerta_minima}}"
     fields:
       - label: "Pubblica annuncio"
         name: "pubblicato"
         widget: "boolean"
         default: true
+
       - label: "Tipologia"
         name: "tipologia"
         widget: "select"
@@ -27,36 +31,72 @@ collections:
           - "Ufficio"
           - "Terreno"
           - "Garage"
+
       - label: "Sottotipologia"
         name: "sottotipologia"
         widget: "string"
+        hint: "Es: Appartamento, Villa, Negozio, Terratetto..."
+
       - label: "Titolo annuncio"
         name: "titolo"
         widget: "string"
+
       - label: "Indirizzo"
         name: "indirizzo"
         widget: "string"
+
       - label: "Citta"
         name: "citta"
         widget: "string"
+
       - label: "Provincia"
         name: "provincia"
         widget: "string"
         default: "AR"
+
       - label: "CAP"
         name: "cap"
         widget: "string"
         required: false
+
       - label: "Offerta minima (euro)"
         name: "offerta_minima"
         widget: "number"
+        value_type: "int"
+
       - label: "Descrizione"
         name: "descrizione"
         widget: "text"
+
       - label: "Foto copertina"
         name: "foto_copertina"
         widget: "image"
         required: false
+        media_folder: "/uploads"
+        public_folder: "/uploads"
+        hint: "La foto principale che appare nelle liste e come prima foto del carosello"
+
+      - label: "Galleria foto (carosello)"
+        name: "galleria"
+        widget: "list"
+        required: false
+        label_singular: "Foto"
+        summary: "{{fields.image}}"
+        field:
+          label: "Foto"
+          name: "image"
+          widget: "image"
+          media_folder: "/uploads"
+          public_folder: "/uploads"
+        hint: "Aggiungi qui tutte le altre foto dell'immobile per il carosello nella pagina dettaglio"
+
+      - label: "Data pubblicazione"
+        name: "data_pubblicazione"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        required: false
+
       - label: "In evidenza"
         name: "in_evidenza"
         widget: "boolean"
