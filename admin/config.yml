@@ -13,6 +13,8 @@ collections:
     label_singular: "Annuncio"
     folder: "content/annunci"
     create: true
+    extension: "json"
+format: "json"
     slug: "{{slug}}"
     identifier_field: "titolo"
     summary: "{{sottotipologia}} — {{citta}} — € {{offerta_minima}}"
