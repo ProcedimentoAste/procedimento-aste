@@ -45,6 +45,7 @@ descrizione: >-
   Superficie complessiva mq. 152,91
 foto_copertina: /uploads/1.jpg
 galleria:
+  - /uploads/2.jpg
   - /uploads/3.jpg
 in_evidenza: false
 ---
