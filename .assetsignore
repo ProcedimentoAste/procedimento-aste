@@ -1,0 +1,9 @@
+.git
+   .git/**
+   .gitignore
+   wrangler.jsonc
+   .wrangler
+   .wrangler/**
+   netlify.toml
+   GUIDA.html
+   uploads/placeholder.txt
