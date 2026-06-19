@@ -315,7 +315,7 @@ let MANIFEST = [];
 async function loadDetail() {
   // Carica il manifest
   try {
-    MANIFEST = await fetch('content/annunci-manifest.json').then(r => r.json());
+    MANIFEST = await fetch('/api/annunci').then(r => r.json());
   } catch(e) { MANIFEST = []; }
 
   const params = new URLSearchParams(window.location.search);
