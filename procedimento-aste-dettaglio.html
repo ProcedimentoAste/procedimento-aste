@@ -32,7 +32,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .full-width-content{margin-top:44px}
 .carousel-track-wrap{overflow:hidden}
 .carousel-track{display:flex;transition:transform .4s ease}
-.carousel-slide{min-width:100%;aspect-ratio:3/2;max-height:70vh;position:relative;flex-shrink:0;background:linear-gradient(145deg,#2A3550,var(--blu-scuro));display:flex;align-items:center;justify-content:center}
+.carousel-slide{min-width:100%;aspect-ratio:3/2;position:relative;flex-shrink:0;background:#0f1729;display:flex;align-items:center;justify-content:center}
 .carousel-slide img{width:100%;height:100%;object-fit:contain;display:block}
 .slide-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:rgba(255,255,255,0.15);font-size:14px;background:linear-gradient(145deg,#2A3550,var(--blu-scuro))}
 .slide-placeholder svg{width:64px;height:64px}
@@ -48,8 +48,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .tipo-badge-hero{position:absolute;top:16px;left:20px;border-radius:7px;padding:5px 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;background:var(--viola-bg);color:var(--viola-dark);z-index:5}
 
 /* LAYOUT */
-.page-layout{max-width:1160px;margin:0 auto;padding:44px 5% 120px;margin-top:68px}
-.top-row{display:grid;grid-template-columns:1fr 340px;gap:48px;align-items:start}
+.page-layout{max-width:1280px;margin:0 auto;padding:44px 5% 120px;margin-top:68px}
+.top-row{display:grid;grid-template-columns:1fr 380px;gap:32px;align-items:start}
 .top-left{min-width:0}
 .prop-title{font-size:clamp(22px,3vw,34px);font-weight:700;line-height:1.15;margin-bottom:14px;letter-spacing:-.02em}
 .prop-loc{display:flex;align-items:center;gap:6px;color:var(--grigio-testo);font-size:15px;margin-bottom:32px}
@@ -185,6 +185,24 @@ footer a{color:rgba(255,255,255,0.4);text-decoration:none}
           <div class="carousel-counter" id="carousel-counter">1 / 1</div>
         </div>
       </div>
+
+      <!-- TITOLO + DESCRIZIONE sotto le foto, nella colonna sinistra -->
+      <h1 class="prop-title" id="prop-title" style="margin-top:28px">—</h1>
+      <div class="prop-loc">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span id="prop-loc">—</span>
+      </div>
+      <div class="section-block" style="margin-top:32px">
+        <h3>Descrizione dell'immobile</h3>
+        <div class="desc-text" id="prop-desc"></div>
+      </div>
+      <div class="section-block" id="correlati-block">
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:20px">
+          <h3 style="margin-bottom:0;border-bottom:none;padding-bottom:0">Annunci simili</h3>
+          <a href="procedimento-aste-lista.html" style="font-size:13px;font-weight:600;color:var(--viola-dark);text-decoration:none">Vedi tutti →</a>
+        </div>
+        <div class="correlati-grid" id="correlati-grid"></div>
+      </div>
     </div>
 
     <aside class="sidebar">
@@ -229,26 +247,6 @@ footer a{color:rgba(255,255,255,0.4);text-decoration:none}
         </div>
       </div>
     </aside>
-  </div>
-
-  <!-- TITOLO + DESCRIZIONE a tutta larghezza, sotto foto e box -->
-  <div class="full-width-content">
-    <h1 class="prop-title" id="prop-title">—</h1>
-    <div class="prop-loc">
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      <span id="prop-loc">—</span>
-    </div>
-    <div class="section-block" style="margin-top:32px">
-      <h3>Descrizione dell'immobile</h3>
-      <div class="desc-text" id="prop-desc"></div>
-    </div>
-    <div class="section-block" id="correlati-block">
-      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:20px">
-        <h3 style="margin-bottom:0;border-bottom:none;padding-bottom:0">Annunci simili</h3>
-        <a href="procedimento-aste-lista.html" style="font-size:13px;font-weight:600;color:var(--viola-dark);text-decoration:none">Vedi tutti →</a>
-      </div>
-      <div class="correlati-grid" id="correlati-grid"></div>
-    </div>
   </div>
 </div>
 
