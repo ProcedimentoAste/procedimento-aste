@@ -352,7 +352,7 @@ async function loadDetail() {
   function addPhoto(src) {
     if (src && !seen.has(src)) {
       seen.add(src);
-      slides.push(`<img src="${src}" alt="${data.titolo}" loading="lazy">`);
+      slides.push(`<img src="${src}" alt="${data.titolo}">`);
     }
   }
   addPhoto(data.foto_copertina);
