@@ -28,7 +28,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .nav-cta:hover{background:var(--viola-dark)}
 
 /* CAROSELLO */
-.carousel-section{margin-top:68px;position:relative;background:var(--testo-scuro);overflow:hidden}
+.carousel-section{margin-top:0;position:relative;background:var(--testo-scuro);overflow:hidden;border-radius:var(--radius-lg)}
+.full-width-content{margin-top:44px}
 .carousel-track-wrap{overflow:hidden}
 .carousel-track{display:flex;transition:transform .4s ease}
 .carousel-slide{min-width:100%;aspect-ratio:3/2;max-height:70vh;position:relative;flex-shrink:0;background:linear-gradient(145deg,#2A3550,var(--blu-scuro));display:flex;align-items:center;justify-content:center}
@@ -47,7 +48,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .tipo-badge-hero{position:absolute;top:16px;left:20px;border-radius:7px;padding:5px 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;background:var(--viola-bg);color:var(--viola-dark);z-index:5}
 
 /* LAYOUT */
-.page-layout{max-width:1160px;margin:0 auto;padding:44px 5% 120px}
+.page-layout{max-width:1160px;margin:0 auto;padding:44px 5% 120px;margin-top:68px}
 .top-row{display:grid;grid-template-columns:1fr 340px;gap:48px;align-items:start}
 .top-left{min-width:0}
 .prop-title{font-size:clamp(22px,3vw,34px);font-weight:700;line-height:1.15;margin-bottom:14px;letter-spacing:-.02em}
@@ -160,47 +161,29 @@ footer a{color:rgba(255,255,255,0.4);text-decoration:none}
   <a href="procedimento-aste-lista.html" class="nav-cta">Tutti gli annunci</a>
 </nav>
 
-<div class="carousel-section" id="carousel-section">
-  <div class="loading-state" id="carousel-loading">
-    <div class="loading-spinner"></div>
-    <p>Caricamento...</p>
-  </div>
-  <div style="display:none" id="carousel-wrap">
-    <div class="carousel-track-wrap">
-      <div class="carousel-track" id="carousel-track"></div>
-    </div>
-    <div class="tipo-badge-hero" id="tipo-badge">—</div>
-    <button class="carousel-btn carousel-prev" id="btn-prev" onclick="prevSlide()" aria-label="Foto precedente">
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-    </button>
-    <button class="carousel-btn carousel-next" id="btn-next" onclick="nextSlide()" aria-label="Foto successiva">
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-    </button>
-    <div class="carousel-dots" id="carousel-dots"></div>
-    <div class="carousel-counter" id="carousel-counter">1 / 1</div>
-  </div>
-</div>
-
 <div class="page-layout" id="page-layout" style="display:none">
-  <!-- RIGA SUPERIORE: titolo a sx, box contatti a dx -->
+  <!-- RIGA SUPERIORE: carosello a sx, box contatti a dx -->
   <div class="top-row">
     <div class="top-left">
-      <h1 class="prop-title" id="prop-title">—</h1>
-      <div class="prop-loc">
-        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span id="prop-loc">—</span>
-      </div>
-      <!-- DESCRIZIONE full-width sotto il titolo -->
-      <div class="section-block" style="margin-top:32px">
-        <h3>Descrizione dell'immobile</h3>
-        <div class="desc-text" id="prop-desc"></div>
-      </div>
-      <div class="section-block" id="correlati-block">
-        <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:20px">
-          <h3 style="margin-bottom:0;border-bottom:none;padding-bottom:0">Annunci simili</h3>
-          <a href="procedimento-aste-lista.html" style="font-size:13px;font-weight:600;color:var(--viola-dark);text-decoration:none">Vedi tutti →</a>
+      <div class="carousel-section" id="carousel-section">
+        <div class="loading-state" id="carousel-loading">
+          <div class="loading-spinner"></div>
+          <p>Caricamento...</p>
         </div>
-        <div class="correlati-grid" id="correlati-grid"></div>
+        <div style="display:none" id="carousel-wrap">
+          <div class="carousel-track-wrap">
+            <div class="carousel-track" id="carousel-track"></div>
+          </div>
+          <div class="tipo-badge-hero" id="tipo-badge">—</div>
+          <button class="carousel-btn carousel-prev" id="btn-prev" onclick="prevSlide()" aria-label="Foto precedente">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="carousel-btn carousel-next" id="btn-next" onclick="nextSlide()" aria-label="Foto successiva">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <div class="carousel-dots" id="carousel-dots"></div>
+          <div class="carousel-counter" id="carousel-counter">1 / 1</div>
+        </div>
       </div>
     </div>
 
@@ -246,6 +229,26 @@ footer a{color:rgba(255,255,255,0.4);text-decoration:none}
         </div>
       </div>
     </aside>
+  </div>
+
+  <!-- TITOLO + DESCRIZIONE a tutta larghezza, sotto foto e box -->
+  <div class="full-width-content">
+    <h1 class="prop-title" id="prop-title">—</h1>
+    <div class="prop-loc">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span id="prop-loc">—</span>
+    </div>
+    <div class="section-block" style="margin-top:32px">
+      <h3>Descrizione dell'immobile</h3>
+      <div class="desc-text" id="prop-desc"></div>
+    </div>
+    <div class="section-block" id="correlati-block">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:20px">
+        <h3 style="margin-bottom:0;border-bottom:none;padding-bottom:0">Annunci simili</h3>
+        <a href="procedimento-aste-lista.html" style="font-size:13px;font-weight:600;color:var(--viola-dark);text-decoration:none">Vedi tutti →</a>
+      </div>
+      <div class="correlati-grid" id="correlati-grid"></div>
+    </div>
   </div>
 </div>
 
