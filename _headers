@@ -1,0 +1,20 @@
+/uploads/*.jfif
+  Content-Type: image/jpeg
+
+/uploads/*.jpg
+  Content-Type: image/jpeg
+
+/uploads/*.jpeg
+  Content-Type: image/jpeg
+
+/uploads/*.JPG
+  Content-Type: image/jpeg
+
+/uploads/*.png
+  Content-Type: image/png
+
+/uploads/*.PNG
+  Content-Type: image/png
+
+/uploads/*.webp
+  Content-Type: image/webp
