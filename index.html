@@ -6,224 +6,228 @@
 <meta name="description" content="Procedimento Aste — Immobili residenziali e commerciali all'asta in Toscana e in tutta Italia. Tre sedi: San Giovanni Valdarno, Arezzo, Figline Valdarno.">
 <title>Procedimento Aste — Immobili all'Asta</title>
 <link rel="icon" type="image/png" href="/uploads/icona.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts/fonts.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --viola:#7C8EFC;--viola-dark:#5C72E8;--viola-light:#AAB7FD;--viola-bg:#EEF1FE;
   --oro:#B8963E;--oro-light:#D4AF62;--rosso:#C0392B;--blu-scuro:#213567;
   --grigio-chiaro:#F4F5FB;--grigio-testo:#6B7280;--testo-scuro:#1A1F36;
-  --radius:12px;--radius-lg:20px;
+  --radius:16px;--radius-lg:22px;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Space Grotesk',sans-serif;color:var(--testo-scuro);background:#fff;overflow-x:hidden}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+body{font-family:'Space Grotesk',sans-serif;color:var(--testo-scuro);background:#F7F8FE;line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes floatSlow{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-24px)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 @keyframes spin{to{transform:rotate(360deg)}}
+.rise{animation:rise .7s cubic-bezier(.2,.8,.2,1) both}
 
-/* ===== NAVBAR ===== */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(123,143,232,0.15);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;transition:box-shadow .3s}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-logo-mark{width:38px;height:38px;border-radius:9px;overflow:hidden;flex-shrink:0}
+/* ===== NAV (glass pill) ===== */
+nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:100;width:min(1180px,92%);display:flex;align-items:center;justify-content:space-between;padding:11px 12px 11px 20px;background:rgba(255,255,255,.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.6);border-radius:100px;box-shadow:0 12px 40px -14px rgba(33,53,103,.28);transition:box-shadow .3s}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-mark{width:34px;height:34px;border-radius:9px;overflow:hidden;flex-shrink:0}
 .nav-logo-mark img{width:100%;height:100%;object-fit:cover;display:block}
-.nav-logo-text{font-size:13px;font-weight:700;color:var(--testo-scuro);line-height:1.2;letter-spacing:-.01em}
-.nav-logo-text span{color:var(--viola-dark);display:block}
-.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
-.nav-links a{text-decoration:none;color:var(--grigio-testo);font-size:14px;font-weight:500;transition:color .2s}
+.nav-logo-text{font-size:14px;font-weight:700;color:var(--testo-scuro);line-height:1.1;letter-spacing:-.01em}
+.nav-logo-text span{color:var(--viola-dark)}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-size:14px;font-weight:500;color:var(--grigio-testo);transition:color .2s}
 .nav-links a:hover{color:var(--viola-dark)}
-.nav-cta{background:var(--viola);color:#fff;border:none;border-radius:8px;padding:10px 22px;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;transition:background .2s}
-.nav-cta:hover{background:var(--viola-dark)}
+.nav-cta{background:var(--viola);color:#fff;border-radius:100px;padding:11px 22px;font-size:14px;font-weight:600;box-shadow:0 8px 20px -6px rgba(124,142,252,.7);transition:.2s}
+.nav-cta:hover{background:var(--viola-dark);transform:translateY(-2px)}
 
 /* ===== HERO ===== */
-.hero{margin-top:68px;background:linear-gradient(145deg,#93A2F8 0%,#7C8EFC 50%,#6E81F4 100%);min-height:90vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:80px 5% 60px;text-align:center}
-.hero-circle{position:absolute;border-radius:50%;opacity:.10;pointer-events:none}
-.hc1{width:700px;height:700px;background:var(--blu-scuro);top:-250px;right:-150px}
-.hc2{width:400px;height:400px;background:var(--oro);bottom:-150px;left:-50px}
-.hc3{width:250px;height:250px;background:var(--rosso);top:55%;right:20%}
-.hero-content{max-width:720px;position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
-.hero-logo{margin-bottom:24px;display:flex;flex-direction:column;align-items:center}
-.hero-logo img{width:min(92vw,720px);aspect-ratio:16/9;object-fit:contain;display:block;filter:drop-shadow(0 8px 24px rgba(46,59,94,0.25))}
-.hero-logo-divider{width:60px;height:2px;background:rgba(255,255,255,0.35);border-radius:2px;margin:8px 0 0}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.35);color:#fff;border-radius:100px;padding:6px 16px;font-size:13px;font-weight:500;margin:24px 0}
-.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:#FFE9B8;animation:pulse 2s infinite}
-.hero h1{font-size:clamp(28px,4vw,48px);color:#fff;line-height:1.15;margin-bottom:16px;font-weight:700;letter-spacing:-.02em}
-.hero h1 em{font-style:normal;color:#213567}
-.hero-sub{color:rgba(255,255,255,0.92);font-size:17px;line-height:1.6;margin-bottom:40px;font-weight:300;max-width:560px}
-.search-box{background:#fff;border-radius:var(--radius-lg);padding:10px 10px 10px 20px;display:flex;align-items:center;gap:10px;box-shadow:0 20px 60px rgba(0,0,0,0.25);flex-wrap:wrap;width:100%}
-.search-field{flex:1;min-width:140px;display:flex;flex-direction:column;gap:2px;padding:8px 16px 8px 0;border-right:1px solid rgba(0,0,0,0.08)}
-.search-field:last-of-type{border-right:none}
-.search-field label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--grigio-testo)}
-.search-field select,.search-field input{border:none;outline:none;font-size:14px;font-weight:500;color:var(--testo-scuro);background:transparent;font-family:'Space Grotesk',sans-serif;appearance:none;cursor:pointer;width:100%}
-.search-btn{background:var(--viola);color:#fff;border:none;border-radius:12px;padding:14px 28px;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px;transition:background .2s;white-space:nowrap;font-family:'Space Grotesk',sans-serif;text-decoration:none}
-.search-btn:hover{background:var(--viola-dark)}
-.search-btn svg{width:18px;height:18px}
-.hero-stats{display:flex;gap:40px;margin-top:40px;justify-content:center}
-.hero-stat-num{font-size:28px;font-weight:700;color:#fff;letter-spacing:-.02em}
-.hero-stat-num span{color:#213567}
-.hero-stat-lbl{font-size:12px;color:rgba(255,255,255,0.85);margin-top:2px}
+.hero{position:relative;padding:120px 6% 200px;text-align:center;overflow:hidden;background:linear-gradient(160deg,#93A2F8 0%,#7C8EFC 45%,#6E81F4 100%)}
+.blob{position:absolute;border-radius:50%;filter:blur(10px);pointer-events:none}
+.b1{width:520px;height:520px;background:var(--blu-scuro);top:-180px;right:-120px;opacity:.4;animation:floatSlow 16s ease-in-out infinite}
+.b2{width:360px;height:360px;background:var(--oro);bottom:-120px;left:-80px;opacity:.28;animation:floatSlow 20s ease-in-out infinite reverse}
+.b3{width:200px;height:200px;background:var(--rosso);top:42%;left:12%;opacity:.20;animation:float 10s ease-in-out infinite}
+.hero-inner{position:relative;z-index:3;max-width:840px;margin:0 auto;display:flex;flex-direction:column;align-items:center}
+.hero-logo{width:min(560px,82vw);margin-bottom:26px}
+.hero-logo img{width:100%;aspect-ratio:16/9;object-fit:contain;display:block;filter:drop-shadow(0 14px 34px rgba(33,53,103,.32))}
+.pill{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.42);color:#fff;padding:8px 18px;border-radius:100px;font-size:13px;font-weight:500;margin-bottom:22px}
+.pill .dot{width:7px;height:7px;border-radius:50%;background:#FFE9B8;animation:pulse 2s infinite}
+.hero h1{font-size:clamp(34px,5vw,58px);line-height:1.08;letter-spacing:-.03em;color:#fff;font-weight:700}
+.hero h1 em{font-style:normal;color:var(--blu-scuro)}
+.hero-sub{color:rgba(255,255,255,.9);font-size:18px;font-weight:300;max-width:560px;margin:22px auto 40px;line-height:1.6}
+.glass-search{background:rgba(255,255,255,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.7);border-radius:22px;padding:10px 10px 10px 8px;display:flex;gap:6px;align-items:stretch;max-width:720px;width:100%;box-shadow:0 30px 70px -25px rgba(33,53,103,.6)}
+.gs-field{flex:1;text-align:left;padding:8px 16px;border-right:1px solid rgba(0,0,0,.08);display:flex;flex-direction:column;justify-content:center;min-width:0}
+.gs-field:last-of-type{border-right:none}
+.gs-field label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--grigio-testo);font-weight:600;margin-bottom:3px}
+.gs-field input{border:none;outline:none;background:transparent;font-family:inherit;font-size:15px;font-weight:500;color:var(--testo-scuro);width:100%}
+.gs-btn{background:var(--viola);color:#fff;border:none;border-radius:16px;padding:0 30px;font-family:inherit;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:9px;white-space:nowrap;box-shadow:0 10px 24px -8px rgba(124,142,252,.9);transition:.2s}
+.gs-btn:hover{background:var(--viola-dark)}
+.gs-btn svg{width:18px;height:18px}
+.hero-stats{display:flex;gap:40px;margin-top:38px;justify-content:center}
+.hero-stat-num{font-size:26px;font-weight:700;color:#fff;letter-spacing:-.02em}
+.hero-stat-num span{color:var(--blu-scuro)}
+.hero-stat-lbl{font-size:12px;color:rgba(255,255,255,.85);margin-top:2px}
 
-/* ===== SECTIONS ===== */
-section{padding:80px 5%}
-.section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:44px}
-.section-eyebrow{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--viola-dark);margin-bottom:10px}
-.section-title{font-size:clamp(24px,3vw,36px);font-weight:700;letter-spacing:-.02em;line-height:1.2}
-.section-title em{font-style:normal;color:var(--viola)}
-.see-all{text-decoration:none;color:var(--viola-dark);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px;white-space:nowrap}
-.see-all svg{width:16px;height:16px;transition:transform .2s}
-.see-all:hover svg{transform:translateX(4px)}
-
-/* ===== CARDS ===== */
-.annunci-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
-.card{background:#fff;border-radius:var(--radius-lg);border:1px solid rgba(0,0,0,0.07);overflow:hidden;transition:transform .25s,box-shadow .25s;cursor:pointer;text-decoration:none;color:inherit;display:block}
-.card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(61,79,107,0.15)}
-.card-img{aspect-ratio:16/10;position:relative;background:linear-gradient(135deg,var(--viola-bg) 0%,#dde3f8 100%);overflow:hidden}
-.card-img img{width:100%;height:100%;object-fit:cover;display:block}
-.card-img-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:rgba(90,111,204,0.25)}
-.card-img-inner svg{width:52px;height:52px}
-.card-badge{position:absolute;top:14px;left:14px;border-radius:6px;padding:4px 12px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
-.badge-Residenziale{background:var(--viola-bg);color:var(--viola-dark)}
-.badge-Commerciale{background:rgba(192,57,43,0.1);color:var(--rosso)}
-.badge-Terreno{background:rgba(184,150,62,0.12);color:#8a6c1a}
-.badge-Ufficio{background:rgba(61,79,107,0.1);color:var(--blu-scuro)}
-.badge-Garage{background:rgba(0,0,0,0.06);color:var(--grigio-testo)}
-.card-body{padding:20px 22px 22px}
-.card-location{font-size:12px;color:var(--grigio-testo);margin-bottom:6px;display:flex;align-items:center;gap:4px}
-.card-location svg{width:13px;height:13px;flex-shrink:0}
-.card-title{font-weight:600;font-size:15px;line-height:1.4;margin-bottom:14px;letter-spacing:-.01em}
-.card-divider{height:1px;background:rgba(0,0,0,0.06);margin-bottom:16px}
-.card-footer{display:flex;align-items:flex-end;justify-content:space-between}
-.card-prezzo-lbl{font-size:10px;color:var(--grigio-testo);margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em}
-.card-prezzo{font-size:22px;font-weight:700;letter-spacing:-.02em}
-.card-prezzo sup{font-size:13px;font-weight:600;vertical-align:super}
-.card-btn{background:var(--viola-bg);color:var(--viola-dark);border:none;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'Space Grotesk',sans-serif}
-.card-btn:hover{background:var(--viola);color:#fff}
-.loading-cell{grid-column:1/-1;text-align:center;padding:60px;color:var(--grigio-testo);font-size:14px}
-.loading-spinner{width:32px;height:32px;border:3px solid rgba(123,143,232,0.2);border-top-color:var(--viola);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 12px}
-
-/* ===== COME FUNZIONA ===== */
-.come-funziona{background:var(--grigio-chiaro)}
-.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
-.steps-grid::before{content:'';position:absolute;top:36px;left:calc(12.5% + 36px);right:calc(12.5% + 36px);height:2px;background:linear-gradient(90deg,var(--viola) 0%,var(--viola-light) 100%);z-index:0}
-.step{text-align:center;position:relative;z-index:1}
-.step-num{width:72px;height:72px;border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;border:2px solid transparent}
-.step:nth-child(1) .step-num{background:var(--viola);color:#fff;box-shadow:0 8px 24px rgba(123,143,232,0.4)}
-.step:nth-child(2) .step-num,.step:nth-child(3) .step-num{background:#fff;color:var(--viola-dark);border-color:var(--viola-light)}
-.step:nth-child(4) .step-num{background:var(--oro);color:#fff;box-shadow:0 8px 24px rgba(184,150,62,0.35)}
-.step-title{font-weight:700;font-size:15px;margin-bottom:8px}
-.step-desc{font-size:13px;color:var(--grigio-testo);line-height:1.6}
-
-/* ===== SEDI + CONTATTI ===== */
-.contatti-section{background:var(--grigio-chiaro)}
-.sedi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:24px}
-.sede-card{background:#fff;border-radius:var(--radius-lg);padding:28px;border:1px solid rgba(0,0,0,0.07);display:flex;gap:18px;align-items:flex-start;transition:box-shadow .2s}
-.sede-card:hover{box-shadow:0 8px 32px rgba(61,79,107,0.10)}
-.sede-pin{width:44px;height:44px;border-radius:12px;background:var(--viola-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.sede-pin svg{width:20px;height:20px;color:var(--viola-dark)}
-.sede-citta{font-size:16px;font-weight:700;margin-bottom:2px}
-.sede-prov{font-size:11px;font-weight:600;color:var(--viola-dark);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
-.sede-via{font-size:13px;color:var(--grigio-testo);line-height:1.5}
-.contatti-banner{background:linear-gradient(120deg,#8495F9 0%,#7C8EFC 100%);border-radius:var(--radius-lg);padding:32px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.contatti-banner-text h4{font-size:17px;font-weight:700;color:#fff;margin-bottom:4px}
-.contatti-banner-text p{font-size:13px;color:rgba(255,255,255,0.9)}
-.contatti-btn-row{display:flex;gap:12px;flex-wrap:wrap}
-.cbtn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;transition:all .2s;border:none;white-space:nowrap}
-.cbtn svg{width:18px;height:18px;flex-shrink:0}
-.cbtn-wa{background:#25d366;color:#fff;box-shadow:0 4px 16px rgba(37,211,102,0.3)}
-.cbtn-wa:hover{background:#1da851}
-.cbtn-fb{background:#1d4ed8;color:#fff;box-shadow:0 4px 16px rgba(29,78,216,0.3)}
-.cbtn-fb:hover{background:#1740b8}
-.cbtn-em{background:#fff;color:var(--viola-dark);box-shadow:0 4px 16px rgba(46,59,94,0.15)}
-.cbtn-em:hover{background:var(--viola-bg)}
-
-/* ===== CTA BANNER ===== */
-.cta-banner{background:linear-gradient(120deg,#8495F9 0%,#7385F6 100%);border-radius:var(--radius-lg);padding:60px;display:flex;align-items:center;justify-content:space-between;gap:32px;position:relative;overflow:hidden}
-.cta-banner::after{content:'';position:absolute;right:-40px;top:-60px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,0.12)}
-.cta-banner-text{position:relative;z-index:1}
-.cta-banner h2{font-size:32px;font-weight:700;color:#fff;margin-bottom:10px;letter-spacing:-.02em}
-.cta-banner h2 em{font-style:normal;color:#213567}
-.cta-banner p{color:rgba(255,255,255,0.9);font-size:16px}
-.cta-banner-btns{display:flex;gap:14px;flex-shrink:0;position:relative;z-index:1}
-.btn-primary{background:#fff;color:var(--viola-dark);border:none;border-radius:10px;padding:14px 28px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:background .2s;text-decoration:none;display:inline-block}
-.btn-primary:hover{background:var(--viola-bg)}
-.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.5);border-radius:10px;padding:14px 28px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:border-color .2s;text-decoration:none;display:inline-block}
-.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,0.1)}
-
-/* ===== FOOTER ===== */
-footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5% 36px}
-.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;margin-bottom:48px}
-.footer-logo{display:flex;align-items:center;gap:10px}
-.footer-logo-mark{width:36px;height:36px;border-radius:9px;overflow:hidden;flex-shrink:0}
-.footer-logo-mark img{width:100%;height:100%;object-fit:cover;display:block}
-.footer-logo-text{font-size:13px;font-weight:700;color:#fff;line-height:1.2}
-.footer-logo-text span{color:var(--viola-light)}
-.footer-brand p{font-size:14px;line-height:1.7;margin:16px 0 20px}
-.footer-contacts{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
-.footer-contact-item{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color .2s}
-.footer-contact-item:hover{color:#fff}
-.footer-contact-item svg{width:14px;height:14px;flex-shrink:0;opacity:.6}
-.social-row{display:flex;gap:10px}
-.social-btn{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);transition:all .2s;text-decoration:none}
-.social-btn:hover{background:var(--viola);border-color:var(--viola);color:#fff}
-.social-btn svg{width:16px;height:16px}
-.footer-col h4{color:#fff;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:18px}
-.footer-col ul{list-style:none}
-.footer-col ul li{margin-bottom:10px}
-.footer-col ul li a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:14px;transition:color .2s}
-.footer-col ul li a:hover{color:#fff}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:13px;flex-wrap:wrap;gap:8px}
-.footer-bottom a{color:rgba(255,255,255,0.4);text-decoration:none}
-
-/* ===== COOKIE BANNER ===== */
-.cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:999;background:#fff;border-top:1px solid rgba(0,0,0,0.1);box-shadow:0 -8px 40px rgba(0,0,0,0.12);padding:20px 5%;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
-.cookie-text{flex:1;min-width:260px;font-size:13px;color:var(--grigio-testo);line-height:1.5}
-.cookie-text strong{color:var(--testo-scuro)}
-.cookie-text a{color:var(--viola-dark);text-decoration:none}
-.cookie-btns{display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap}
-.cookie-accept{background:var(--viola);color:#fff;border:none;border-radius:8px;padding:10px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:background .2s}
-.cookie-accept:hover{background:var(--viola-dark)}
-.cookie-reject{background:transparent;color:var(--grigio-testo);border:1.5px solid rgba(0,0,0,0.12);border-radius:8px;padding:9px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif}
-
-
-/* ===== DROPDOWN CUSTOM ===== */
+/* custom dropdown inside glass search */
 .cselect{position:relative;width:100%}
-.cselect-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;border:none;background:transparent;font-size:14px;font-weight:500;color:var(--testo-scuro);font-family:'Space Grotesk',sans-serif;cursor:pointer;padding:0;text-align:left}
+.cselect-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;border:none;background:transparent;font-size:15px;font-weight:500;color:var(--testo-scuro);font-family:inherit;cursor:pointer;padding:0;text-align:left}
 .cselect-btn svg{width:14px;height:14px;color:var(--grigio-testo);transition:transform .2s;flex-shrink:0}
 .cselect.open .cselect-btn svg{transform:rotate(180deg)}
-.cselect-panel{position:absolute;top:calc(100% + 14px);left:-12px;min-width:calc(100% + 24px);background:#fff;border-radius:12px;border:1px solid rgba(0,0,0,0.08);box-shadow:0 16px 48px rgba(33,53,103,0.22);padding:6px;z-index:300;display:none;max-height:280px;overflow-y:auto}
-.cselect.open .cselect-panel{display:block;animation:dropIn .15s ease}
-@keyframes dropIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
-.cselect-opt{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;border-radius:8px;font-size:14px;font-weight:500;color:var(--testo-scuro);cursor:pointer;transition:background .15s;white-space:nowrap}
+.cselect-panel{position:absolute;top:calc(100% + 14px);left:-12px;min-width:calc(100% + 40px);background:#fff;border-radius:14px;border:1px solid rgba(0,0,0,.08);box-shadow:0 16px 48px rgba(33,53,103,.22);padding:6px;z-index:300;display:none;max-height:280px;overflow-y:auto}
+.cselect.open .cselect-panel{display:block;animation:rise .15s ease}
+.cselect-opt{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;border-radius:9px;font-size:14px;font-weight:500;color:var(--testo-scuro);cursor:pointer;transition:background .15s;white-space:nowrap}
 .cselect-opt:hover{background:var(--viola-bg)}
 .cselect-opt.selected{color:var(--viola-dark);font-weight:600;background:var(--viola-bg)}
 .cselect-opt .check{width:16px;height:16px;color:var(--viola-dark);opacity:0;flex-shrink:0}
 .cselect-opt.selected .check{opacity:1}
 
+/* ===== SECTIONS ===== */
+section{padding:96px 6%}
+.center-head{text-align:center;margin-bottom:56px}
+.center-head .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--viola-dark);font-weight:600;margin-bottom:12px}
+.center-head h2{font-size:clamp(28px,3.6vw,44px);font-weight:700;letter-spacing:-.02em;color:var(--blu-scuro)}
+.center-head h2 em{font-style:normal;color:var(--viola)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:44px;flex-wrap:wrap;gap:14px}
+.sec-head .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--viola-dark);font-weight:600;margin-bottom:10px}
+.sec-head h2{font-size:clamp(26px,3.2vw,40px);font-weight:700;letter-spacing:-.02em;color:var(--blu-scuro)}
+.sec-head h2 em{font-style:normal;color:var(--viola)}
+.see-all{font-size:14px;font-weight:600;color:var(--viola-dark);display:flex;align-items:center;gap:6px}
+.see-all svg{width:16px;height:16px;transition:transform .2s}
+.see-all:hover svg{transform:translateX(4px)}
+
+/* ===== ANNUNCI (floating cards over hero) ===== */
+.annunci-section{padding-top:0;margin-top:-140px;position:relative;z-index:5}
+.annunci-wrap{max-width:1180px;margin:0 auto;padding:0 6%}
+.annunci-head{display:flex;align-items:flex-end;justify-content:space-between;margin:0 0 26px;flex-wrap:wrap;gap:10px}
+.annunci-head .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#fff;font-weight:600;opacity:.9;margin-bottom:8px}
+.annunci-head h2{font-size:clamp(24px,3vw,34px);font-weight:700;letter-spacing:-.02em;color:#fff}
+.annunci-head h2 em{font-style:normal;color:var(--blu-scuro)}
+.annunci-head .see-all{color:#fff}
+.annunci-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:26px}
+.pcard{background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 30px 60px -30px rgba(33,53,103,.4);transition:transform .4s,box-shadow .4s;display:block}
+.pcard:hover{transform:translateY(-10px);box-shadow:0 44px 80px -30px rgba(33,53,103,.5)}
+.pcard .card-img{aspect-ratio:16/11;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--viola-bg),#dde3f8)}
+.pcard .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s;display:block}
+.pcard:hover .card-img img{transform:scale(1.07)}
+.card-img-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:rgba(90,111,204,.28)}
+.card-img-inner svg{width:52px;height:52px}
+.pcard .tag{position:absolute;top:14px;left:14px;background:rgba(124,142,252,.94);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:5px 12px;border-radius:100px}
+.pcard .live{position:absolute;top:14px;right:14px;display:flex;align-items:center;gap:6px;background:rgba(33,53,103,.85);backdrop-filter:blur(6px);color:#fff;font-size:10px;font-weight:600;padding:5px 12px;border-radius:100px}
+.pcard .live .d{width:6px;height:6px;border-radius:50%;background:#FFE9B8;animation:pulse 1.6s infinite}
+.pcard .card-body{padding:20px 22px 22px}
+.pcard .card-location{font-size:12px;color:var(--grigio-testo);display:flex;gap:5px;align-items:center;margin-bottom:8px}
+.pcard .card-location svg{width:13px;height:13px;flex-shrink:0}
+.pcard .card-title{font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.4;margin-bottom:16px}
+.pcard .card-footer{display:flex;align-items:flex-end;justify-content:space-between;border-top:1px solid rgba(0,0,0,.06);padding-top:14px}
+.pcard .card-prezzo-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--grigio-testo);margin-bottom:2px}
+.pcard .card-prezzo{font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--blu-scuro)}
+.pcard .card-prezzo sup{font-size:13px;color:var(--viola-dark);vertical-align:super}
+.pcard .card-btn{background:var(--viola-bg);color:var(--viola-dark);border-radius:100px;padding:9px 16px;font-size:13px;font-weight:600;transition:.2s}
+.pcard:hover .card-btn{background:var(--viola);color:#fff}
+.loading-cell{grid-column:1/-1;text-align:center;padding:60px;color:var(--grigio-testo);font-size:14px;background:#fff;border-radius:var(--radius-lg);box-shadow:0 30px 60px -30px rgba(33,53,103,.4)}
+.loading-spinner{width:32px;height:32px;border:3px solid rgba(124,142,252,.2);border-top-color:var(--viola);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 12px}
+
+/* ===== COME FUNZIONA ===== */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;max-width:1180px;margin:0 auto}
+.stp{background:#fff;border-radius:20px;padding:30px 26px;box-shadow:0 20px 50px -30px rgba(33,53,103,.35);transition:.3s}
+.stp:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(33,53,103,.45)}
+.stp .n{width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:#fff;margin-bottom:18px;background:linear-gradient(135deg,var(--viola-light),var(--viola-dark));box-shadow:0 10px 24px -10px rgba(124,142,252,.9)}
+.stp:nth-child(4) .n{background:linear-gradient(135deg,var(--oro-light),var(--oro))}
+.stp h4{font-size:16px;font-weight:700;margin-bottom:8px}
+.stp p{font-size:13.5px;color:var(--grigio-testo);line-height:1.65}
+
+/* ===== SEDI + CONTATTI ===== */
+.sedi-section{background:#fff}
+.sedi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1180px;margin:0 auto 26px}
+.sede-card{background:#F7F8FE;border-radius:20px;padding:28px;display:flex;gap:18px;align-items:flex-start;transition:.3s;border:1px solid rgba(33,53,103,.06)}
+.sede-card:hover{transform:translateY(-4px);box-shadow:0 20px 44px -26px rgba(33,53,103,.4)}
+.sede-pin{width:46px;height:46px;border-radius:14px;background:var(--viola-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sede-pin svg{width:20px;height:20px;color:var(--viola-dark)}
+.sede-citta{font-size:17px;font-weight:700;color:var(--blu-scuro);margin-bottom:2px}
+.sede-prov{font-size:11px;font-weight:600;color:var(--oro);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.sede-via{font-size:13.5px;color:var(--grigio-testo);line-height:1.5}
+.contatti-banner{max-width:1180px;margin:0 auto;background:linear-gradient(120deg,#8495F9,#7C8EFC);border-radius:26px;padding:44px 48px;display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;position:relative;overflow:hidden;box-shadow:0 40px 80px -44px rgba(92,114,232,.7)}
+.contatti-banner::after{content:'';position:absolute;right:-60px;top:-80px;width:340px;height:340px;border-radius:50%;background:rgba(255,255,255,.12)}
+.contatti-banner-text{position:relative;z-index:1}
+.contatti-banner-text h4{font-size:22px;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-.01em}
+.contatti-banner-text p{font-size:14px;color:rgba(255,255,255,.9)}
+.contatti-btn-row{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:1}
+.cbtn{display:inline-flex;align-items:center;gap:9px;padding:13px 20px;border-radius:14px;font-size:14px;font-weight:600;transition:.2s;white-space:nowrap}
+.cbtn svg{width:18px;height:18px;flex-shrink:0}
+.cbtn-wa{background:#25d366;color:#fff;box-shadow:0 8px 20px -8px rgba(37,211,102,.7)}
+.cbtn-wa:hover{transform:translateY(-3px)}
+.cbtn-fb{background:#1d4ed8;color:#fff;box-shadow:0 8px 20px -8px rgba(29,78,216,.7)}
+.cbtn-fb:hover{transform:translateY(-3px)}
+.cbtn-em{background:#fff;color:var(--viola-dark)}
+.cbtn-em:hover{transform:translateY(-3px)}
+
+/* ===== CTA ===== */
+.cta-section{padding-top:0}
+.cta-banner{max-width:1180px;margin:0 auto;background:linear-gradient(120deg,#8495F9,#7385F6);border-radius:26px;padding:60px;display:flex;align-items:center;justify-content:space-between;gap:32px;position:relative;overflow:hidden;box-shadow:0 40px 80px -44px rgba(92,114,232,.7)}
+.cta-banner::after{content:'';position:absolute;right:-40px;top:-60px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.12)}
+.cta-banner-text{position:relative;z-index:1}
+.cta-banner h2{font-size:clamp(26px,3vw,34px);font-weight:700;color:#fff;margin-bottom:10px;letter-spacing:-.02em}
+.cta-banner h2 em{font-style:normal;color:var(--blu-scuro)}
+.cta-banner p{color:rgba(255,255,255,.9);font-size:16px}
+.cta-banner-btns{display:flex;gap:14px;flex-shrink:0;position:relative;z-index:1;flex-wrap:wrap}
+.btn-primary{background:#fff;color:var(--viola-dark);border-radius:14px;padding:14px 28px;font-size:15px;font-weight:600;transition:.2s}
+.btn-primary:hover{transform:translateY(-3px)}
+.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55);border-radius:14px;padding:14px 28px;font-size:15px;font-weight:600;transition:.2s}
+.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+
+/* ===== FOOTER ===== */
+footer{background:var(--testo-scuro);color:rgba(255,255,255,.55);padding:64px 6% 36px}
+.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;margin-bottom:48px;max-width:1180px;margin-left:auto;margin-right:auto}
+.footer-logo{display:flex;align-items:center;gap:10px}
+.footer-logo-mark{width:36px;height:36px;border-radius:9px;overflow:hidden;flex-shrink:0}
+.footer-logo-mark img{width:100%;height:100%;object-fit:cover;display:block}
+.footer-logo-text{font-size:14px;font-weight:700;color:#fff;line-height:1.1}
+.footer-logo-text span{color:var(--viola-light)}
+.footer-brand p{font-size:14px;line-height:1.7;margin:16px 0 20px}
+.footer-contacts{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.footer-contact-item{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.6);transition:color .2s}
+.footer-contact-item:hover{color:#fff}
+.footer-contact-item svg{width:14px;height:14px;flex-shrink:0;opacity:.6}
+.social-row{display:flex;gap:10px}
+.social-btn{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);transition:.2s}
+.social-btn:hover{background:var(--viola);border-color:var(--viola);color:#fff}
+.social-btn svg{width:16px;height:16px}
+.footer-col h4{color:#fff;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:18px}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:10px}
+.footer-col ul li a{color:rgba(255,255,255,.5);font-size:14px;transition:color .2s}
+.footer-col ul li a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:13px;flex-wrap:wrap;gap:8px;max-width:1180px;margin:0 auto}
+.footer-bottom a{color:rgba(255,255,255,.4)}
+
+/* ===== COOKIE ===== */
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:999;background:#fff;border-top:1px solid rgba(0,0,0,.1);box-shadow:0 -8px 40px rgba(0,0,0,.12);padding:20px 6%;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.cookie-text{flex:1;min-width:260px;font-size:13px;color:var(--grigio-testo);line-height:1.5}
+.cookie-text strong{color:var(--testo-scuro)}
+.cookie-text a{color:var(--viola-dark)}
+.cookie-btns{display:flex;gap:10px;flex-shrink:0}
+.cookie-accept{background:var(--viola);color:#fff;border:none;border-radius:100px;padding:11px 24px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:.2s}
+.cookie-accept:hover{background:var(--viola-dark)}
+
 /* ===== RESPONSIVE ===== */
 @media(max-width:1024px){
-  .steps-grid{grid-template-columns:repeat(2,1fr)}
-  .steps-grid::before{display:none}
+  .steps{grid-template-columns:repeat(2,1fr)}
   .sedi-grid{grid-template-columns:1fr 1fr}
   .footer-top{grid-template-columns:1fr 1fr}
-  .contatti-banner{flex-direction:column;align-items:flex-start}
 }
-@media(max-width:640px){
+@media(max-width:760px){
   .nav-links{display:none}
-  .hero{padding:60px 5% 50px}
-  .hero-stats{gap:24px}
-  .search-box{flex-direction:column;padding:16px}
-  .search-field{border-right:none;border-bottom:1px solid rgba(0,0,0,0.08);width:100%;padding:8px 0}
-  .search-field:last-of-type{border-bottom:none}
-  .search-btn{width:100%;justify-content:center}
+  .hero{padding:104px 6% 170px}
+  .glass-search{flex-direction:column}
+  .gs-field{border-right:none;border-bottom:1px solid rgba(0,0,0,.08)}
+  .gs-field:last-of-type{border-bottom:none}
+  .gs-btn{width:100%;justify-content:center;padding:14px}
+  .hero-stats{gap:26px}
   .annunci-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
   .sedi-grid{grid-template-columns:1fr}
-  .contatti-btn-row{flex-direction:column;width:100%}
-  .cbtn{justify-content:center}
-  .cta-banner{flex-direction:column;padding:36px 28px}
-  .cta-banner-btns{flex-direction:column;width:100%}
+  .contatti-banner,.cta-banner{flex-direction:column;align-items:flex-start;padding:36px 28px}
+  .contatti-btn-row{width:100%}
+  .cbtn{flex:1;justify-content:center}
+  .cta-banner-btns{width:100%}
   .footer-top{grid-template-columns:1fr}
-  .steps-grid{grid-template-columns:1fr}
-  .section-header{flex-direction:column;align-items:flex-start;gap:12px}
-  .cookie-banner{flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
@@ -242,23 +246,15 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
   <a href="procedimento-aste-lista.html" class="nav-cta">Vedi tutti gli annunci</a>
 </nav>
 
-<section class="hero">
-  <div class="hero-circle hc1"></div>
-  <div class="hero-circle hc2"></div>
-  <div class="hero-circle hc3"></div>
-  <div class="hero-content">
-    <div class="hero-logo">
-      <img src="/uploads/logo-trasparente.png" alt="Procedimento Aste">
-      <div class="hero-logo-divider"></div>
-    </div>
-    <div class="hero-badge">
-      <div class="hero-badge-dot"></div>
-      3 sedi: San Giovanni Valdarno · Arezzo · Figline Valdarno
-    </div>
-    <h1>Immobili all'Asta<br><em>a portata di click</em></h1>
-    <p class="hero-sub">Trova appartamenti, ville e locali commerciali nelle aste giudiziarie. Ti assistiamo in ogni fase del procedimento.</p>
-    <div class="search-box">
-      <div class="search-field">
+<header class="hero">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="hero-inner">
+    <div class="hero-logo rise"><img src="/uploads/logo-trasparente.png" alt="Procedimento Aste"></div>
+    <div class="pill rise" style="animation-delay:.05s"><span class="dot"></span> 3 sedi · San Giovanni Valdarno · Arezzo · Figline Valdarno</div>
+    <h1 class="rise" style="animation-delay:.1s">Immobili all'Asta<br><em>a portata di click</em></h1>
+    <p class="hero-sub rise" style="animation-delay:.15s">Trova appartamenti, ville e locali commerciali nelle aste giudiziarie. Ti assistiamo in ogni fase del procedimento.</p>
+    <div class="glass-search rise" style="animation-delay:.2s">
+      <div class="gs-field">
         <label>Tipologia</label>
         <select id="hs-tipo">
           <option value="">Tutti gli immobili</option>
@@ -269,11 +265,11 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
           <option value="Garage">Garage</option>
         </select>
       </div>
-      <div class="search-field">
+      <div class="gs-field">
         <label>Città / Zona</label>
-        <input type="text" id="hs-citta" placeholder="Es. Arezzo, Firenze..."/>
+        <input type="text" id="hs-citta" placeholder="Es. Arezzo, Firenze…"/>
       </div>
-      <div class="search-field">
+      <div class="gs-field">
         <label>Offerta massima</label>
         <select id="hs-prezzo">
           <option value="">Nessun limite</option>
@@ -283,77 +279,67 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
           <option value="500000">Fino a €500.000</option>
         </select>
       </div>
-      <a href="procedimento-aste-lista.html" class="search-btn" id="hs-btn">
+      <a href="procedimento-aste-lista.html" class="gs-btn" id="hs-btn">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
         Cerca
       </a>
     </div>
-    <div class="hero-stats">
+    <div class="hero-stats rise" style="animation-delay:.25s">
       <div><div class="hero-stat-num">3<span> sedi</span></div><div class="hero-stat-lbl">AR · SGV · FI</div></div>
       <div><div class="hero-stat-num">100<span>%</span></div><div class="hero-stat-lbl">Assistenza dedicata</div></div>
       <div><div class="hero-stat-num">40<span>%</span></div><div class="hero-stat-lbl">Risparmio medio</div></div>
     </div>
   </div>
-</section>
+</header>
 
-<section id="annunci">
-  <div class="section-header">
-    <div>
-      <div class="section-eyebrow">Annunci recenti</div>
-      <div class="section-title">Immobili in <em>evidenza</em></div>
+<section class="annunci-section" id="annunci">
+  <div class="annunci-wrap">
+    <div class="annunci-head">
+      <div>
+        <div class="eyebrow">Annunci recenti</div>
+        <h2>Immobili in <em>evidenza</em></h2>
+      </div>
+      <a href="procedimento-aste-lista.html" class="see-all">Vedi tutti <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
-    <a href="procedimento-aste-lista.html" class="see-all">Vedi tutti <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-  </div>
-  <div class="annunci-grid" id="homepage-annunci">
-    <div class="loading-cell">
-      <div class="loading-spinner"></div>
-      Caricamento annunci...
+    <div class="annunci-grid" id="homepage-annunci">
+      <div class="loading-cell">
+        <div class="loading-spinner"></div>
+        Caricamento annunci...
+      </div>
     </div>
   </div>
 </section>
 
-<section class="come-funziona" id="come-funziona">
-  <div style="text-align:center;margin-bottom:52px">
-    <div class="section-eyebrow">Semplice e trasparente</div>
-    <div class="section-title">Come funziona <em>Procedimento Aste</em></div>
+<section id="come-funziona">
+  <div class="center-head">
+    <div class="eyebrow">Semplice e trasparente</div>
+    <h2>Come funziona <em>Procedimento Aste</em></h2>
   </div>
-  <div class="steps-grid">
-    <div class="step"><div class="step-num">01</div><div class="step-title">Sfoglia gli annunci</div><div class="step-desc">Cerca l'immobile per tipologia, zona e prezzo. Ogni annuncio riporta indirizzo, offerta minima e descrizione.</div></div>
-    <div class="step"><div class="step-num">02</div><div class="step-title">Contattaci</div><div class="step-desc">Trovato l'immobile? Scrivici via WhatsApp o email: fissiamo un appuntamento nel nostro studio.</div></div>
-    <div class="step"><div class="step-num">03</div><div class="step-title">Consulenza dedicata</div><div class="step-desc">Ti illustriamo documentazione, procedura legale e i passi per partecipare all'asta in modo sicuro.</div></div>
-    <div class="step"><div class="step-num">04</div><div class="step-title">Diventa proprietario</div><div class="step-desc">Ti accompagniamo dall'offerta all'aggiudicazione fino al decreto di trasferimento della proprietà.</div></div>
+  <div class="steps">
+    <div class="stp"><div class="n">1</div><h4>Sfoglia gli annunci</h4><p>Cerca l'immobile per tipologia, zona e prezzo. Ogni scheda riporta indirizzo, offerta minima e descrizione.</p></div>
+    <div class="stp"><div class="n">2</div><h4>Contattaci</h4><p>Trovato l'immobile? Scrivici via WhatsApp o email: fissiamo un appuntamento nel nostro studio.</p></div>
+    <div class="stp"><div class="n">3</div><h4>Consulenza dedicata</h4><p>Ti illustriamo documentazione, procedura legale e i passi per partecipare all'asta in modo sicuro.</p></div>
+    <div class="stp"><div class="n">4</div><h4>Diventa proprietario</h4><p>Ti accompagniamo dall'offerta all'aggiudicazione fino al decreto di trasferimento della proprietà.</p></div>
   </div>
 </section>
 
-<section class="contatti-section" id="contatti">
-  <div style="text-align:center;margin-bottom:44px">
-    <div class="section-eyebrow">Siamo qui per te</div>
-    <div class="section-title">Le nostre <em>3 sedi</em></div>
+<section class="sedi-section" id="contatti">
+  <div class="center-head">
+    <div class="eyebrow">Siamo qui per te</div>
+    <h2>Le nostre <em>3 sedi</em></h2>
   </div>
   <div class="sedi-grid">
     <div class="sede-card">
       <div class="sede-pin"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-      <div>
-        <div class="sede-citta">San Giovanni Valdarno</div>
-        <div class="sede-prov">AR · 52027</div>
-        <div class="sede-via">Via Pier Sansoni n° 3</div>
-      </div>
+      <div><div class="sede-citta">San Giovanni Valdarno</div><div class="sede-prov">AR · 52027</div><div class="sede-via">Via Pier Sansoni n° 3</div></div>
     </div>
     <div class="sede-card">
       <div class="sede-pin"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-      <div>
-        <div class="sede-citta">Arezzo</div>
-        <div class="sede-prov">AR · 52100</div>
-        <div class="sede-via">Via Vittorio Veneto n° 83</div>
-      </div>
+      <div><div class="sede-citta">Arezzo</div><div class="sede-prov">AR · 52100</div><div class="sede-via">Via Vittorio Veneto n° 83</div></div>
     </div>
     <div class="sede-card">
       <div class="sede-pin"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-      <div>
-        <div class="sede-citta">Figline Valdarno</div>
-        <div class="sede-prov">FI · 50063</div>
-        <div class="sede-via">Via Francesco Petrarca 19/E</div>
-      </div>
+      <div><div class="sede-citta">Figline Valdarno</div><div class="sede-prov">FI · 50063</div><div class="sede-via">Via Francesco Petrarca 19/E</div></div>
     </div>
   </div>
   <div class="contatti-banner">
@@ -376,13 +362,13 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
       </a>
       <a href="mailto:procedimentoaste@gmail.com" class="cbtn cbtn-em">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        procedimentoaste@gmail.com
+        Email
       </a>
     </div>
   </div>
 </section>
 
-<section>
+<section class="cta-section">
   <div class="cta-banner">
     <div class="cta-banner-text">
       <h2>Hai trovato un immobile <em>che ti interessa?</em></h2>
@@ -441,37 +427,24 @@ footer{background:var(--testo-scuro);color:rgba(255,255,255,0.55);padding:60px 5
 
 <div class="cookie-banner" id="cookie-banner" style="display:none">
   <div class="cookie-text">
-    <strong>Questo sito utilizza cookie</strong> — Usiamo cookie tecnici necessari al funzionamento e, previo consenso, cookie analitici per migliorare l'esperienza. Consulta la <a href="cookie-policy.html">Cookie Policy</a> e la <a href="privacy-policy.html">Privacy Policy</a>.
+    <strong>Informativa cookie</strong> — Questo sito usa <strong>solo cookie tecnici</strong> necessari al funzionamento: non usiamo cookie analitici o di profilazione e non ti tracciamo. Dettagli nella <a href="cookie-policy.html">Cookie Policy</a> e nella <a href="privacy-policy.html">Privacy Policy</a>.
   </div>
   <div class="cookie-btns">
-    <button class="cookie-reject" onclick="setCookieConsent('rejected')">Solo necessari</button>
-    <button class="cookie-accept" onclick="setCookieConsent('accepted')">Accetta tutti</button>
+    <button class="cookie-accept" onclick="setCookieConsent('ok')">Ho capito</button>
   </div>
 </div>
 
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>
-// Netlify Identity redirect
-if (window.netlifyIdentity) {
-  window.netlifyIdentity.on("init", function(user) {
-    if (!user) {
-      window.netlifyIdentity.on("login", function() {
-        document.location.href = "/admin/";
-      });
-    }
-  });
-}
-
 // Cookie banner
 function setCookieConsent(val) {
   localStorage.setItem('cookie_consent', val);
   document.getElementById('cookie-banner').style.display = 'none';
 }
 
-// Navbar shadow on scroll
+// Navbar shadow on scroll (mantiene l'ombra base del pill)
 window.addEventListener('scroll', function() {
   document.getElementById('main-nav').style.boxShadow =
-    window.scrollY > 20 ? '0 4px 20px rgba(0,0,0,0.08)' : 'none';
+    window.scrollY > 20 ? '0 16px 44px -12px rgba(33,53,103,0.4)' : '0 12px 40px -14px rgba(33,53,103,0.28)';
 });
 
 // Ricerca hero → passa i parametri alla pagina lista
@@ -488,7 +461,7 @@ document.getElementById('hs-btn').addEventListener('click', function(e) {
   window.location.href = 'procedimento-aste-lista.html' + (qs ? '?' + qs : '');
 });
 
-// Annunci in evidenza — caricati dal manifest
+// Annunci in evidenza — caricati dall'API
 async function loadHomeAnnunci() {
   const container = document.getElementById('homepage-annunci');
   try {
@@ -516,12 +489,11 @@ async function loadHomeAnnunci() {
       const img = a.foto_copertina
         ? `<img src="${a.foto_copertina}" alt="${a.titolo}" loading="lazy">`
         : `<div class="card-img-inner"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>`;
-      return `<a href="procedimento-aste-dettaglio.html?id=${encodeURIComponent(a._file)}" class="card">
-        <div class="card-img">${img}<span class="card-badge badge-${a.tipologia}">${a.tipologia}</span></div>
+      return `<a href="procedimento-aste-dettaglio.html?id=${encodeURIComponent(a._file)}" class="pcard">
+        <div class="card-img">${img}<span class="tag">${a.tipologia}</span><span class="live"><span class="d"></span>In asta</span></div>
         <div class="card-body">
           <div class="card-location"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>${a.indirizzo}, ${a.citta}</div>
           <div class="card-title">${a.titolo}</div>
-          <div class="card-divider"></div>
           <div class="card-footer">
             <div><div class="card-prezzo-lbl">Offerta minima</div><div class="card-prezzo"><sup>€</sup>${Number(a.offerta_minima).toLocaleString('it-IT')}</div></div>
             <span class="card-btn">Vedi →</span>
@@ -532,7 +504,6 @@ async function loadHomeAnnunci() {
     container.innerHTML = '<p class="loading-cell">Nessun annuncio disponibile al momento.</p>';
   }
 }
-
 
 // ===== DROPDOWN CUSTOM =====
 function enhanceSelect(sel) {
