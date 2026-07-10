@@ -93,7 +93,11 @@ collections:
           widget: "image"
           media_folder: "/uploads"
           public_folder: "/uploads"
-        hint: "Aggiungi qui tutte le altre foto dell'immobile per il carosello nella pagina dettaglio"
+          allow_multiple: true
+          media_library:
+            config:
+              multiple: true
+        hint: "Puoi caricare più foto in una volta sola: apri l'upload e seleziona più file insieme (tienili selezionati con CTRL). Se la tua versione del pannello non permette la selezione multipla dentro la galleria, carica comunque tutte le foto in blocco nel media, poi inseriscile."
 
       - label: "Data pubblicazione"
         name: "data_pubblicazione"
