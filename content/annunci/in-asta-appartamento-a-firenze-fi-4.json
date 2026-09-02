@@ -1,5 +1,6 @@
 {
   "offerta_minima": 108000,
+  "data_pubblicazione": "2026-09-02",
   "tipologia": "Residenziale",
   "provincia": "FI",
   "indirizzo": "Via Alberto Arnoldi,",
@@ -14,6 +15,12 @@
   "galleria": [
     [
       "/uploads/img_2475.jpeg"
+    ],
+    [
+      "/uploads/img_2476.jpeg"
+    ],
+    [
+      "/uploads/img_2474.jpeg"
     ]
   ]
 }
